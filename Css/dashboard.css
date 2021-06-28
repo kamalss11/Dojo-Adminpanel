@@ -141,6 +141,14 @@ main .content .ov .nos .no .tot .tn{
     color: var(--white);
 }
 
+main .content .list{
+    display: block;
+}
+
+main .content .list.active{
+    display: none;
+}
+
 main .content .studios h3,main .content .trainers h3{
     color: var(--htxt);
 }

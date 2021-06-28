@@ -4,6 +4,9 @@ var trainers = firestore.collection("Online")
 var studios_list = document.querySelector(".list-1")
 var trainers_list = document.querySelector(".list-2")
 var edit1,edit2
+var list = document.querySelectorAll(".list")
+
+
 window.onload = () =>{
     window.localStorage.setItem("SDocId",0)
     window.localStorage.setItem("TDocId",0)
