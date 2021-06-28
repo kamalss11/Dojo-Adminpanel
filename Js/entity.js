@@ -5,7 +5,7 @@ var studios_list = document.querySelector(".list-1")
 var trainers_list = document.querySelector(".list-2")
 var edit1,edit2
 var list = document.querySelectorAll(".list")
-
+var list_tab = document.querySelectorAll(".tb p")
 
 window.onload = () =>{
     window.localStorage.setItem("SDocId",0)
