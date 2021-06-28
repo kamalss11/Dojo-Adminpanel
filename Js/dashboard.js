@@ -1,6 +1,6 @@
 var firestore = firebase.firestore()
 var studios = firestore.collection("Studios")
-var trainers = firestore.collection("Trainers")
+var trainers = firestore.collection("Online")
 var tots = document.querySelector(".tns")
 var tott = document.querySelector(".tnt")
 console.log(studios,trainers)

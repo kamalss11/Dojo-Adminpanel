@@ -1,6 +1,6 @@
 var firestore = firebase.firestore()
 var studios = firestore.collection("Studios")
-var trainers = firestore.collection("Trainers")
+var trainers = firestore.collection("Online")
 var studios_list = document.querySelector(".list-1")
 var trainers_list = document.querySelector(".list-2")
 var edit1,edit2
