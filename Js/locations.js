@@ -11,7 +11,9 @@ function en(){
 }
 
 var bars = document.querySelector(".bars")
+var sidebar = document.querySelector(".sidebar")
 
 bars.addEventListener("click",function(){
     bars.classList.toggle("active")
+    sidebar.classList.toggle("active")
 })

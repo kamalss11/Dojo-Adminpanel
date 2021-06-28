@@ -326,6 +326,11 @@ main .content form .btn button{
 @media(max-width: 900px){
     .sidebar{
         left: -100%;
+        transition: .4s;
+    }
+
+    .sidebar.active{
+        left: 0;
     }
 
     main{
