@@ -110,7 +110,7 @@ main nav .bars span{
     height: 3px;
     background-color: var(--htxt);
     position: relative;
-    display: block;
+    display: inline-block;
     transition: .4s;
 }
 
