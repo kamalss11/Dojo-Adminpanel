@@ -7,6 +7,13 @@ var edit1,edit2
 var list = document.querySelectorAll(".list")
 var list_tab = document.querySelectorAll(".tb p")
 
+for(let i=0;i<list_tab.length;i++){
+    list_tab[i].addEventListener("click",function(){
+        list_tab[i].classList.add("active")
+        list[i].classList.add("active")
+    })
+}
+
 window.onload = () =>{
     window.localStorage.setItem("SDocId",0)
     window.localStorage.setItem("TDocId",0)
