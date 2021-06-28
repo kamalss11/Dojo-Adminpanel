@@ -100,6 +100,54 @@ nav .hd h3{
     color: var(--htxt);
 }
 
+main nav .bars{
+    cursor: pointer;
+    display: none;
+}
+
+main nav .bars span{
+    width: 25px;
+    height: 3px;
+    background-color: var(--htxt);
+    position: relative;
+    display: block;
+    transition: .4s;
+}
+
+main nav .bars span::before,main nav .bars span::after{
+    position: absolute;
+    content: "";
+    left: 0;
+    width: 25px;
+    height: 3px;
+    background-color: var(--htxt);
+    transition: .4s;
+}
+
+main nav .bars span::before{
+    top: -10px;
+}
+
+main nav .bars span::after{
+    top: 10px;
+}
+
+main nav .bars.active span{
+    background-color: transparent;
+}
+
+main nav .bars.active span::before,main nav .bars.active span::after{
+    top: 0;
+}
+
+main nav .bars.active span::before{
+    transform: rotate(45deg);
+}
+
+main nav .bars.active span::after{
+    transform: rotate(-45deg);
+}
+
 main .content{
     margin-top: 62px;
     padding: 25px 15px;
@@ -273,4 +321,23 @@ main .content form .btn button{
     cursor: pointer;
     color: var(--white);
     border: none;
+}
+
+@media(max-width: 900px){
+    .sidebar{
+        left: -100%;
+    }
+
+    main{
+        margin-left: 0;
+    }
+
+    main nav {
+        left: 0;
+        width: 100%;
+    }
+
+    main nav .bars{
+        display: block;
+    }
 }
