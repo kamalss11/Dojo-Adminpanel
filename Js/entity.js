@@ -67,6 +67,7 @@ window.onload = () =>{
                 console.log(edit2[i].id)
                 window.localStorage.setItem("TDocId",edit2[i].id)
                 console.log("Local Storage => " + localStorage.getItem("TDocId"))
+                window.location.assign("https://adminpanel-dojo.netlify.app/edit_trainer")
             })
         }
     })
