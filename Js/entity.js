@@ -9,6 +9,10 @@ var list_tab = document.querySelectorAll(".tb p")
 
 for(let i=0;i<list_tab.length;i++){
     list_tab[i].addEventListener("click",function(){
+        for(let j=0;j<list_tab.length;j++){
+            list_tab[i].classList.remove("active")
+            list[i].classList.remove("active")
+        }
         list_tab[i].classList.add("active")
         list[i].classList.add("active")
     })

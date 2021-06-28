@@ -153,11 +153,11 @@ main .content .ov .nos .no .tot .tn{
 }
 
 main .content .list{
-    display: block;
+    display: none;
 }
 
 main .content .list.active{
-    display: none;
+    display: block;
 }
 
 main .content .studios h3,main .content .trainers h3{
