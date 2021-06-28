@@ -6,6 +6,7 @@ var trainers_list = document.querySelector(".list-2")
 var edit1,edit2
 var list = document.querySelectorAll(".list")
 var list_tab = document.querySelectorAll(".tb p")
+var sb = document.querySelector(".sidebar")
 
 for(let i=0;i<list_tab.length;i++){
     list_tab[i].addEventListener("click",function(){
@@ -15,6 +16,7 @@ for(let i=0;i<list_tab.length;i++){
         }
         list_tab[i].classList.add("active")
         list[i].classList.add("active")
+        sb.classList.remove("active")
     })
 }
 
