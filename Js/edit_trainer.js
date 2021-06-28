@@ -43,7 +43,7 @@ window.onload = () =>{
             tags.value = doc.data().Tags
             city.value = doc.data().City
             state.value = doc.data().State
-            img.src = doc.data().DisplayPicture
+            img.src = `${doc.data().DisplayPicture}`
         }).catch((error) => {
             console.log("Error getting document:", error);
         });

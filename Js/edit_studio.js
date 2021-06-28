@@ -39,7 +39,7 @@ window.onload = () =>{
             city.value = doc.data().City
             state.value = doc.data().State
             address.value = doc.data().Address
-            img.src = doc.data().DisplayPicture
+            img.src = `${doc.data().DisplayPicture}`
         }).catch((error) => {
             console.log("Error getting document:", error);
         });
