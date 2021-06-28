@@ -70,11 +70,11 @@ body{
     margin-right: 7px;
 }
 
-.sidebar ul li div{
+.sidebar ul li .tb{
     padding-left: 35px;
 }
 
-.sidebar ul li div p{
+.sidebar ul li .tb p{
     margin: 6px 0;
 }
 
