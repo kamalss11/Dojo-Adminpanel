@@ -16,6 +16,7 @@ var rating = document.querySelector("#rat")
 var tags = document.querySelector("#tags")
 var city = document.querySelector("#cit")
 var state = document.querySelector("#state")
+var img = document.getElementById("img")
 var sbtn = document.querySelector(".sbtn")
 var form = document.getElementById("form")
 window.onload = () =>{
@@ -42,9 +43,7 @@ window.onload = () =>{
             tags.value = doc.data().Tags
             city.value = doc.data().City
             state.value = doc.data().State
-            let img = document.createElement("img")
             img.src = doc.data().DisplayPicture
-            form.append(img)
         }).catch((error) => {
             console.log("Error getting document:", error);
         });

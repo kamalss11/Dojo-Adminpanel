@@ -14,6 +14,7 @@ var category = document.querySelector("#category")
 var city = document.querySelector("#city")
 var state = document.querySelector("#state")
 var address = document.querySelector("#address")
+var img = document.getElementById("img")
 var sbtn = document.querySelector(".sbtn")
 var form = document.getElementById("form")
 window.onload = () =>{
@@ -38,9 +39,7 @@ window.onload = () =>{
             city.value = doc.data().City
             state.value = doc.data().State
             address.value = doc.data().Address
-            let img = document.createElement("img")
             img.src = doc.data().DisplayPicture
-            form.append(img)
         }).catch((error) => {
             console.log("Error getting document:", error);
         });
