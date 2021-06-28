@@ -51,7 +51,6 @@ body{
 }
 
 .sidebar ul li{
-    display: flex;
     align-items: center;
     width: 100%;
     padding: 15px;
@@ -59,11 +58,15 @@ body{
     cursor: pointer;
 }
 
+.sidebar ul li p{
+    display: flex;
+}
+
 .sidebar ul li.active{
     background-color: var(--menus);
 }
 
-.sidebar ul li span{
+.sidebar ul li p span{
     margin-right: 7px;
 }
 
