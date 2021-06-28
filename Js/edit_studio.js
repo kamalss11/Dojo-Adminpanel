@@ -15,6 +15,7 @@ var city = document.querySelector("#city")
 var state = document.querySelector("#state")
 var address = document.querySelector("#address")
 var sbtn = document.querySelector(".sbtn")
+var form = document.querySelector("#form")
 window.onload = () =>{
     DocId = window.localStorage.getItem("SDocId")
     console.log("Document Id => " + DocId)
@@ -60,9 +61,9 @@ sbtn.addEventListener("click",function(e){
         Address: address.value,
     }).then(()=>{
         console.log("Data Saved.This is you id = > ",DocId)
+        alert("Your data has been updated")
         form.reset()
         window.localStorage.setItem("SDocId",0)
-        alert("Your data has been updated")
         window.location.assign("https://adminpanel-dojo.netlify.app/entity")
     }).catch(function(error){
         console.log(error)
