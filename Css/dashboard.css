@@ -70,6 +70,10 @@ body{
     margin-right: 7px;
 }
 
+.sidebar ul li div{
+    padding-left: 20px;
+}
+
 main{
     margin-left: 250px;
 }
