@@ -20,7 +20,7 @@ window.onload = () =>{
     DocId = window.localStorage.getItem("SDocId")
     console.log("Document Id => " + DocId)
     if(DocId == 0){
-        window.location.assign("https://adminpanel-dojo.netlify.app/entity.html")
+        window.location.assign("https://adminpanel-dojo.netlify.app/entity")
     }
     else{
         di.innerHTML += DocId
