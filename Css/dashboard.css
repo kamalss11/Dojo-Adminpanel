@@ -347,3 +347,13 @@ main .content form .btn button{
         display: block;
     }
 }
+
+@media(max-width: 600px){
+    main .content .ov .nos{
+        flex-wrap: wrap;
+    }
+
+    main .content .ov .nos .no{
+        flex-basis: 100%;
+    }
+}
