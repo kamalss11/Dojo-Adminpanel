@@ -326,6 +326,7 @@ main .content form .btn button{
 @media(max-width: 900px){
     .sidebar{
         left: -100%;
+        z-index: 15;
         transition: .4s;
     }
 
