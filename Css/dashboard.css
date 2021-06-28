@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    outline: none;
+    letter-spacing: 1px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+:root{
+    --white: #ffffff;
+    --sidebar: #2d2926;
+    --menus: #00acc1;
+    --htxt: #585858;
+    --yellow: linear-gradient(60deg, #ffa726, #fb8c00);
+    --green: linear-gradient(60deg, #66bb6a, #43a047);
+}
+
+body{
+    background-color: #eeeeee;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: var(--sidebar);
+    color: var(--white);
+    box-shadow: 0 0 20px rgba(0,0,0,.2);
+}
+
+.sidebar .logo{
+    text-align: center;
+    margin: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #4e4e51;
+}
+
+.sidebar .logo img{
+    height: 25px;
+}
+
+.sidebar ul{
+    margin: 15px 10px;
+}
+
+.sidebar ul li{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.sidebar ul li.active{
+    background-color: var(--menus);
+}
+
+.sidebar ul li span{
+    margin-right: 7px;
+}
+
+main{
+    margin-left: 250px;
+}
+
+main nav{
+    padding: 20px 10px;
+    background-color: #eeeeee;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 250px;
+    width: calc(100% - 250px);
+    z-index: 10;
+}
+
+nav .hd h3{
+    color: var(--htxt);
+}
+
+main .content{
+    margin-top: 62px;
+    padding: 25px 15px;
+}
+
+main .content .ov p{
+    color: var(--htxt);
+}
+
+main .content .ov .nos{
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+main .content .ov .nos .no{
+    flex-basis: 40%;
+    margin: 0 10px;
+    padding: 15px 25px;
+    border-radius: 7px;
+    color: var(--white);
+}
+
+main .content .ov .nos .no:nth-child(1){
+    background: var(--yellow);
+}
+
+main .content .ov .nos .no:nth-child(2){
+    background: var(--green);
+}
+
+main .content .ov .nos .no .tot{
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main .content .ov .nos .no .tot span{
+    font-size: 35px;
+    padding: 10px;
+    border-radius: 50px;
+    background-color: rgba( 255, 255, 255, 0.25 );
+}
+
+main .content .ov .nos .no .tot .tn{
+    font-weight: bold;
+    font-size: 50px;
+    color: var(--white);
+}
+
+main .content .studios h3,main .content .trainers h3{
+    color: var(--htxt);
+}
+
+main .content .studios ul,main .content .trainers ul{
+    padding: 15px;
+}
+
+main .content .studios ul li,main .content .trainers ul li{
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+main .content .studios ul li button,main .content .trainers ul li button{
+    font-size: 14px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    background: var(--green);
+    color: var(--white);
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+main .content .studios ul li button span,main .content .trainers ul li button span{
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+main .content form{
+    width: 95%;
+    margin: 25px auto;
+    padding: 10px 20px;
+    background-color: #eeeeee;
+    box-shadow: 0 0 20px rgba(0,0,0,.1);
+}
+
+main .content form h3{
+    text-align: center;
+    color: var(--htxt);
+    margin-bottom: 10px;
+}
+
+main .content form .di{
+    color: var(--htxt);
+    margin: 15px 0;
+}
+
+main .content form .fields,main .content form .fields label,main .content form 
+.fields label input{
+    width: 100%;
+}
+
+main .content form .fields{
+    margin: 30px 0;
+}
+
+main .content form .fields label{
+    position: relative;
+    display: block;
+}
+
+main .content form .fields label input{
+    border: 1px solid #80808059;
+    border-radius: 5px;
+    padding: 15px 10px;
+    background: none;
+    font-size: 15px;
+    color: var(--htxt);
+}
+
+main .content form .fields label span{
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    background-color: #eeeeee;
+    color: #989898;
+    padding: 0 5px;
+    border-radius: 5px;
+    transform: translateY(-50%);
+    transition: .4s;
+}
+
+main .content form .fields label input:focus{
+    border-color: #808080ad;
+}
+
+main .content form .fields label input:valid + span,
+main .content form .fields label input:focus + span{
+    top: 0;
+    left: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--htxt);
+}
+
+main .content form .btn{
+    text-align: center;
+}
+
+main .content form .btn button{
+    font-size: 15px;
+    padding: 7px 9px;
+    border-radius: 5px;
+    background-color: var(--menus);
+    margin-bottom: 15px;
+    cursor: pointer;
+    color: var(--white);
+    border: none;
+}
