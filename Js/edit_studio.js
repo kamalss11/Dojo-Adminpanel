@@ -15,7 +15,7 @@ var city = document.querySelector("#city")
 var state = document.querySelector("#state")
 var address = document.querySelector("#address")
 var sbtn = document.querySelector(".sbtn")
-var form = document.querySelector("#form")
+var form = document.getElementById("form")
 window.onload = () =>{
     DocId = window.localStorage.getItem("SDocId")
     console.log("Document Id => " + DocId)
