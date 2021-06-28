@@ -42,6 +42,9 @@ window.onload = () =>{
             tags.value = doc.data().Tags
             city.value = doc.data().City
             state.value = doc.data().State
+            let img = document.createElement("img")
+            img.src = doc.data().DisplayPicture
+            form.append(img)
         }).catch((error) => {
             console.log("Error getting document:", error);
         });
