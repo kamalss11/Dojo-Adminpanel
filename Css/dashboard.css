@@ -71,7 +71,11 @@ body{
 }
 
 .sidebar ul li div{
-    padding-left: 20px;
+    padding-left: 35px;
+}
+
+.sidebar ul li div p{
+    margin: 6px 0;
 }
 
 main{
