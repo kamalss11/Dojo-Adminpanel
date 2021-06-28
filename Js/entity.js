@@ -58,7 +58,7 @@ window.onload = () =>{
                 console.log(edit1[i].id)
                 window.localStorage.setItem("SDocId",edit1[i].id)
                 console.log("Local Storage => " + localStorage.getItem("SDocId"))
-                window.location.assign("https://dojo-adminpanel.netlify.app/edit_studio")
+                window.location.assign("https://adminpanel-dojo.netlify.app/edit_studio")
             })
         }
 

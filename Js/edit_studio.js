@@ -19,7 +19,7 @@ window.onload = () =>{
     DocId = window.localStorage.getItem("SDocId")
     console.log("Document Id => " + DocId)
     if(DocId == 0){
-        window.location.assign("file:///D:/Kamalesh/Web/Dojo/Admin/entity.html")
+        window.location.assign("https://adminpanel-dojo.netlify.app/entity.html")
     }
     else{
         di.innerHTML += DocId
@@ -64,7 +64,7 @@ sbtn.addEventListener("click",function(e){
         form.reset()
         window.localStorage.setItem("SDocId",0)
         alert("Your data has been updated")
-        window.location.assign("https://dojo-adminpanel.netlify.app/entity")
+        window.location.assign("https://adminpanel-dojo.netlify.app/entity")
     }).catch(function(error){
         console.log(error)
     })
