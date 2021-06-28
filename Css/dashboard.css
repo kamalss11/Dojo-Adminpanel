@@ -60,6 +60,7 @@ body{
 
 .sidebar ul li p{
     display: flex;
+    cursor: pointer;
 }
 
 .sidebar ul li.active{
