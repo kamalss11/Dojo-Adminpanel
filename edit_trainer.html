@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="Css/dashboard.css">
+    <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDVdGF7waQdY_SiZSI7OcAyXNDYrB9tIuE",
+            authDomain: "dojo-c2657.firebaseapp.com",
+            databaseURL: "https://dojo-c2657.firebaseio.com",
+            projectId: "dojo-c2657",
+            storageBucket: "dojo-c2657.appspot.com",
+            messagingSenderId: "789766035590",
+            appId: "1:789766035590:web:9b0bbf87ea30b2a5971907"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <title>Edit Enity</title>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="Images/DOJO.png" alt="DOJO">
+            </div>
+
+            <ul>
+                <li onclick=hm()><span class="material-icons">dashboard</span>Home</li>
+                <li onclick=en()><span class="material-icons">remember_me</span>Entity's</li>
+                <li class="active" onclick=ed()><span class="material-icons">edit</span>Edit Entity</li>
+            </ul>
+        </div>
+
+        <main>
+            <nav>
+                <div class="hd"><h3>Dashboard</h3></div>
+            </nav>
+
+            <div class="content">
+                <form method="POST" id="form">
+                    <h3>Edit Studios</h3>
+                    <b><p class="di">Document ID : </p></b>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="Js/locations.js"></script>
+    <script src="Js/edit_trainer.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+</body>
+</html>
