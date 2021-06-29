@@ -241,39 +241,45 @@ main .content .studios ul li button span,main .content .trainers ul li button sp
     font-size: 20px;
 }
 
-main .content form{
-    width: 95%;
+main .content .double{
+    display: flex;
+    padding: 10px 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,.1);
+}
+
+main .content .double form{
+    flex-basis: 50%;
     margin: 25px auto;
     padding: 10px 20px;
     background-color: #eeeeee;
 }
 
-main .content form h3{
+main .content .double form h3{
     text-align: center;
     color: var(--htxt);
     margin-bottom: 10px;
 }
 
-main .content form .di{
+main .content .double form .di{
     color: var(--htxt);
     margin: 15px 0;
 }
 
-main .content form .fields,main .content form .fields label,main .content form 
+main .content .double form .fields,main .content .double form .fields label,main .content .double form 
 .fields label input{
     width: 100%;
 }
 
-main .content form .fields{
+main .content .double form .fields{
     margin: 30px 0;
 }
 
-main .content form .fields label{
+main .content .double form .fields label{
     position: relative;
     display: block;
 }
 
-main .content form .fields label input{
+main .content .double form .fields label input{
     border: 1px solid #80808059;
     border-radius: 5px;
     padding: 15px 10px;
@@ -282,7 +288,7 @@ main .content form .fields label input{
     color: var(--htxt);
 }
 
-main .content form .fields label span{
+main .content .double form .fields label span{
     position: absolute;
     top: 50%;
     left: 20px;
@@ -294,12 +300,12 @@ main .content form .fields label span{
     transition: .4s;
 }
 
-main .content form .fields label input:focus{
+main .content .double form .fields label input:focus{
     border-color: #808080ad;
 }
 
-main .content form .fields label input:valid + span,
-main .content form .fields label input:focus + span{
+main .content .double form .fields label input:valid + span,
+main .content .double form .fields label input:focus + span{
     top: 0;
     left: 15px;
     font-size: 13px;
@@ -307,16 +313,25 @@ main .content form .fields label input:focus + span{
     color: var(--htxt);
 }
 
+main .content .div{
+    flex-basis: 50%;
+}
+
+main .content .div .fields{
+    margin: 35px 0;
+    width: 100%;
+}
+
 main .content .div .fields img{
     width: 100%;
     object-fit: cover;
 }
 
-main .content form .btn{
+main .content .double form .btn{
     text-align: center;
 }
 
-main .content form .btn button{
+main .content .double form .btn button{
     font-size: 15px;
     padding: 7px 9px;
     border-radius: 5px;
