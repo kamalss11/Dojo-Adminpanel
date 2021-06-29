@@ -317,7 +317,7 @@ main .content .div{
     flex-basis: 50%;
 }
 
-main .content .div .fields img{
+main .content .div img{
     margin: 35px auto;
     width: 100%;
     object-fit: cover;
