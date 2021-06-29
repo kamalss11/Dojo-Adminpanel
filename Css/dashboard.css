@@ -319,6 +319,7 @@ main .content .div{
 
 main .content .div img{
     margin: 35px auto;
+    width: 100%;
     object-fit: cover;
 }
 
