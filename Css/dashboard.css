@@ -241,12 +241,13 @@ main .content .studios ul,main .content .trainers ul{
     padding: 15px;
 }
 
-main .content .studios ul li,main .content .trainers ul li{
-    margin: 10px 0;
+ain .content .studios ul li, main .content .trainers ul li {
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    border: 1px solid #80808029;
 }
 
 main .content .studios ul li button,main .content .trainers ul li button{
