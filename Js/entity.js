@@ -12,6 +12,11 @@ var sb = document.querySelector(".sidebar")
 var br = document.querySelector(".bars")
 var cls = document.querySelector("#close")
 
+function kk(){
+    console.log("up")
+    cls.style.display = "flex"
+}
+
 no = document.getElementById("no")
 no.style.display = "none"
 
