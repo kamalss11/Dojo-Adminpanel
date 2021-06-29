@@ -318,11 +318,11 @@ main .content .div{
 }
 
 main .content .div .fields{
-    margin: 35px 0;
     width: 100%;
 }
 
 main .content .div .fields img{
+    margin: 35px 0;
     width: 100%;
     object-fit: cover;
 }
