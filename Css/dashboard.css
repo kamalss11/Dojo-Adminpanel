@@ -241,7 +241,7 @@ main .content .studios ul,main .content .trainers ul{
     padding: 15px;
 }
 
-ain .content .studios ul li, main .content .trainers ul li {
+main .content .studios ul li, main .content .trainers ul li {
     padding: 10px;
     display: flex;
     align-items: center;
