@@ -24,6 +24,22 @@
         firebase.initializeApp(firebaseConfig);
     </script>
     <title>Entities</title>
+    <style>
+        #no{
+            margin: 15px 0;
+            font-size: 13px;
+            color: red;
+        }
+
+        .search{
+            display: flex;
+            align-items: center;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+    </script>
 </head>
 <body>
     <div class="container">
@@ -56,6 +72,10 @@
             <div class="content">
                 <div class="studios list active">
                     <h3>Studios</h3>
+                    <div class="search">
+                        <input id="ss" type="text" placeholder="Search by Studio's name" onkeyup="searchstudios()"> <span id="close" onclick="rm()" class="material-icons">close</span>
+                    </div>
+                    <p id="no">No results to your search</p>
                     <ul class="lists list-1">
 
                     </ul>

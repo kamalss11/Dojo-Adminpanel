@@ -208,6 +208,31 @@ main .content .list.active{
     display: block;
 }
 
+main .content .list .search{
+    margin: 20px 0;
+    position: relative;
+}
+
+main .content .list .search input{
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border-radius: 5px;
+    border: 1px solid var(--htxt);
+}
+
+main .content .list .search span{
+    position: absolute;
+    right: 0;
+    color: red;
+    cursor: pointer;
+    height: 100%;
+    padding: 0 5px;
+    display: flex;
+    align-items: center;
+    display: none;
+}
+
 main .content .studios h3,main .content .trainers h3{
     color: var(--htxt);
 }
