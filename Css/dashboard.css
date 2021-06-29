@@ -307,7 +307,7 @@ main .content form .fields label input:focus + span{
     color: var(--htxt);
 }
 
-main .content form .fields img{
+main .content .div .fields img{
     width: 100%;
     object-fit: cover;
 }
