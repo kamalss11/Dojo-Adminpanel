@@ -25,7 +25,7 @@
     </script>
     <title>Entities</title>
     <style>
-        #no{
+        #no,#no-2{
             margin: 15px 0;
             font-size: 13px;
             color: red;
@@ -73,7 +73,7 @@
                 <div class="studios list active">
                     <h3>Studios</h3>
                     <div class="search">
-                        <input id="ss" type="text" placeholder="Search by Studio's name" onkeyup="searchstudios()" onkeydown="kk()"> <span id="close" onclick="rm()" class="material-icons">close</span>
+                        <input id="ss" type="text" placeholder="Search by Studio's name" onkeyup="searchstudios()" onkeydown="ss()"> <span id="close" onclick="rm()" class="material-icons">close</span>
                     </div>
                     <p id="no">No results to your search</p>
                     <ul class="lists list-1">
@@ -83,6 +83,10 @@
 
                 <div class="trainers list">
                     <h3>Trainers</h3>
+                    <div class="search">
+                        <input id="st" type="text" placeholder="Search by Trainer's name" onkeyup="searchtrainers()" onkeydown="st()"> <span id="close2" onclick="rm2()" class="material-icons">close</span>
+                    </div>
+                    <p id="no-2">No results to your search</p>
                     <ul class="lists list-2">
 
                     </ul>

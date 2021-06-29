@@ -6,19 +6,31 @@ var trainers_list = document.querySelector(".list-2")
 var edit1,edit2,no,
 input = document.getElementById('ss'),
 filter, ul, lis, i, txtValue,count
+var no2,
+input2 = document.getElementById('st'),
+filter2, ul2, lis2, txtValue2,count2
 var list = document.querySelectorAll(".list")
 var list_tab = document.querySelectorAll(".tb p")
 var sb = document.querySelector(".sidebar")
 var br = document.querySelector(".bars")
 var cls = document.querySelector("#close")
+var cls2 = document.querySelector("#close2")
 
-function kk(){
+function ss(){
     console.log("up")
     cls.style.display = "flex"
 }
 
+function st(){
+    console.log("up")
+    cls2.style.display = "flex"
+}
+
 no = document.getElementById("no")
 no.style.display = "none"
+
+no2 = document.getElementById("no-2")
+no2.style.display = "none"
 
 for(let i=0;i<list_tab.length;i++){
     list_tab[i].addEventListener("click",function(){
@@ -86,6 +98,10 @@ window.onload = () =>{
         edit2 = document.querySelectorAll(".list-2 li button")
         console.log(edit2,edit2.length)
 
+        ul2 = document.querySelector(".list-2");
+        lis2 = ul2.getElementsByTagName('li');
+        console.log(lis2.length)
+
         for(let i = 0;i<edit1.length;i++){
             edit1[i].addEventListener("click",function(){
                 console.log(edit1[i].id)
@@ -113,6 +129,15 @@ function rm(){
     }
     no.style.display = "none"
     cls.style.display = "none"
+}
+
+function rm2(){
+    input2.value = ""
+    for(let i=0;i<lis2.length;i++){
+        lis2[i].style.display = "flex"
+    }
+    no2.style.display = "none"
+    cls2.style.display = "none"
 }
 
 
@@ -147,5 +172,39 @@ function searchstudios(e){
 
     else{
         no.style.display = "none"
+    }
+}
+
+function searchtrainers(e){
+    if(input2.value == ""){
+        cls2.style.display = "none"
+    }
+    filter2 = input2.value.toUpperCase();
+     // Loop through all list items, and hide those who don't match the search query
+    for (let i = 0; i < lis2.length; i++) {
+        count2 = 0
+        a2 = lis2[i].textContent;
+        txtValue2 = a2.toUpperCase();
+        if (txtValue2.toUpperCase().indexOf(filter2) > -1) {
+            lis2[i].style.display = "";
+        }
+
+        else {
+            lis2[i].style.display = "none";
+
+            for (let i = 0; i < lis2.length; i++) {
+                if(lis2[i].style.display == "none"){
+                    count2 += 1
+                }
+            }
+        }
+    }
+
+    if(count2 >= lis2.length){
+        no2.style.display = "block"
+    }
+
+    else{
+        no2.style.display = "none"
     }
 }
