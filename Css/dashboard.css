@@ -367,6 +367,20 @@ main .content .double form .btn button{
     }
 }
 
+@media(max-width: 850px){
+    main .content .double{
+        flex-wrap: wrap;
+    }
+
+    main .content .double form{
+        flex-basis: 100%;
+    }
+
+    main .content .div{
+        flex-basis: 100%;
+    }
+}
+
 @media(max-width: 650px){
     main .content .ov .nos{
         flex-wrap: wrap;
