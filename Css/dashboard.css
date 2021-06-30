@@ -405,13 +405,7 @@ main .content .double form .btn button{
 
     main .content .div{
         flex-basis: 100%;
-        height: 350px;
         margin: 35px auto;
-    }
-
-    main .content .div img{
-        height: 100%;
-        margin: 0;
     }
 
     main .content .double form{
