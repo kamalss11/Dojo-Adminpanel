@@ -1,7 +1,14 @@
 var co = [],s = [],c = [],csel,ssel
+var nam = document.getElementById("name")
 var country = document.getElementById("con")
 var state = document.getElementById("state")
 var city = document.getElementById("city")
+var services = document.getElementById("services")
+var price = document.getElementById("price")
+var phone = document.getElementById("phone")
+var experience = document.getElementById("exp")
+var img = document.getElementById("img")
+
 
 window.onload = () =>{
     var headers = new Headers();
