@@ -16,6 +16,12 @@ function snew(){
     window.location.assign("https://adminpanel-dojo.netlify.app/add_studio")
 }
 
+function tnew(){
+    window.localStorage.setItem("SDocId",0)
+    window.localStorage.setItem("TDocId",0)
+    window.location.assign("https://adminpanel-dojo.netlify.app/add_trainer")
+}
+
 var bars = document.querySelector(".bars")
 var sidebar = document.querySelector(".sidebar")
 
