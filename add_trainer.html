@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="Css/dashboard.css">
+    <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDVdGF7waQdY_SiZSI7OcAyXNDYrB9tIuE",
+            authDomain: "dojo-c2657.firebaseapp.com",
+            databaseURL: "https://dojo-c2657.firebaseio.com",
+            projectId: "dojo-c2657",
+            storageBucket: "dojo-c2657.appspot.com",
+            messagingSenderId: "789766035590",
+            appId: "1:789766035590:web:9b0bbf87ea30b2a5971907"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <title>Add Trainer</title>
+
+    <style>
+        main .content .double form{
+            flex-basis: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="Images/DOJO.png" alt="DOJO">
+            </div>
+
+            <ul>
+                <li><p onclick=hm()><span class="material-icons">dashboard</span>Home</p></li>
+                <li class="active">
+                    <p onclick=en()><span class="material-icons">remember_me</span>Entities</p>
+                    <div class="tb">
+                        <p>Add Trainer</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <main>
+            <nav>
+                <div class="hd"><h3>Dashboard</h3></div>
+                
+                <div class="bars">
+                    <span></span>
+                </div>
+            </nav>
+
+            <div class="content">
+                <div class="double">
+                    <form method="POST" id="form">
+                        <h3>Add Studio</h3>
+                        <div class="fields">
+                            <label>
+                                <input type="text" id="name">
+                                <span>Name</span>
+                            </label>
+                        </div>
+    
+                        <div class="fields">
+                            <label>
+                                <select id="con">
+                                    <option value="" aria-readonly="true">--Country--</option>
+                                </select>
+                                <span>Country</span>
+                            </label>
+                        </div>
+    
+                        <div class="fields">
+                            <label>
+                                <select id="state">
+                                    <option value="" aria-readonly="true">--State--</option>
+                                </select>
+                                <span>State</span>
+                            </label>
+                        </div>
+    
+                        <div class="fields">
+                            <label>
+                                <select id="city">
+                                    <option value="" aria-readonly="true">--City--</option>
+                                </select>
+                                <span>City</span>
+                            </label>
+                        </div>
+    
+                        <div class="fields">
+                            <label>
+                                <input type="text" id="services">
+                                <span>Services</span>
+                            </label>
+                        </div>
+    
+                        <div class="fields">
+                            <label>
+                                <input type="text" id="price">
+                                <span>Price</span>
+                            </label>
+                        </div>
+    
+                        <div class="fields">
+                            <label>
+                                <input type="text" id="phone">
+                                <span>Phone</span>
+                            </label>
+                        </div>
+    
+                        <div class="fields">
+                            <label>
+                                <input type="text" id="exp">
+                                <span>Experience</span>
+                            </label>
+                        </div>
+
+                        <div class="fields">
+                            <label>
+                                <input type="file" id="img">
+                                <span>Image</span>
+                            </label>
+                        </div>
+    
+                        <div class="btn">
+                            <button class="sbtn" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="JS/add_trainer.js"></script>
+    <script src="Js/locations.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+</body>
+</html>
