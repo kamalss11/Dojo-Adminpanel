@@ -235,6 +235,18 @@ main .content .list .search span{
 
 main .content .studios h3,main .content .trainers h3{
     color: var(--htxt);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main .content .studios h3 button,main .content .trainers h3 button{
+    padding: 5px 8px;
+    border: none;
+    cursor: pointer;
+    color: var(--white);
+    background-color: var(--menus);
+    border-radius: 5px;
 }
 
 main .content .studios ul,main .content .trainers ul{
@@ -292,7 +304,7 @@ main .content .double form .di{
 }
 
 main .content .double form .fields,main .content .double form .fields label,main .content .double form 
-.fields label input{
+.fields label input,main .content .double form .fields select{
     width: 100%;
 }
 
@@ -305,7 +317,7 @@ main .content .double form .fields label{
     display: block;
 }
 
-main .content .double form .fields label input{
+main .content .double form .fields label input,main .content .double form .fields label select{
     border: 1px solid #80808059;
     border-radius: 5px;
     padding: 15px 10px;
@@ -331,7 +343,9 @@ main .content .double form .fields label input:focus{
 }
 
 main .content .double form .fields label input:valid + span,
-main .content .double form .fields label input:focus + span{
+main .content .double form .fields label input:focus + span,
+main .content .double form .fields label select:focus + span,
+main .content .double form .fields label select:valid + span{
     top: 0;
     left: 15px;
     font-size: 13px;

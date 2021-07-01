@@ -16,6 +16,8 @@ var br = document.querySelector(".bars")
 var cls = document.querySelector("#close")
 var cls2 = document.querySelector("#close2")
 
+var pr = []
+
 function ss(){
     console.log("up")
     cls.style.display = "flex"
@@ -56,6 +58,7 @@ window.onload = () =>{
             let li = document.createElement("li")
             li.textContent = `${doc.data().Name}`
             li.id = doc.id
+            li.setAttribute("price",`${doc.data().Price}`)
             let button = document.createElement("button")
             button.id = `${doc.id}`
             button.innerHTML = "Edit"
@@ -65,15 +68,18 @@ window.onload = () =>{
             button.append(span)
             li.append(button)
             studios_list.append(li)
+            pr.push(li.getAttribute("price"))
         })
+        console.log(pr)
         console.log("Total no of Studios "+count)
-    
+
         edit1 = document.querySelectorAll(".list-1 li button")
         console.log(edit1,edit1.length)
-        
+
         ul = document.querySelector(".list-1");
         lis = ul.getElementsByTagName('li');
         console.log(lis.length)
+
     })
 
     trainers.get().then((querySnapShot)=>{
@@ -120,6 +126,16 @@ window.onload = () =>{
             })
         }
     })
+}
+var temp = []
+function lth(){
+    for(let i=0;i<lis.length-1;i++){
+        for(let j=0;j<lis.length-i-1;j++){
+            if(lis[j].getAttribute("price") > lis[j+1].getAttribute("price")){
+                console.log(lis[j].getAttribute("price"))
+            }
+        }
+    }
 }
 
 function rm(){
