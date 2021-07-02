@@ -70,13 +70,19 @@
             </nav>
 
             <div class="content">
-                <button onclick="lth()">Low to High</button>
                 <div class="studios list active">
                     <h3>Studios <button onclick="snew()">Add new</button></h3>
                     <div class="search">
                         <input id="ss" type="text" placeholder="Search by Studio's name" onkeyup="searchstudios()" onkeydown="ss()"> <span id="close" onclick="rm()" class="material-icons">close</span>
                     </div>
                     <p id="no">No results to your search</p>
+                    <div class="price">
+                        <p><b>Sort by Price</b></p>
+                        <div>
+                            <button class="lh" onclick="lths()">Low to High</button><br>
+                            <button class="lh" onclick="htls()">High to Low</button>
+                        </div>
+                    </div>
                     <ul class="lists list-1">
 
                     </ul>
@@ -88,6 +94,13 @@
                         <input id="st" type="text" placeholder="Search by Trainer's name" onkeyup="searchtrainers()" onkeydown="st()"> <span id="close2" onclick="rm2()" class="material-icons">close</span>
                     </div>
                     <p id="no-2">No results to your search</p>
+                    <div class="price">
+                        <p><b>Sort by Price</b></p>
+                        <div>
+                            <button class="lh" onclick="ltht()">Low to High</button><br>
+                            <button class="lh" onclick="htlt()">High to Low</button>
+                        </div>
+                    </div>
                     <ul class="lists list-2">
 
                     </ul>
