@@ -6,6 +6,9 @@ var trainers_list = document.querySelector(".list-2")
 var edit1,edit2,no,
 input = document.getElementById('ss'),
 filter, ul, lis, i, txtValue,count
+
+var temps = [],tempna = []
+
 var no2,
 input2 = document.getElementById('st'),
 filter2, ul2, lis2, txtValue2,count2
@@ -68,6 +71,12 @@ window.onload = () =>{
             button.append(span)
             li.append(button)
             studios_list.append(li)
+            if(doc.data().Price == "NA"){
+                tempna.push({id:`${doc.id}`,name:`${doc.data().Name}`,price:`${doc.data().Price}`})
+            }
+            else{
+                temps.push({id:`${doc.id}`,name:`${doc.data().Name}`,price:`${doc.data().Price}`})
+            }
             pr.push(li.getAttribute("price"))
         })
         console.log(pr)
@@ -79,7 +88,7 @@ window.onload = () =>{
         ul = document.querySelector(".list-1");
         lis = ul.getElementsByTagName('li');
         console.log(lis.length)
-
+        min = lis[0].getAttribute("price")
     })
 
     trainers.get().then((querySnapShot)=>{
@@ -108,14 +117,7 @@ window.onload = () =>{
         lis2 = ul2.getElementsByTagName('li');
         console.log(lis2.length)
 
-        for(let i = 0;i<edit1.length;i++){
-            edit1[i].addEventListener("click",function(){
-                console.log(edit1[i].id)
-                window.localStorage.setItem("SDocId",edit1[i].id)
-                console.log("Local Storage => " + localStorage.getItem("SDocId"))
-                window.location.assign("https://adminpanel-dojo.netlify.app/edit_studio")
-            })
-        }
+        ed1()
 
         for(let i = 0;i<edit2.length;i++){
             edit2[i].addEventListener("click",function(){
@@ -127,15 +129,67 @@ window.onload = () =>{
         }
     })
 }
-var temp = []
-function lth(){
-    for(let i=0;i<lis.length-1;i++){
-        for(let j=0;j<lis.length-i-1;j++){
-            if(lis[j].getAttribute("price") > lis[j+1].getAttribute("price")){
-                console.log(lis[j].getAttribute("price"))
-            }
-        }
+
+function ed1(){
+    for(let i = 0;i<edit1.length;i++){
+        edit1[i].addEventListener("click",function(){
+            console.log(edit1[i].id)
+            window.localStorage.setItem("SDocId",edit1[i].id)
+            console.log("Local Storage => " + localStorage.getItem("SDocId"))
+            window.location.assign("https://adminpanel-dojo.netlify.app/edit_studio")
+        })
     }
+}
+
+function lth(){
+    while(lis.length > 0){
+        lis[0].remove()
+    }
+
+    temps.sort((a,b) => {
+        return a.price - b.price
+    })
+    console.log(temps)
+
+    let count = 0
+    temps.forEach((doc)=>{
+        count += 1
+        console.log(doc.name,count,doc.id)
+        let li = document.createElement("li")
+        li.textContent = `${doc.name}`
+        li.id = doc.id
+        li.setAttribute("price",`${doc.price}`)
+        let button = document.createElement("button")
+        button.id = `${doc.id}`
+        button.innerHTML = "Edit"
+        let span = document.createElement("span")
+        span.classList = "material-icons"
+        span.innerHTML = "edit"
+        button.append(span)
+        li.append(button)
+        studios_list.append(li)
+    })
+
+    tempna.forEach((doc)=>{
+        count += 1
+        console.log(doc.name,count,doc.id)
+        let li = document.createElement("li")
+        li.textContent = `${doc.name}`
+        li.id = doc.id
+        li.setAttribute("price",`${doc.price}`)
+        let button = document.createElement("button")
+        button.id = `${doc.id}`
+        button.innerHTML = "Edit"
+        let span = document.createElement("span")
+        span.classList = "material-icons"
+        span.innerHTML = "edit"
+        button.append(span)
+        li.append(button)
+        studios_list.append(li)
+    })
+
+    edit1 = document.querySelectorAll(".list-1 li button")
+    ed1()
 }
 
 function rm(){
