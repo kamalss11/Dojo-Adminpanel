@@ -233,6 +233,39 @@ main .content .list .search span{
     display: none;
 }
 
+main .content .list .price{
+    position: relative;
+    margin: 0 10px;
+    display: inline-block;
+}
+
+main .content .list .price p{
+    cursor: pointer;
+}
+
+main .content .list .price div .lh{
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    color: var(--htxt);
+}
+
+main .content .list .price div{
+    position: absolute;
+    left: 0;
+    width: 120px;
+    padding: 10px 0;
+    background-color: #eeeeee;
+    box-shadow: 0 0 15px rgba(0,0,0,.1);
+    display: none;
+}
+
+main .content .list .price.active div{
+    display: block;
+}
+
 main .content .studios h3,main .content .trainers h3{
     color: var(--htxt);
     display: flex;
