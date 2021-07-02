@@ -7,7 +7,7 @@ var edit1,edit2,no,
 input = document.getElementById('ss'),
 filter, ul, lis, i, txtValue,count
 
-var temps = [],tempna = []
+var temps = [],tempna = [],tempt = [],temptna = []
 
 var no2,
 input2 = document.getElementById('st'),
@@ -19,7 +19,29 @@ var br = document.querySelector(".bars")
 var cls = document.querySelector("#close")
 var cls2 = document.querySelector("#close2")
 
-var pr = []
+var pricep = document.querySelectorAll(".price p")
+var price = document.querySelectorAll(".price")
+var btn = document.querySelectorAll(".lh")
+
+for(let i=0;i<btn.length;i++){
+    if(i == 0 || i == 1){
+        btn[i].addEventListener("click",function(){
+            price[0].classList.remove("active")
+        })
+    }
+
+    else{
+        btn[i].addEventListener("click",function(){
+            price[1].classList.remove("active")
+        })
+    }
+}
+
+for(let i=0;i<pricep.length;i++){
+    pricep[i].addEventListener("click",function(){
+        price[i].classList.toggle("active")
+    })
+}
 
 function ss(){
     console.log("up")
@@ -77,9 +99,7 @@ window.onload = () =>{
             else{
                 temps.push({id:`${doc.id}`,name:`${doc.data().Name}`,price:`${doc.data().Price}`})
             }
-            pr.push(li.getAttribute("price"))
         })
-        console.log(pr)
         console.log("Total no of Studios "+count)
 
         edit1 = document.querySelectorAll(".list-1 li button")
@@ -88,7 +108,6 @@ window.onload = () =>{
         ul = document.querySelector(".list-1");
         lis = ul.getElementsByTagName('li');
         console.log(lis.length)
-        min = lis[0].getAttribute("price")
     })
 
     trainers.get().then((querySnapShot)=>{
@@ -108,6 +127,12 @@ window.onload = () =>{
             button.append(span)
             li.append(button)
             trainers_list.append(li)
+            if(doc.data().Price == "NA"){
+                temptna.push({id:`${doc.id}`,name:`${doc.data().Name}`,price:`${doc.data().Price}`})
+            }
+            else{
+                tempt.push({id:`${doc.id}`,name:`${doc.data().Name}`,price:`${doc.data().Price}`})
+            }
         })
         console.log("Total no of Trainers "+count)
         edit2 = document.querySelectorAll(".list-2 li button")
@@ -119,14 +144,7 @@ window.onload = () =>{
 
         ed1()
 
-        for(let i = 0;i<edit2.length;i++){
-            edit2[i].addEventListener("click",function(){
-                console.log(edit2[i].id)
-                window.localStorage.setItem("TDocId",edit2[i].id)
-                console.log("Local Storage => " + localStorage.getItem("TDocId"))
-                window.location.assign("https://adminpanel-dojo.netlify.app/edit_trainer")
-            })
-        }
+        ed2()
     })
 }
 
@@ -141,18 +159,61 @@ function ed1(){
     }
 }
 
-function lth(){
-    while(lis.length > 0){
-        lis[0].remove()
+function ed2(){
+    for(let i = 0;i<edit2.length;i++){
+        edit2[i].addEventListener("click",function(){
+            console.log(edit2[i].id)
+            window.localStorage.setItem("TDocId",edit2[i].id)
+            console.log("Local Storage => " + localStorage.getItem("TDocId"))
+            window.location.assign("https://adminpanel-dojo.netlify.app/edit_trainer")
+        })
     }
 
+}
+
+function lths(){
     temps.sort((a,b) => {
         return a.price - b.price
     })
     console.log(temps)
 
+    append(temps)
+}
+
+function htls(){
+    temps.sort((a,b) => {
+        return b.price - a.price
+    })
+    console.log(temps)
+
+    append(temps)
+}
+
+function ltht(){
+    tempt.sort((a,b) => {
+        return a.price - b.price
+    })
+    console.log(tempt)
+
+    append2(tempt)
+}
+
+function htlt(){
+    tempt.sort((a,b) => {
+        return b.price - a.price
+    })
+    console.log(tempt)
+
+    append2(tempt)
+}
+
+function append(val){
+    while(lis.length > 0){
+        lis[0].remove()
+    }
+
     let count = 0
-    temps.forEach((doc)=>{
+    val.forEach((doc)=>{
         count += 1
         console.log(doc.name,count,doc.id)
         let li = document.createElement("li")
@@ -190,6 +251,52 @@ function lth(){
 
     edit1 = document.querySelectorAll(".list-1 li button")
     ed1()
+}
+
+function append2(val){
+    while(lis2.length > 0){
+        lis2[0].remove()
+    }
+
+    let count = 0
+    val.forEach((doc)=>{
+        count += 1
+        console.log(doc.name,count,doc.id)
+        let li = document.createElement("li")
+        li.textContent = `${doc.name}`
+        li.id = doc.id
+        li.setAttribute("price",`${doc.price}`)
+        let button = document.createElement("button")
+        button.id = `${doc.id}`
+        button.innerHTML = "Edit"
+        let span = document.createElement("span")
+        span.classList = "material-icons"
+        span.innerHTML = "edit"
+        button.append(span)
+        li.append(button)
+        trainers_list.append(li)
+    })
+
+    temptna.forEach((doc)=>{
+        count += 1
+        console.log(doc.name,count,doc.id)
+        let li = document.createElement("li")
+        li.textContent = `${doc.name}`
+        li.id = doc.id
+        li.setAttribute("price",`${doc.price}`)
+        let button = document.createElement("button")
+        button.id = `${doc.id}`
+        button.innerHTML = "Edit"
+        let span = document.createElement("span")
+        span.classList = "material-icons"
+        span.innerHTML = "edit"
+        button.append(span)
+        li.append(button)
+        trainers_list.append(li)
+    })
+
+    edit2 = document.querySelectorAll(".list-2 li button")
+    ed2()
 }
 
 function rm(){
