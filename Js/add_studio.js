@@ -7,7 +7,12 @@ var services = document.getElementById("services")
 var price = document.getElementById("price")
 var phone = document.getElementById("phone")
 var experience = document.getElementById("exp")
-var img = document.getElementById("img")
+var form = document.getElementById("form")
+var sbtn = document.getElementById("sbtn")
+
+var DocId,storageref,img 
+var firestore = firebase.firestore()
+var studios = firestore.collection("Studios")
 
 
 window.onload = () =>{
@@ -158,4 +163,59 @@ function fetch_city(){
 
 city.addEventListener("change",function(e){
     console.log("City => "+this.value,city.options[city.selectedIndex].id)
+})
+
+sbtn.addEventListener("click",function(e){
+    e.preventDefault()
+
+    let nameInput = nam.value
+    let countryInput = country.value
+    let stateInput = state.value
+    let cityInput = city.value
+    let servicesInput = services.value
+    let priceInput = price.value
+    let phoneInput = phone.value
+    let experienceInput = experience.value
+    img = document.getElementById("img").files[0]
+    var imgName = img.name
+    storageref = firebase.storage().ref()
+    
+    const metadata = {
+        contentType:img.type
+    }
+
+    var urls
+    var uploadImg = storageref.child("images").child(imgName)
+    uploadImg.put(img,metadata)
+    .then(snapshot =>{
+        return uploadImg.getDownloadURL()
+        .then(url => {
+            urls = url
+            console.log(urls)
+            studios.add({
+                Name: nameInput,
+                Country: countryInput,
+                State: stateInput,
+                City : cityInput,
+                Services: servicesInput,
+                Price: priceInput,
+                Phone : phoneInput,
+                Experience : experienceInput,
+                DisplayPicture: urls,
+                Timestamp: firebase.firestore.Timestamp.now()
+            }).then((docRef)=>{
+                studios.doc(`${docRef.id}`).update({
+                    DocumentId: docRef.id
+                })
+                console.log("Data Saved.This is you id = > ",docRef.id)
+                console.log(nameInput,countryInput,stateInput,cityInput,servicesInput,priceInput,phoneInput,experienceInput,imgName)
+                form.reset()
+                window.location.assign("https://adminpanel-dojo.netlify.app/entity")
+            }).catch(function(error){
+                console.log(error)
+            })
+        })
+    }).catch(function(error){
+        console.log(error)
+    })
 })
