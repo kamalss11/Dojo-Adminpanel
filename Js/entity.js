@@ -193,7 +193,7 @@ function rlhs(){
     rs.sort((a,b) => {
         return a.rating - b.rating
     })
-    console.log(es)
+    console.log(rs)
     
     rappend(rs)
 }
