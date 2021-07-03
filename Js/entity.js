@@ -208,12 +208,12 @@ function htls(){
 }
 
 function rhls(){
-    temps.sort((a,b) => {
+    rs.sort((a,b) => {
         return b.rating - a.rating
     })
-    console.log(temps)
+    console.log(rs)
     
-    rappend(temps)
+    rappend(rs)
 }
 
 function ltht(){
