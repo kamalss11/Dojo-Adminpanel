@@ -190,12 +190,12 @@ function lths(){
 }
 
 function rlhs(){
-    temps.sort((a,b) => {
+    rs.sort((a,b) => {
         return a.rating - b.rating
     })
-    console.log(temps)
+    console.log(es)
     
-    rappend(temps)
+    rappend(rs)
 }
 
 function htls(){
@@ -356,15 +356,32 @@ function rappend(val){
         li.id = doc.id
         li.setAttribute("rating",`${doc.rating}`)
         let div =  document.createElement("div")
-        if(doc.rating == ""){
-            return
-        }
+        let rating = document.createElement("span")
+        rating.innerHTML = doc.rating
+        div.append(rating)
+        let button = document.createElement("button")
+        button.id = `${doc.id}`
+        button.innerHTML = "Edit"
+        let span = document.createElement("span")
+        span.classList = "material-icons"
+        span.innerHTML = "edit"
+        button.append(span)
+        div.append(button)
+        li.append(div)
+        studios_list.append(li)
+    })
 
-        else{
-            let rating = document.createElement("span")
-            rating.innerHTML = doc.rating
-            div.append(rating)
-        }
+    rsn.forEach((doc)=>{
+        count += 1
+        console.log(doc.name,count,doc.id)
+        let li = document.createElement("li")
+        li.textContent = `${doc.name}`
+        li.id = doc.id
+        li.setAttribute("rating",`${doc.rating}`)
+        let div =  document.createElement("div")
+        let rating = document.createElement("span")
+        rating.innerHTML = doc.rating
+        div.append(rating)
         let button = document.createElement("button")
         button.id = `${doc.id}`
         button.innerHTML = "Edit"
