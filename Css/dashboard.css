@@ -471,6 +471,12 @@ main .content .double form .btn button{
     }
 }
 
+@media(max-width: 500px){
+    main .content .studios ul, main .content .trainers ul{
+        padding: 15px 0;
+    }
+}
+
 @media(max-width: 650px){
     main .content .ov .nos{
         flex-wrap: wrap;
