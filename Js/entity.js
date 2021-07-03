@@ -274,6 +274,9 @@ function append2(val){
         li.textContent = `${doc.name}`
         li.id = doc.id
         li.setAttribute("price",`${doc.price}`)
+        let div =  document.createElement("div")
+        let price = document.createElement("span")
+        price.innerHTML = ` &#8377 ${doc.price}`
         let button = document.createElement("button")
         button.id = `${doc.id}`
         button.innerHTML = "Edit"
@@ -281,7 +284,8 @@ function append2(val){
         span.classList = "material-icons"
         span.innerHTML = "edit"
         button.append(span)
-        li.append(button)
+        div.append(price,button)
+        li.append(div)
         trainers_list.append(li)
     })
 
@@ -292,6 +296,9 @@ function append2(val){
         li.textContent = `${doc.name}`
         li.id = doc.id
         li.setAttribute("price",`${doc.price}`)
+        let div =  document.createElement("div")
+        let price = document.createElement("span")
+        price.innerHTML = ` &#8377 ${doc.price}`
         let button = document.createElement("button")
         button.id = `${doc.id}`
         button.innerHTML = "Edit"
@@ -299,7 +306,8 @@ function append2(val){
         span.classList = "material-icons"
         span.innerHTML = "edit"
         button.append(span)
-        li.append(button)
+        div.append(price,button)
+        li.append(div)
         trainers_list.append(li)
     })
 
