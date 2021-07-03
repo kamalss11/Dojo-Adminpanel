@@ -200,6 +200,25 @@ main .content .ov .nos .no .tot .tn{
     color: var(--white);
 }
 
+main .content .add{
+    color: var(--htxt);
+}
+
+main .content .add .adbtn{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 15px 0;
+}
+
+main .content .add .adbtn p{
+    cursor: pointer;
+    padding: 5px 8px;
+    background: var(--sidebar);
+    color: var(--white);
+    border-radius: 5px;
+}
+
 main .content .list{
     display: none;
 }
