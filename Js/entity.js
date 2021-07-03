@@ -221,7 +221,7 @@ function append(val){
         li.id = doc.id
         li.setAttribute("price",`${doc.price}`)
         let price = document.createElement("span")
-        price.innerHTML = doc.Price
+        price.innerHTML = doc.price
         let button = document.createElement("button")
         button.id = `${doc.id}`
         button.innerHTML = "Edit"
