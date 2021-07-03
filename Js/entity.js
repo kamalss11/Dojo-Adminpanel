@@ -418,7 +418,8 @@ function rappend(val){
         li.append(div)
         studios_list.append(li)
     })
-
+    edit1 = document.querySelectorAll(".list-1 li button")
+    ed1()
 }
 
 function rappendt(val){
@@ -472,7 +473,9 @@ function rappendt(val){
         li.append(div)
         trainers_list.append(li)
     })
-
+    
+    edit2 = document.querySelectorAll(".list-2 li button")
+    ed2()
 }
 
 function rm(){
