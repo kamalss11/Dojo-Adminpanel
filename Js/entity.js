@@ -232,7 +232,7 @@ function ltht(){
     append2(tempt)
 }
 
-function rltht(){
+function rlht(){
     rt.sort((a,b) => {
         return a.price - b.price
     })
@@ -250,7 +250,7 @@ function htlt(){
     append2(tempt)
 }
 
-function rhtlt(){
+function rhlt(){
     rt.sort((a,b) => {
         return b.price - a.price
     })
