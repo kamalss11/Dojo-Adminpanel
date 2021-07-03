@@ -300,6 +300,10 @@ main .content .studios ul li div, main .content .trainers ul li div{
     align-items: center;
 }
 
+main .content .studios ul li div span, main .content .trainers ul li div span{
+    margin: 0 25px;
+}
+
 main .content .studios ul li button,main .content .trainers ul li button{
     font-size: 14px;
     cursor: pointer;
