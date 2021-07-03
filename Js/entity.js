@@ -102,11 +102,11 @@ window.onload = () =>{
             }
 
             if(doc.data().Rating == "NA"){
-                rsn.push({id:`${doc.id}`,name:`${doc.data().Name}`,rating:`${doc.data().Rating}`})
+                rtn.push({id:`${doc.id}`,name:`${doc.data().Name}`,rating:`${doc.data().Rating}`})
             }
 
             else{
-                rs.push({id:`${doc.id}`,name:`${doc.data().Name}`,rating:`${doc.data().Rating}`})
+                rt.push({id:`${doc.id}`,name:`${doc.data().Name}`,rating:`${doc.data().Rating}`})
             }
         })
         console.log("Total no of Studios "+count)
@@ -141,6 +141,14 @@ window.onload = () =>{
             }
             else{
                 tempt.push({id:`${doc.id}`,name:`${doc.data().Name}`,price:`${doc.data().Price}`})
+            }
+
+            if(doc.data().Rating == "NA"){
+                rsn.push({id:`${doc.id}`,name:`${doc.data().Name}`,rating:`${doc.data().Rating}`})
+            }
+
+            else{
+                rs.push({id:`${doc.id}`,name:`${doc.data().Name}`,rating:`${doc.data().Rating}`})
             }
         })
         console.log("Total no of Trainers "+count)
@@ -177,7 +185,6 @@ function ed2(){
             window.location.assign("https://adminpanel-dojo.netlify.app/edit_trainer")
         })
     }
-
 }
 
 function lths(){
@@ -225,6 +232,15 @@ function ltht(){
     append2(tempt)
 }
 
+function rltht(){
+    rt.sort((a,b) => {
+        return a.price - b.price
+    })
+    console.log(rt)
+
+    rappendt(rt)
+}
+
 function htlt(){
     tempt.sort((a,b) => {
         return b.price - a.price
@@ -232,6 +248,15 @@ function htlt(){
     console.log(tempt)
 
     append2(tempt)
+}
+
+function rhtlt(){
+    rt.sort((a,b) => {
+        return b.price - a.price
+    })
+    console.log(rt)
+
+    rappendt(rt)
 }
 
 function append(val){
@@ -392,6 +417,60 @@ function rappend(val){
         div.append(button)
         li.append(div)
         studios_list.append(li)
+    })
+
+}
+
+function rappendt(val){
+    while(lis2.length > 0){
+        lis2[0].remove()
+    }
+
+    let count = 0
+    val.forEach((doc)=>{
+        count += 1
+        console.log(doc.name,count,doc.id)
+        let li = document.createElement("li")
+        li.textContent = `${doc.name}`
+        li.id = doc.id
+        li.setAttribute("rating",`${doc.rating}`)
+        let div =  document.createElement("div")
+        let rating = document.createElement("span")
+        rating.innerHTML = doc.rating
+        div.append(rating)
+        let button = document.createElement("button")
+        button.id = `${doc.id}`
+        button.innerHTML = "Edit"
+        let span = document.createElement("span")
+        span.classList = "material-icons"
+        span.innerHTML = "edit"
+        button.append(span)
+        div.append(button)
+        li.append(div)
+        trainers_list.append(li)
+    })
+
+    rtn.forEach((doc)=>{
+        count += 1
+        console.log(doc.name,count,doc.id)
+        let li = document.createElement("li")
+        li.textContent = `${doc.name}`
+        li.id = doc.id
+        li.setAttribute("rating",`${doc.rating}`)
+        let div =  document.createElement("div")
+        let rating = document.createElement("span")
+        rating.innerHTML = doc.rating
+        div.append(rating)
+        let button = document.createElement("button")
+        button.id = `${doc.id}`
+        button.innerHTML = "Edit"
+        let span = document.createElement("span")
+        span.classList = "material-icons"
+        span.innerHTML = "edit"
+        button.append(span)
+        div.append(button)
+        li.append(div)
+        trainers_list.append(li)
     })
 
 }
