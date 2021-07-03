@@ -102,11 +102,11 @@ window.onload = () =>{
             }
 
             if(doc.data().Rating == "NA"){
-                rtn.push({id:`${doc.id}`,name:`${doc.data().Name}`,rating:`${doc.data().Rating}`})
+                rsn.push({id:`${doc.id}`,name:`${doc.data().Name}`,rating:`${doc.data().Rating}`})
             }
 
             else{
-                rt.push({id:`${doc.id}`,name:`${doc.data().Name}`,rating:`${doc.data().Rating}`})
+                rs.push({id:`${doc.id}`,name:`${doc.data().Name}`,rating:`${doc.data().Rating}`})
             }
         })
         console.log("Total no of Studios "+count)
@@ -144,11 +144,11 @@ window.onload = () =>{
             }
 
             if(doc.data().Rating == "NA"){
-                rsn.push({id:`${doc.id}`,name:`${doc.data().Name}`,rating:`${doc.data().Rating}`})
+                rtn.push({id:`${doc.id}`,name:`${doc.data().Name}`,rating:`${doc.data().Rating}`})
             }
 
             else{
-                rs.push({id:`${doc.id}`,name:`${doc.data().Name}`,rating:`${doc.data().Rating}`})
+                rt.push({id:`${doc.id}`,name:`${doc.data().Name}`,rating:`${doc.data().Rating}`})
             }
         })
         console.log("Total no of Trainers "+count)
@@ -234,7 +234,7 @@ function ltht(){
 
 function rlht(){
     rt.sort((a,b) => {
-        return a.price - b.price
+        return a.rating - b.rating
     })
     console.log(rt)
 
@@ -252,7 +252,7 @@ function htlt(){
 
 function rhlt(){
     rt.sort((a,b) => {
-        return b.price - a.price
+        return b.rating - a.rating
     })
     console.log(rt)
 
