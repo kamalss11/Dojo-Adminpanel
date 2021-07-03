@@ -295,7 +295,7 @@ main .content .studios ul li, main .content .trainers ul li {
     border: 1px solid #80808029;
 }
 
-main .content .studios ul li, main .content .trainers ul li div{
+main .content .studios ul li div, main .content .trainers ul li div{
     display: flex;
     align-items: center;
 }
