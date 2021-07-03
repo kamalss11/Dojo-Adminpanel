@@ -268,7 +268,7 @@ main .content .list .price div .lh{
     padding: 8px;
     border-radius: 5px;
     cursor: pointer;
-    margin: 5px;
+    margin: 5px 0;
     color: var(--htxt);
 }
 
