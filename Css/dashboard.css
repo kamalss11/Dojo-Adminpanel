@@ -318,7 +318,7 @@ main .content .studios ul li button,main .content .trainers ul li button{
 }
 
 main .content .studios ul li button span,main .content .trainers ul li button span{
-    margin-left: 5px;
+    margin: 0 5px;
     font-size: 20px;
     color: var(--white);
 }
