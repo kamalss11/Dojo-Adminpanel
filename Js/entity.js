@@ -220,6 +220,7 @@ function append(val){
         li.textContent = `${doc.name}`
         li.id = doc.id
         li.setAttribute("price",`${doc.price}`)
+        let div =  document.createElement("div")
         let price = document.createElement("span")
         price.innerHTML = doc.price
         let button = document.createElement("button")
@@ -229,7 +230,8 @@ function append(val){
         span.classList = "material-icons"
         span.innerHTML = "edit"
         button.append(span)
-        li.append(price,button)
+        div.append(price,button)
+        li.append(div)
         studios_list.append(li)
     })
 
@@ -240,6 +242,9 @@ function append(val){
         li.textContent = `${doc.name}`
         li.id = doc.id
         li.setAttribute("price",`${doc.price}`)
+        let div =  document.createElement("div")
+        let price = document.createElement("span")
+        price.innerHTML = doc.price
         let button = document.createElement("button")
         button.id = `${doc.id}`
         button.innerHTML = "Edit"
@@ -247,7 +252,8 @@ function append(val){
         span.classList = "material-icons"
         span.innerHTML = "edit"
         button.append(span)
-        li.append(button)
+        div.append(price,button)
+        li.append(div)
         studios_list.append(li)
     })
 
