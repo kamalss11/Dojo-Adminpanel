@@ -255,7 +255,7 @@ main .content .list .price div .lh{
 main .content .list .price div{
     position: absolute;
     left: 0;
-    width: 120px;
+    width: 190px;
     padding: 10px 0;
     background-color: #eeeeee;
     box-shadow: 0 0 15px rgba(0,0,0,.1);
