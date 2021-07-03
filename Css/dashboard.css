@@ -263,6 +263,7 @@ main .content .list .price p{
 }
 
 main .content .list .price div .lh{
+    width: 100%;
     border: none;
     padding: 8px;
     border-radius: 5px;
