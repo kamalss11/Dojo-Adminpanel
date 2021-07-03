@@ -8,6 +8,7 @@ input = document.getElementById('ss'),
 filter, ul, lis, i, txtValue,count
 
 var temps = [],tempna = [],tempt = [],temptna = []
+var rs = [],rt = [],rsn = [],rtn = []
 
 var no2,
 input2 = document.getElementById('st'),
@@ -24,7 +25,7 @@ var price = document.querySelectorAll(".price")
 var btn = document.querySelectorAll(".lh")
 
 for(let i=0;i<btn.length;i++){
-    if(i == 0 || i == 1){
+    if(i == 0 || i == 1 || i == 2 || i == 3){
         btn[i].addEventListener("click",function(){
             price[0].classList.remove("active")
         })
@@ -98,6 +99,14 @@ window.onload = () =>{
             }
             else{
                 temps.push({id:`${doc.id}`,name:`${doc.data().Name}`,price:`${doc.data().Price}`})
+            }
+
+            if(doc.data().Rating == "NA"){
+                rsn.push({id:`${doc.id}`,name:`${doc.data().Name}`,price:`${doc.data().Rating}`})
+            }
+
+            else{
+                rs.push({id:`${doc.id}`,name:`${doc.data().Name}`,price:`${doc.data().Rating}`})
             }
         })
         console.log("Total no of Studios "+count)
@@ -180,6 +189,15 @@ function lths(){
     append(temps)
 }
 
+function rlhs(){
+    temps.sort((a,b) => {
+        return a.rating - b.rating
+    })
+    console.log(temps)
+    
+    rappend(temps)
+}
+
 function htls(){
     temps.sort((a,b) => {
         return b.price - a.price
@@ -187,6 +205,15 @@ function htls(){
     console.log(temps)
 
     append(temps)
+}
+
+function rhls(){
+    temps.sort((a,b) => {
+        return b.rating - a.rating
+    })
+    console.log(temps)
+    
+    rappend(temps)
 }
 
 function ltht(){
@@ -313,6 +340,43 @@ function append2(val){
 
     edit2 = document.querySelectorAll(".list-2 li button")
     ed2()
+}
+
+function rappend(val){
+    while(lis.length > 0){
+        lis[0].remove()
+    }
+
+    let count = 0
+    val.forEach((doc)=>{
+        count += 1
+        console.log(doc.name,count,doc.id)
+        let li = document.createElement("li")
+        li.textContent = `${doc.name}`
+        li.id = doc.id
+        li.setAttribute("rating",`${doc.rating}`)
+        let div =  document.createElement("div")
+        if(doc.rating == ""){
+            return
+        }
+
+        else{
+            let rating = document.createElement("span")
+            rating.innerHTML = doc.rating
+            div.append(rating)
+        }
+        let button = document.createElement("button")
+        button.id = `${doc.id}`
+        button.innerHTML = "Edit"
+        let span = document.createElement("span")
+        span.classList = "material-icons"
+        span.innerHTML = "edit"
+        button.append(span)
+        div.append(button)
+        li.append(div)
+        studios_list.append(li)
+    })
+
 }
 
 function rm(){
