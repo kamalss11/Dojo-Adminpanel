@@ -229,7 +229,7 @@ function append(val){
         span.classList = "material-icons"
         span.innerHTML = "edit"
         button.append(span)
-        li.append(button)
+        li.append(price,button)
         studios_list.append(li)
     })
 
