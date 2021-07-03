@@ -102,11 +102,11 @@ window.onload = () =>{
             }
 
             if(doc.data().Rating == "NA"){
-                rsn.push({id:`${doc.id}`,name:`${doc.data().Name}`,price:`${doc.data().Rating}`})
+                rsn.push({id:`${doc.id}`,name:`${doc.data().Name}`,rating:`${doc.data().Rating}`})
             }
 
             else{
-                rs.push({id:`${doc.id}`,name:`${doc.data().Name}`,price:`${doc.data().Rating}`})
+                rs.push({id:`${doc.id}`,name:`${doc.data().Name}`,rating:`${doc.data().Rating}`})
             }
         })
         console.log("Total no of Studios "+count)
