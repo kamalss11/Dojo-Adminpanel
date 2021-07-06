@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    outline: none;
+    letter-spacing: 1px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+:root{
+    --white: #ffffff;
+}
+
+.login{
+    background-color: var(--white);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 65%;
+    padding: 25px 15px;
+    border-radius: 5px;
+    display: flex;
+    box-shadow: 0 0 20px rgba(0,0,0,.2);
+}
+
+.login .l-left,.login .l-right{
+    flex-basis: 50%;
+}
+
+.login .l-left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login .l-left span{
+    font-size: 55px;
+    color: rgb(68, 68, 68);
+    padding: 40px;
+    border-radius: 50%;
+    background-color: rgb(221, 221, 221);
+}
+
+.login .l-right{
+    text-align: center;
+}
+
+.login .l-right h3{
+    margin-bottom: 20px;
+}
+
+.login .l-right .fields{
+    margin: 25px 0;
+}
+
+.login .l-right .fields label{
+    position: relative;
+    width: 70%;
+}
+
+.login .l-right .fields input{
+    border: none;
+    font-size: 15px;
+    padding: 11px 15px 11px 50px;
+    border-radius: 50px;
+    width: 70%;
+    background-color: rgb(233, 233, 233);
+}
+
+.login .l-right .fields span{
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    margin-left: 20px;
+    color: rgb(136, 136, 136);
+}
+
+.login .l-right .sub{
+    padding: 12px 20px;
+    border-radius: 50px;
+    background-color: rgb(80, 199, 80);
+    width: 70%;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.login .l-right .frg{
+    font-size: 13px;
+    margin: 25px 0;
+}
+
+.login .l-right .frg span{
+    font-weight: 700;
+}
+
+.login .l-right .crt{
+    font-size: 13px;
+}
+
+.login .l-right .crt a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login .l-right .frg a,.login .l-right .crt a{
+    color: rgb(129, 129, 129);
+}
+
+@media(max-width: 900px){
+    .login{
+        width: 90%;
+    }
+}
+
+@media(max-width: 700px){
+    .login{
+        flex-wrap: wrap;
+    }
+
+    .login .l-left, .login .l-right {
+        flex-basis: 100%;
+    }
+
+    .login .l-left{
+        margin-bottom: 50px;
+    }
+}
