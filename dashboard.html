@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-database.js"></script>
     <script>
         // Your web app's Firebase configuration
         var firebaseConfig = {
@@ -74,9 +75,27 @@
                     <p>Add Enitites</p>
                     
                     <div class="adbtn">
-                        <p onclick="ns()">Studios</p>
-                        <p onclick="nt()">Online Trainers</p>
+                        <p><span class="material-icons">add_box</span>Add New</p>
                     </div>
+
+                    <div class="pop">
+                        <div class="close">
+                            <span></span>
+                        </div>
+                        
+                        <div class="pops">
+                            <p onclick="ns()">1. Add new Studios</p>
+                            <p onclick="nt()">2. Add new Trainers</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feedback">
+                    <p>Feedbacks</p>
+
+                    <ul class="fd">
+
+                    </ul>
                 </div>
             </div>
         </main>

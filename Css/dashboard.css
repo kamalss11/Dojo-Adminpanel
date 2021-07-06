@@ -18,6 +18,7 @@
     --htxt: #585858;
     --yellow: linear-gradient(60deg, #ffa726, #fb8c00);
     --green: linear-gradient(60deg, #66bb6a, #43a047);
+    --meroon: linear-gradient(90deg,#0c2646 0,#204065 60%,#2a5788);
 }
 
 body{
@@ -208,15 +209,107 @@ main .content .add .adbtn{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 15px 0;
+    margin: 15px auto;
+    width: 80%;
+    height: 143px;
+    background: var(--meroon);
+    padding: 15px 25px;
+    border-radius: 7px;
+    color: var(--white);
+    cursor: pointer;
 }
 
 main .content .add .adbtn p{
-    cursor: pointer;
-    padding: 5px 8px;
-    background: var(--sidebar);
     color: var(--white);
-    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+main .content .add .adbtn p span{
+    margin-right: 10px;
+}
+
+main .content .add .pop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,1);
+    z-index: 10;
+    display: none;
+    align-items: center;
+}
+
+main .content .add .pop.active{
+    display: flex;
+}
+
+main .content .add .pop .close{
+    cursor: pointer;
+    position: absolute;
+    right: 5%;
+    top: 2%;
+}
+
+main .content .add .pop .close span{
+    position: relative;
+    display: inline-block
+}
+
+main .content .add .pop .close span::before,main .content .add .pop .close span::after{
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    width: 25px;
+    height: 3px;
+    background-color: gray;
+    display: inline-block;
+}
+
+main .content .add .pop .close span::before{
+    transform: rotate(45deg);
+}
+
+main .content .add .pop .close span::after{
+    transform: rotate(-45deg);
+}
+
+main .content .add .pop .pops{
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+main .content .add .pop .pops p{
+    cursor: pointer;
+    margin: 15px 0;
+}
+
+main .content .feedback{
+    width: 100%;
+    margin: 15px 0;
+}
+
+main .content .feedback p{
+    color: var(--htxt);
+}
+
+main .content .feedback .fd{
+    width: 100%;
+    margin: 10px 0;
+}
+
+main .content .feedback .fd li{
+    width: 100%;
+    margin: 7px 0;
+    word-break: break-all;
 }
 
 main .content .list{
