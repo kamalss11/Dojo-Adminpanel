@@ -13,6 +13,11 @@
 
 :root{
     --white: #ffffff;
+    --bg: linear-gradient(90deg, hsla(213, 46%, 48%, 1) 0%, hsla(296, 77%, 66%, 1) 100%);
+}
+
+body{
+    background: rgb(138, 138, 229)
 }
 
 .login{
@@ -91,6 +96,12 @@
     border: none;
     color: var(--white);
     cursor: pointer;
+    pointer-events: auto;
+}
+
+.login .l-right .sub.active{
+    background-color: rgb(136, 136, 136);
+    pointer-events: none;
 }
 
 .login .l-right .frg{
