@@ -250,7 +250,7 @@ main .content .add .pop .close,main .content .feedback .ffd .close{
     cursor: pointer;
     position: absolute;
     right: 5%;
-    top: 2%;
+    top: .5%;
 }
 
 main .content .add .pop .close span,main .content .feedback .ffd .close span{
@@ -264,8 +264,8 @@ main .content .feedback .ffd .close span::before,main .content .feedback .ffd .c
     content: "";
     left: 0;
     top: 0;
-    width: 25px;
-    height: 3px;
+    width: 20px;
+    height: 2px;
     background-color: gray;
     display: inline-block;
 }
@@ -279,11 +279,13 @@ main .content .add .pop .close span::after,main .content .feedback .ffd .close s
 }
 
 main .content .add .pop .pops{
+    position: relative;
     width: 50%;
     height: 50%;
     margin: 0 auto;
-    color: var(--white);
-    background-color: black;
+    border-radius: 5px;
+    color: var(--sidebar);
+    background: rgb(223, 223, 223);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -332,23 +334,38 @@ main .content .feedback .ffd.active{
     display: block;
 }
 
-main .content .feedback .ffd .datas{
-    color: var(--white);
+main .content .feedback .ffd .fc{
     position: absolute;
     top: 50%;
     left: 50%;
     width: 65%;
-    padding: 25px 15px;
-    background: black;
-    border-radius: 10px;
+    border-radius: 5px;
+    margin: 0 auto;
     transform: translate(-50%,-50%);
+    background: rgb(223, 223, 223);
 }
 
-main .content .feedback .ffd .datas li{
+main .content .feedback .ffd .datas{
+    color: var(--sidebar);
+    border-radius: 10px;
+    border-collapse: collapse;
+}
+
+main .content .feedback .ffd .datas tr{
     width: 100%;
     word-break: break-all;
     margin: 20px 0;
-    line-height: 28px;
+    text-align: center;
+}
+
+main .content .feedback .ffd .datas tr td,
+main .content .feedback .ffd .datas tr th{
+    width: 50%;
+    padding: 20px;
+}
+
+main .content .feedback .ffd .datas tr td{
+    line-height: 27px;
 }
 
 main .content .list{
@@ -640,7 +657,7 @@ main .content .double form .btn button{
     }
     
     main .content .add .pop .pops,main .content .feedback .ffd .datas{
-        width: 80%;
+        width: 95%;
     }
 
     main .content .add .pop .close, main .content .feedback .ffd .close{

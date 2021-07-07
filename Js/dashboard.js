@@ -59,16 +59,38 @@ window.onload = () =>{
                     console.log(fdli[i].id)
                     dbRef.child(`${fdli[i].id}`).get().then((snapshot) => {
                         console.log(snapshot.val())
-                        let usr_id = document.createElement("li")
-                        usr_id.innerText = `User_ID : ${snapshot.val().User_ID}`
-                        let usr_name = document.createElement("li")
-                        usr_name.innerText = `User_Name : ${snapshot.val().User_Name}`
-                        let usr_device = document.createElement("li")
-                        usr_device.innerText = `User_Device : ${snapshot.val().User_Device}`
-                        let feedback  = document.createElement("li")
-                        feedback.innerText = `Feedback : ${snapshot.val().Feedback}`
+                        let tr = document.createElement("tr")
+                        let th1 = document.createElement("th")
+                        th1.innerText = "Entities"
+                        let th2 = document.createElement("th")
+                        th2.innerText = "Data"
+                        tr.append(th1,th2)
+                        let usr_id = document.createElement("tr")
+                        let idtd1 = document.createElement("td")
+                        idtd1.innerHTML = "User_ID"
+                        let idtd2 = document.createElement("td")
+                        idtd2.innerText = `${snapshot.val().User_ID}`
+                        usr_id.append(idtd1,idtd2)
+                        let usr_name = document.createElement("tr")
+                        let idtd3 = document.createElement("td")
+                        idtd3.innerHTML = "User_Name"
+                        let idtd4 = document.createElement("td")
+                        idtd4.innerText = `${snapshot.val().User_Name}`
+                        usr_name.append(idtd3,idtd4)
+                        let usr_device = document.createElement("tr")
+                        let idtd5 = document.createElement("td")
+                        idtd5.innerHTML = "User_Device"
+                        let idtd6 = document.createElement("td")
+                        idtd6.innerText = `${snapshot.val().User_Device}`
+                        usr_device.append(idtd5,idtd6)
+                        let feedback  = document.createElement("tr")
+                        let idtd7 = document.createElement("td")
+                        idtd7.innerHTML = "Feedback"
+                        let idtd8 = document.createElement("td")
+                        idtd8.innerText = `${snapshot.val().Feedback}`
+                        feedback.append(idtd7,idtd8)
                         console.log(usr_name,usr_id,usr_device,feedback)
-                        datas.append(usr_id,usr_name,usr_device,feedback)
+                        datas.append(tr,usr_id,usr_name,usr_device,feedback)
                     })
                 })
             }
