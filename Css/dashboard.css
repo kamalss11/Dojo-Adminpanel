@@ -639,7 +639,7 @@ main .content .double form .btn button{
         margin: 25px 10px;
     }
     
-    main .content .add .pop .pops{
+    main .content .add .pop .pops,main .content .feedback .ffd .datas{
         width: 80%;
     }
 
