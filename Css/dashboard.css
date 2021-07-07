@@ -638,4 +638,12 @@ main .content .double form .btn button{
         flex-basis: 100%;
         margin: 25px 10px;
     }
+    
+    main .content .add .pop .pops{
+        width: 80%;
+    }
+
+    main .content .add .pop .close, main .content .feedback .ffd .close{
+        right: 10%;
+    }
 }
