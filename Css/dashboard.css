@@ -354,18 +354,17 @@ main .content .feedback .ffd .datas{
 main .content .feedback .ffd .datas tr{
     width: 100%;
     word-break: break-all;
-    margin: 20px 0;
     text-align: center;
 }
 
-main .content .feedback .ffd .datas tr td,
-main .content .feedback .ffd .datas tr th{
+main .content .feedback .ffd .datas tr td{
     width: 50%;
-    padding: 20px;
+    padding: 30px;
 }
 
 main .content .feedback .ffd .datas tr td{
     line-height: 27px;
+    border: 1px solid #c7c7c7;
 }
 
 main .content .list{
@@ -661,6 +660,6 @@ main .content .double form .btn button{
     }
 
     main .content .add .pop .close, main .content .feedback .ffd .close{
-        right: 10%;
+        right: 8%;
     }
 }
