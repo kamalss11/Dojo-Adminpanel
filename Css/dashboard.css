@@ -312,6 +312,7 @@ main .content .feedback .fd{
 main .content .feedback .fd li{
     width: 100%;
     padding: 8px;
+    word-break: break-all;
     border: 1px solid #80808047;
     cursor: pointer;
 }
