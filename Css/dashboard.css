@@ -246,19 +246,20 @@ main .content .add .pop.active{
     display: flex;
 }
 
-main .content .add .pop .close{
+main .content .add .pop .close,main .content .feedback .ffd .close{
     cursor: pointer;
     position: absolute;
     right: 5%;
     top: 2%;
 }
 
-main .content .add .pop .close span{
+main .content .add .pop .close span,main .content .feedback .ffd .close span{
     position: relative;
-    display: inline-block
+    display: inline-block;
 }
 
-main .content .add .pop .close span::before,main .content .add .pop .close span::after{
+main .content .add .pop .close span::before,main .content .add .pop .close span::after,
+main .content .feedback .ffd .close span::before,main .content .feedback .ffd .close span::after{
     position: absolute;
     content: "";
     left: 0;
@@ -269,11 +270,11 @@ main .content .add .pop .close span::before,main .content .add .pop .close span:
     display: inline-block;
 }
 
-main .content .add .pop .close span::before{
+main .content .add .pop .close span::before,main .content .feedback .ffd .close span::before{
     transform: rotate(45deg);
 }
 
-main .content .add .pop .close span::after{
+main .content .add .pop .close span::after,main .content .feedback .ffd .close span::after{
     transform: rotate(-45deg);
 }
 
@@ -310,9 +311,43 @@ main .content .feedback .fd{
 
 main .content .feedback .fd li{
     width: 100%;
-    word-break: break-all;
     padding: 8px;
     border: 1px solid #80808047;
+    cursor: pointer;
+}
+
+main .content .feedback .ffd{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: rgba(0,0,0,.7);
+    display: none;
+}
+
+main .content .feedback .ffd.active{
+    display: block;
+}
+
+main .content .feedback .ffd .datas{
+    color: var(--white);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 65%;
+    padding: 25px 15px;
+    background: black;
+    border-radius: 10px;
+    transform: translate(-50%,-50%);
+}
+
+main .content .feedback .ffd .datas li{
+    width: 100%;
+    word-break: break-all;
+    margin: 20px 0;
+    line-height: 28px;
 }
 
 main .content .list{
