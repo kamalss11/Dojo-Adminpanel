@@ -9,11 +9,47 @@ var phone = document.getElementById("phone")
 var experience = document.getElementById("exp")
 var form = document.getElementById("form")
 var sbtn = document.getElementById("sbtn")
-
-var DocId,storageref,img 
+var img = document.getElementById("img")
+var DocId,storageref
 var firestore = firebase.firestore()
-var trainers = firestore.collection("Trainers")
+var studios = firestore.collection("Studios")
 
+price.addEventListener("blur",function(){
+    pr()
+})
+
+function pr(){
+    let ph = /\d[0-9]$/
+    if(price.value){
+        if((!price.value.match(ph))){
+            sbtn.classList.add("active")
+        }
+
+        else{
+            sbtn.classList.remove("active")
+        }
+    }
+}
+
+phone.addEventListener("blur",function(e){
+    console.log(e.target.value.length)
+    ph()
+})
+
+function ph(){
+    let ph = /\d[0-9]{9}$/
+    if(phone.value){
+        if(!phone.value.match(ph)){
+            sbtn.classList.add("active")
+        }
+        else if(phone.value.length > 10){
+            sbtn.classList.add("active")
+        }
+        else{
+            sbtn.classList.remove("active")
+        }
+    }
+}
 
 window.onload = () =>{
     var headers = new Headers();
@@ -167,6 +203,8 @@ city.addEventListener("change",function(e){
 
 sbtn.addEventListener("click",function(e){
     e.preventDefault()
+    pr()
+    ph()
 
     let nameInput = nam.value
     let countryInput = country.value
@@ -176,46 +214,61 @@ sbtn.addEventListener("click",function(e){
     let priceInput = price.value
     let phoneInput = phone.value
     let experienceInput = experience.value
-    img = document.getElementById("img").files[0]
-    var imgName = img.name
-    storageref = firebase.storage().ref()
-    
-    const metadata = {
-        contentType:img.type
+    if(img.value == ""){
+        studios.add({
+            Name: nameInput,
+            Country: countryInput,
+            State: stateInput,
+            City : cityInput,
+            Services: servicesInput,
+            Price: priceInput,
+            Phone : phoneInput,
+            Experience : experienceInput,
+            Timestamp: firebase.firestore.Timestamp.now()
+        }).then((docRef)=>{
+            studios.doc(`${docRef.id}`).update({
+                DocumentId: docRef.id
+            })
+            console.log("Data Saved.This is you id = > ",docRef.id)
+            console.log(nameInput,countryInput,stateInput,cityInput,servicesInput,priceInput,phoneInput,experienceInput)
+            form.reset()
+            window.location.assign("https://adminpanel-dojo.netlify.app/entity")
+        }).catch(function(error){
+            console.log(error)
+        })
     }
 
-    var urls
-    var uploadImg = storageref.child("images").child(imgName)
-    uploadImg.put(img,metadata)
-    .then(snapshot =>{
-        return uploadImg.getDownloadURL()
-        .then(url => {
-            urls = url
-            console.log(urls)
-            trainers.add({
-                Name: nameInput,
-                Country: countryInput,
-                State: stateInput,
-                City : cityInput,
-                Services: servicesInput,
-                Price: priceInput,
-                Phone : phoneInput,
-                Experience : experienceInput,
-                DisplayPicture: urls,
-                Timestamp: firebase.firestore.Timestamp.now()
-            }).then((docRef)=>{
-                trainers.doc(`${docRef.id}`).update({
-                    DocumentId: docRef.id
+    else{uploadImg.put(img,metadata)
+        .then(snapshot =>{
+            return uploadImg.getDownloadURL()
+            .then(url => {
+                urls = url
+                console.log(urls)
+                studios.add({
+                    Name: nameInput,
+                    Country: countryInput,
+                    State: stateInput,
+                    City : cityInput,
+                    Services: servicesInput,
+                    Price: priceInput,
+                    Phone : phoneInput,
+                    Experience : experienceInput,
+                    DisplayPicture: urls,
+                    Timestamp: firebase.firestore.Timestamp.now()
+                }).then((docRef)=>{
+                    studios.doc(`${docRef.id}`).update({
+                        DocumentId: docRef.id
+                    })
+                    console.log("Data Saved.This is you id = > ",docRef.id)
+                    console.log(nameInput,countryInput,stateInput,cityInput,servicesInput,priceInput,phoneInput,experienceInput,imgName)
+                    form.reset()
+                    window.location.assign("https://adminpanel-dojo.netlify.app/entity")
+                }).catch(function(error){
+                    console.log(error)
                 })
-                console.log("Data Saved.This is you id = > ",docRef.id)
-                console.log(nameInput,countryInput,stateInput,cityInput,servicesInput,priceInput,phoneInput,experienceInput,imgName)
-                form.reset()
-                window.location.assign("https://adminpanel-dojo.netlify.app/entity")
-            }).catch(function(error){
-                console.log(error)
             })
+        }).catch(function(error){
+            console.log(error)
         })
-    }).catch(function(error){
-        console.log(error)
-    })
+    }
 })

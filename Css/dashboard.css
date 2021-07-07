@@ -588,6 +588,12 @@ main .content .double form .btn button{
     cursor: pointer;
     color: var(--white);
     border: none;
+    pointer-events: auto;
+}
+
+main .content .double form .btn button.active{
+    pointer-events: none;
+    background-color: rgb(197, 197, 197);
 }
 
 @media(max-width: 900px){
