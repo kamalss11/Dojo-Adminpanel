@@ -59,12 +59,6 @@ window.onload = () =>{
                     console.log(fdli[i].id)
                     dbRef.child(`${fdli[i].id}`).get().then((snapshot) => {
                         console.log(snapshot.val())
-                        let tr = document.createElement("tr")
-                        let th1 = document.createElement("th")
-                        th1.innerText = "Entities"
-                        let th2 = document.createElement("th")
-                        th2.innerText = "Data"
-                        tr.append(th1,th2)
                         let usr_id = document.createElement("tr")
                         let idtd1 = document.createElement("td")
                         idtd1.innerHTML = "User_ID"
@@ -90,7 +84,7 @@ window.onload = () =>{
                         idtd8.innerText = `${snapshot.val().Feedback}`
                         feedback.append(idtd7,idtd8)
                         console.log(usr_name,usr_id,usr_device,feedback)
-                        datas.append(tr,usr_id,usr_name,usr_device,feedback)
+                        datas.append(usr_id,usr_name,usr_device,feedback)
                     })
                 })
             }
