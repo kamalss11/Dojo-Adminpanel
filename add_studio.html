@@ -29,6 +29,62 @@
         main .content .double form{
             flex-basis: 100%;
         }
+
+        .pops{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .pops.active{
+            display: flex;
+        }
+
+        .pops .pop{
+            width: 65%;
+            background-color: rgb(223, 223, 223);
+            border-radius: 10px;
+        }
+
+        .pops .pop table,.pops .pop table tr{
+            width: 100%;
+        }
+
+        .pops .pop table tr td{
+            width: 50%;
+            padding: 20px;
+        }
+
+        .pops .pop div{
+            margin: 25px 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .pops .pop div button{
+            width: 20%;
+            font-size: 15px;
+            padding: 8px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .pops .pop div button:nth-child(1){
+            background-color: black;
+        }
+
+        .pops .pop div button:nth-child(2){
+            background: linear-gradient(60deg, #66bb6a, #43a047);
+        }
     </style>
 </head>
 <body>
@@ -67,6 +123,7 @@
                                 <input type="text" id="name">
                                 <span>Name</span>
                             </label>
+                            <span id="ner"></span>
                         </div>
     
                         <div class="fields">
@@ -101,20 +158,23 @@
                                 <input type="text" id="services">
                                 <span>Services</span>
                             </label>
+                            <span id="ser"></span>
                         </div>
     
                         <div class="fields">
                             <label>
                                 <input type="text" id="price">
-                                <span>Price</span>
+                                <span id="pr">Price</span>
                             </label>
+                            <span id="prer"></span>
                         </div>
     
                         <div class="fields">
                             <label>
                                 <input type="text" id="phone">
-                                <span>Phone</span>
+                                <span id="ph">Phone</span>
                             </label>
+                            <span id="pher"></span>
                         </div>
     
                         <div class="fields">
@@ -135,6 +195,14 @@
                             <button id="sbtn" type="submit">Submit</button>
                         </div>
                     </form>
+
+                    <div class="pops">
+                        <div class="pop">
+                            <table>
+                                
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
