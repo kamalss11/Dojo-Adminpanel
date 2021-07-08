@@ -9,10 +9,10 @@ var phone = document.getElementById("phone")
 var experience = document.getElementById("exp")
 var form = document.getElementById("form")
 var sbtn = document.getElementById("sbtn")
-var img = document.getElementById("img")
-var DocId,storageref
+var DocId,storageref,uploadImg
+var ig = document.getElementById("img")
 var firestore = firebase.firestore()
-var studios = firestore.collection("Studios")
+var studios = firestore.collection("Online")
 
 price.addEventListener("blur",function(){
     pr()
@@ -214,7 +214,7 @@ sbtn.addEventListener("click",function(e){
     let priceInput = price.value
     let phoneInput = phone.value
     let experienceInput = experience.value
-    if(img.value == ""){
+    if(ig.value == ""){
         studios.add({
             Name: nameInput,
             Country: countryInput,
@@ -238,7 +238,15 @@ sbtn.addEventListener("click",function(e){
         })
     }
 
-    else{uploadImg.put(img,metadata)
+    else{
+        storageref = firebase.storage().ref()
+        var img = document.getElementById("img").files[0]
+        var imgname = img.name
+        const metadata = {
+            contentType:img.type
+        }
+        uploadImg = storageref.child("images").child(imgname)
+        uploadImg.put(img,metadata)
         .then(snapshot =>{
             return uploadImg.getDownloadURL()
             .then(url => {
@@ -260,7 +268,7 @@ sbtn.addEventListener("click",function(e){
                         DocumentId: docRef.id
                     })
                     console.log("Data Saved.This is you id = > ",docRef.id)
-                    console.log(nameInput,countryInput,stateInput,cityInput,servicesInput,priceInput,phoneInput,experienceInput,imgName)
+                    console.log(nameInput,countryInput,stateInput,cityInput,servicesInput,priceInput,phoneInput,experienceInput,imgname)
                     form.reset()
                     window.location.assign("https://adminpanel-dojo.netlify.app/entity")
                 }).catch(function(error){
