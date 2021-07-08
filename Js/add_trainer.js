@@ -387,6 +387,9 @@ sbtn.addEventListener("click",function(e){
 
         op1.addEventListener("click",function(){
             pops.classList.remove("active")
+            while(ptble.children.length > 0){
+                ptble.children[0].remove()
+            }
         })
 
         op2.addEventListener("click",function(){
