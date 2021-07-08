@@ -390,6 +390,7 @@ sbtn.addEventListener("click",function(e){
             while(ptble.children.length > 0){
                 ptble.children[0].remove()
             }
+            pop.removeChild(div)
         })
 
         op2.addEventListener("click",function(){
