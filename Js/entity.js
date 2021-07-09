@@ -28,11 +28,15 @@ var fs = document.querySelector("#fs")
 var s,ssel,sta = []
 var fc = document.querySelector("#fc")
 var c,csel
+var ssr = document.querySelector("#ssr")
 
 var fst = document.querySelector("#fst")
 var st,sselt,stat = []
 var fct = document.querySelector("#fct")
 var ct,cselt
+
+var nss = document.querySelector(".ns")
+var ntt = document.querySelector(".nt")
 
 for(let i=0;i<btn.length;i++){
     if(i == 0 || i == 1 || i == 2 || i == 3){
@@ -50,6 +54,11 @@ for(let i=0;i<btn.length;i++){
 
 for(let i=0;i<pricep.length;i++){
     pricep[i].addEventListener("click",function(){
+        for(let j=0;j<pricep.length;j++){
+            if(price[j].classList.contains("active")){
+                price[j].classList.remove("active")
+            }
+        }
         price[i].classList.toggle("active")
     })
 }
@@ -123,7 +132,7 @@ window.onload = () =>{
                 rs.push({id:`${doc.id}`,name:`${doc.data().Name}`,rating:`${doc.data().Rating}`})
             }
 
-            sta.push({id:`${doc.id}`,name:`${doc.data().Name}`,state: `${doc.data().State}`,city: `${doc.data().City}`})
+            sta.push({id:`${doc.id}`,name:`${doc.data().Name}`,state: `${doc.data().State}`,city: `${doc.data().City}`,services: `${doc.data().Services}`})
 
         })
         console.log("Total no of Studios "+count)
@@ -168,7 +177,7 @@ window.onload = () =>{
                 rt.push({id:`${doc.id}`,name:`${doc.data().Name}`,rating:`${doc.data().Rating}`})
             }
 
-            stat.push({id:`${doc.id}`,name:`${doc.data().Name}`,state: `${doc.data().State}`,city: `${doc.data().City}`})
+            stat.push({id:`${doc.id}`,name:`${doc.data().Name}`,state: `${doc.data().State}`,city: `${doc.data().City}`,services: `${doc.data().Services}`})
         })
         console.log("Total no of Trainers "+count)
         edit2 = document.querySelectorAll(".list-2 li button")
@@ -220,10 +229,13 @@ fs.addEventListener("change",function(){
         lis[0].remove()
     }
 
+    let count = 0
+    console.log(count)
     for(let i=0;i<sta.length;i++){
         if(sta[i].state == this.value){
+            ++count
+            console.log(count)
             console.log(sta[i])
-
             let li = document.createElement("li")
             li.textContent = sta[i].name
             li.id = sta[i].id
@@ -243,6 +255,15 @@ fs.addEventListener("change",function(){
             studios_list.append(li)
         }
     }
+
+    if(count == 0){
+        nss.innerHTML = "No Results"
+    }
+
+    else{
+        nss.innerHTML = ""
+    }
+
     edit1 = document.querySelectorAll(".list-1 li button")
     ed1()
     fcity()
@@ -291,10 +312,12 @@ fc.addEventListener("change",function(){
         lis[0].remove()
     }
 
+    let count = 0
+
     for(let i=0;i<sta.length;i++){
         if(sta[i].city == this.value){
             console.log(sta[i])
-
+            ++count
             let li = document.createElement("li")
             li.textContent = sta[i].name
             li.id = sta[i].id
@@ -314,6 +337,14 @@ fc.addEventListener("change",function(){
             studios_list.append(li)
         }
     }
+    if(count == 0){
+        nss.innerHTML = "No Results"
+    }
+
+    else{
+        nss.innerHTML = ""
+    }
+
     edit1 = document.querySelectorAll(".list-1 li button")
     ed1()
 })
@@ -354,10 +385,12 @@ fst.addEventListener("change",function(){
         lis2[0].remove()
     }
 
+    let count = 0
+
     for(let i=0;i<stat.length;i++){
         if(stat[i].state == this.value){
             console.log(stat[i])
-
+            ++count
             let li = document.createElement("li")
             li.textContent = stat[i].name
             li.id = stat[i].id
@@ -376,6 +409,14 @@ fst.addEventListener("change",function(){
             li.append(div)
             trainers_list.append(li)
         }
+    }
+
+    if(count == 0){
+        ntt.innerHTML = "No Results"
+    }
+
+    else{
+        ntt.innerHTML = ""
     }
     edit2 = document.querySelectorAll(".list-2 li button")
     ed2()
@@ -425,10 +466,12 @@ fct.addEventListener("change",function(){
         lis2[0].remove()
     }
 
+    let count = 0
+
     for(let i=0;i<stat.length;i++){
         if(stat[i].city == this.value){
             console.log(stat[i])
-
+            ++count
             let li = document.createElement("li")
             li.textContent = stat[i].name
             li.id = stat[i].id
@@ -448,9 +491,113 @@ fct.addEventListener("change",function(){
             trainers_list.append(li)
         }
     }
+    if(count == 0){
+        ntt.innerHTML = "No Results"
+    }
+
+    else{
+        ntt.innerHTML = ""
+    }
+
     edit2 = document.querySelectorAll(".list-2 li button")
     ed2()
 })
+
+// Services filter studios
+
+ssr.addEventListener("change",function(){    
+    price[1].classList.remove("active")
+    console.log("Services => "+this.value,ssr.options[ssr.selectedIndex].id)
+
+    while(lis.length > 0){
+        lis[0].remove()
+    }
+
+    let count = 0
+
+    for(let i=0;i<sta.length;i++){
+        if(this.value == sta[i].services){
+            console.log(sta[i])
+            ++count
+            let li = document.createElement("li")
+            li.textContent = sta[i].name
+            li.id = sta[i].id
+            li.setAttribute("services",`${sta[i].services}`)
+            let div =  document.createElement("div")
+            let price = document.createElement("span")
+            price.innerHTML = `${sta[i].services}`
+            let button = document.createElement("button")
+            button.id = `${sta[i].id}`
+            button.innerHTML = "Edit"
+            let span = document.createElement("span")
+            span.classList = "material-icons"
+            span.innerHTML = "edit"
+            button.append(span)
+            div.append(price,button)
+            li.append(div)
+            studios_list.append(li)
+        }
+    }
+
+    if(count == 0){
+        nss.innerHTML = "No Results"
+    }
+
+    else{
+        nss.innerHTML = ""
+    }
+    edit1 = document.querySelectorAll(".list-1 li button")
+    ed1()
+})
+
+// Services filter trainers
+
+ssrt.addEventListener("change",function(){    
+    price[3].classList.remove("active")
+    console.log("Services => "+this.value,ssrt.options[ssrt.selectedIndex].id)
+
+    while(lis2.length > 0){
+        lis2[0].remove()
+    }
+
+    let count = 0
+
+    for(let i=0;i<stat.length;i++){
+        if(this.value == stat[i].services){
+            console.log(stat[i])
+            ++count
+            let li = document.createElement("li")
+            li.textContent = stat[i].name
+            li.id = stat[i].id
+            li.setAttribute("services",`${stat[i].services}`)
+            let div =  document.createElement("div")
+            let price = document.createElement("span")
+            price.innerHTML = `${stat[i].services}`
+            let button = document.createElement("button")
+            button.id = `${stat[i].id}`
+            button.innerHTML = "Edit"
+            let span = document.createElement("span")
+            span.classList = "material-icons"
+            span.innerHTML = "edit"
+            button.append(span)
+            div.append(price,button)
+            li.append(div)
+            trainers_list.append(li)
+        }
+    }
+
+    if(count == 0){
+        ntt.innerHTML = "No Results"    
+    }
+    else{
+        ntt.innerHTML = ""
+    }
+
+    edit2 = document.querySelectorAll(".list-2 li button")
+    ed2()
+})
+
+// Edit buttons
 
 function ed1(){
     for(let i = 0;i<edit1.length;i++){

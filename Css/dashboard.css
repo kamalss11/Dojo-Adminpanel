@@ -424,7 +424,7 @@ main .content .list .price div{
     position: absolute;
     left: 0;
     width: 190px;
-    padding: 10px 0;
+    padding: 10px;
     background-color: #eeeeee;
     box-shadow: 0 0 15px rgba(0,0,0,.1);
     display: none;
@@ -440,6 +440,7 @@ main .content .list .price div select{
     margin: 10px 0;
     border-radius: 5px;
     outline: none;
+    background: none;
 }
 
 main .content .studios h3,main .content .trainers h3{
@@ -602,6 +603,10 @@ main .content .double form .btn button{
 main .content .double form .btn button.active{
     pointer-events: none;
     background-color: rgb(197, 197, 197);
+}
+
+.ns,.nt{
+    font-size: 15px;
 }
 
 @media(max-width: 900px){

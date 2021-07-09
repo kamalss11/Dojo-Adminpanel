@@ -294,12 +294,12 @@ city.addEventListener("change",function(e){
     console.log("City => "+this.value,city.options[city.selectedIndex].id)
 })
 
-sbtn.addEventListener("click",function(e){
+sbtn.addEventListener("click",async function(e){
     e.preventDefault()
-    na()
-    pr()
-    ph()
-    sr()
+    await sr()
+    await na()
+    await pr()
+    await ph()
 
     if(sbtn.classList.contains("active")){
         alert("Check the fields are filled or not")
