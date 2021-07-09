@@ -24,6 +24,11 @@ var pricep = document.querySelectorAll(".price p")
 var price = document.querySelectorAll(".price")
 var btn = document.querySelectorAll(".lh")
 
+var fs = document.querySelector("#fs")
+var s,ssel,sta = []
+var fc = document.querySelector("#fc")
+var c,csel,cta = []
+
 for(let i=0;i<btn.length;i++){
     if(i == 0 || i == 1 || i == 2 || i == 3){
         btn[i].addEventListener("click",function(){
@@ -74,6 +79,7 @@ for(let i=0;i<list_tab.length;i++){
 }
 
 window.onload = () =>{
+    fstate()
     window.localStorage.setItem("SDocId",0)
     window.localStorage.setItem("TDocId",0)
     studios.get().then((querySnapShot)=>{
@@ -108,6 +114,9 @@ window.onload = () =>{
             else{
                 rs.push({id:`${doc.id}`,name:`${doc.data().Name}`,rating:`${doc.data().Rating}`})
             }
+
+            sta.push({id:`${doc.id}`,name:`${doc.data().Name}`,state: `${doc.data().State}`,city: `${doc.data().City}`})
+
         })
         console.log("Total no of Studios "+count)
 
@@ -164,6 +173,138 @@ window.onload = () =>{
         ed2()
     })
 }
+
+function fstate(){
+    var headers = new Headers();
+    headers.append("X-CSCAPI-KEY", "bFRJVzhHclkxSHBQTEpDTGZaSER2TmlGUFBZY2k2YUcyRFdTWlhmaQ==");
+
+    var requestOptions = {
+        method: 'GET',
+        headers: headers,
+        redirect: 'follow'
+    };
+    fetch(`https://api.countrystatecity.in/v1/countries/IN/states`, requestOptions)
+    .then(response => response.text())
+    .then(result => {
+        s = JSON.parse(result)
+        console.log(s)
+        s.forEach((st)=>{
+            let option = document.createElement("option")
+            option.id = st.iso2
+            option.value = st.name
+            option.innerHTML = st.name
+            fs.append(option)
+        })
+    })
+    .catch(error => console.log('error', error));
+}
+
+fs.addEventListener("change",function(){
+    price[1].classList.remove("active")
+    console.log("State => "+this.value,fs.options[fs.selectedIndex].id)
+    ssel = fs.options[fs.selectedIndex].id
+
+    while(lis.length > 0){
+        lis[0].remove()
+    }
+
+    for(let i=0;i<sta.length;i++){
+        if(sta[i].state == this.value){
+            console.log(sta[i])
+
+            let li = document.createElement("li")
+            li.textContent = sta[i].name
+            li.id = sta[i].id
+            li.setAttribute("price",`${sta[i].state}`)
+            let div =  document.createElement("div")
+            let price = document.createElement("span")
+            price.innerHTML = `${sta[i].state}`
+            let button = document.createElement("button")
+            button.id = `${sta[i].id}`
+            button.innerHTML = "Edit"
+            let span = document.createElement("span")
+            span.classList = "material-icons"
+            span.innerHTML = "edit"
+            button.append(span)
+            div.append(price,button)
+            li.append(div)
+            studios_list.append(li)
+        }
+    }
+    edit1 = document.querySelectorAll(".list-1 li button")
+    ed1()
+    fcity()
+})
+
+function fcity(){
+    while(fc.children.length > 1){
+        fc.children[1].remove()
+    }
+
+    var headers = new Headers();
+    headers.append("X-CSCAPI-KEY","bFRJVzhHclkxSHBQTEpDTGZaSER2TmlGUFBZY2k2YUcyRFdTWlhmaQ==");
+
+    var requestOptions = {
+        method: 'GET',
+        headers: headers,
+        redirect: 'follow'
+    };
+
+    // Pass Country Code -- Eg: Country Code : IN
+    fetch(`https://api.countrystatecity.in/v1/countries/IN/states/${ssel}/cities`, requestOptions)
+    .then(response => response.text())
+    .then(result => {
+        c = JSON.parse(result)
+        c.forEach((st)=>{
+            let option = document.createElement("option")
+            option.id = st.id
+            option.value = st.name
+            option.innerHTML = st.name
+            fc.append(option)
+        })
+    })
+    .catch(error => console.log('error', error));
+
+    
+    edit1 = document.querySelectorAll(".list-1 li button")
+    ed1()
+}
+
+fc.addEventListener("change",function(){
+    price[1].classList.remove("active")
+    console.log("City => "+this.value,fc.options[fs.selectedIndex].id)
+    ssel = fc.options[fc.selectedIndex].id
+
+    while(lis.length > 0){
+        lis[0].remove()
+    }
+
+    for(let i=0;i<sta.length;i++){
+        if(sta[i].city == this.value){
+            console.log(sta[i])
+
+            let li = document.createElement("li")
+            li.textContent = sta[i].name
+            li.id = sta[i].id
+            li.setAttribute("price",`${sta[i].city}`)
+            let div =  document.createElement("div")
+            let price = document.createElement("span")
+            price.innerHTML = `${sta[i].city}`
+            let button = document.createElement("button")
+            button.id = `${sta[i].id}`
+            button.innerHTML = "Edit"
+            let span = document.createElement("span")
+            span.classList = "material-icons"
+            span.innerHTML = "edit"
+            button.append(span)
+            div.append(price,button)
+            li.append(div)
+            studios_list.append(li)
+        }
+    }
+    edit1 = document.querySelectorAll(".list-1 li button")
+    ed1()
+})
 
 function ed1(){
     for(let i = 0;i<edit1.length;i++){
