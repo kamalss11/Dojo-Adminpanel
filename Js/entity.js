@@ -27,7 +27,12 @@ var btn = document.querySelectorAll(".lh")
 var fs = document.querySelector("#fs")
 var s,ssel,sta = []
 var fc = document.querySelector("#fc")
-var c,csel,cta = []
+var c,csel
+
+var fst = document.querySelector("#fst")
+var st,sselt,stat = []
+var fct = document.querySelector("#fct")
+var ct,cselt
 
 for(let i=0;i<btn.length;i++){
     if(i == 0 || i == 1 || i == 2 || i == 3){
@@ -78,8 +83,11 @@ for(let i=0;i<list_tab.length;i++){
     })
 }
 
+// loading
+
 window.onload = () =>{
     fstate()
+    fstatet()
     window.localStorage.setItem("SDocId",0)
     window.localStorage.setItem("TDocId",0)
     studios.get().then((querySnapShot)=>{
@@ -159,6 +167,8 @@ window.onload = () =>{
             else{
                 rt.push({id:`${doc.id}`,name:`${doc.data().Name}`,rating:`${doc.data().Rating}`})
             }
+
+            stat.push({id:`${doc.id}`,name:`${doc.data().Name}`,state: `${doc.data().State}`,city: `${doc.data().City}`})
         })
         console.log("Total no of Trainers "+count)
         edit2 = document.querySelectorAll(".list-2 li button")
@@ -173,6 +183,8 @@ window.onload = () =>{
         ed2()
     })
 }
+
+// studios filter
 
 function fstate(){
     var headers = new Headers();
@@ -304,6 +316,140 @@ fc.addEventListener("change",function(){
     }
     edit1 = document.querySelectorAll(".list-1 li button")
     ed1()
+})
+
+// studios filter
+
+function fstatet(){
+    var headers = new Headers();
+    headers.append("X-CSCAPI-KEY", "bFRJVzhHclkxSHBQTEpDTGZaSER2TmlGUFBZY2k2YUcyRFdTWlhmaQ==");
+
+    var requestOptions = {
+        method: 'GET',
+        headers: headers,
+        redirect: 'follow'
+    };
+    fetch(`https://api.countrystatecity.in/v1/countries/IN/states`, requestOptions)
+    .then(response => response.text())
+    .then(result => {
+        st = JSON.parse(result)
+        console.log(st)
+        st.forEach((st)=>{
+            let option = document.createElement("option")
+            option.id = st.iso2
+            option.value = st.name
+            option.innerHTML = st.name
+            fst.append(option)
+        })
+    })
+    .catch(error => console.log('error', error));
+}
+
+fst.addEventListener("change",function(){
+    price[3].classList.remove("active")
+    console.log("State => "+this.value,fst.options[fs.selectedIndex].id)
+    sselt = fst.options[fst.selectedIndex].id
+
+    while(lis2.length > 0){
+        lis2[0].remove()
+    }
+
+    for(let i=0;i<stat.length;i++){
+        if(stat[i].state == this.value){
+            console.log(stat[i])
+
+            let li = document.createElement("li")
+            li.textContent = stat[i].name
+            li.id = stat[i].id
+            li.setAttribute("price",`${stat[i].state}`)
+            let div =  document.createElement("div")
+            let price = document.createElement("span")
+            price.innerHTML = `${stat[i].state}`
+            let button = document.createElement("button")
+            button.id = `${stat[i].id}`
+            button.innerHTML = "Edit"
+            let span = document.createElement("span")
+            span.classList = "material-icons"
+            span.innerHTML = "edit"
+            button.append(span)
+            div.append(price,button)
+            li.append(div)
+            trainers_list.append(li)
+        }
+    }
+    edit2 = document.querySelectorAll(".list-2 li button")
+    ed2()
+    fcityt()
+})
+
+function fcityt(){
+    while(fct.children.length > 1){
+        fct.children[1].remove()
+    }
+
+    var headers = new Headers();
+    headers.append("X-CSCAPI-KEY","bFRJVzhHclkxSHBQTEpDTGZaSER2TmlGUFBZY2k2YUcyRFdTWlhmaQ==");
+
+    var requestOptions = {
+        method: 'GET',
+        headers: headers,
+        redirect: 'follow'
+    };
+
+    // Pass Country Code -- Eg: Country Code : IN
+    fetch(`https://api.countrystatecity.in/v1/countries/IN/states/${sselt}/cities`, requestOptions)
+    .then(response => response.text())
+    .then(result => {
+        ct = JSON.parse(result)
+        ct.forEach((st)=>{
+            let option = document.createElement("option")
+            option.id = st.id
+            option.value = st.name
+            option.innerHTML = st.name
+            fct.append(option)
+        })
+    })
+    .catch(error => console.log('error', error));
+
+    
+    edit2 = document.querySelectorAll(".list-2 li button")
+    ed2()
+}
+
+fct.addEventListener("change",function(){
+    price[3].classList.remove("active")
+    console.log("City => "+this.value,fct.options[fct.selectedIndex].id)
+    ssel = fct.options[fct.selectedIndex].id
+
+    while(lis2.length > 0){
+        lis2[0].remove()
+    }
+
+    for(let i=0;i<stat.length;i++){
+        if(stat[i].city == this.value){
+            console.log(stat[i])
+
+            let li = document.createElement("li")
+            li.textContent = stat[i].name
+            li.id = stat[i].id
+            li.setAttribute("price",`${stat[i].city}`)
+            let div =  document.createElement("div")
+            let price = document.createElement("span")
+            price.innerHTML = `${stat[i].city}`
+            let button = document.createElement("button")
+            button.id = `${stat[i].id}`
+            button.innerHTML = "Edit"
+            let span = document.createElement("span")
+            span.classList = "material-icons"
+            span.innerHTML = "edit"
+            button.append(span)
+            div.append(price,button)
+            li.append(div)
+            trainers_list.append(li)
+        }
+    }
+    edit2 = document.querySelectorAll(".list-2 li button")
+    ed2()
 })
 
 function ed1(){
