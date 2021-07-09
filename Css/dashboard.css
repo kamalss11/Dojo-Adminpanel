@@ -434,6 +434,14 @@ main .content .list .price.active div{
     display: block;
 }
 
+main .content .list .price div select{
+    width: 100%;
+    padding: 3px;
+    margin: 10px 0;
+    border-radius: 5px;
+    outline: none;
+}
+
 main .content .studios h3,main .content .trainers h3{
     color: var(--htxt);
     display: flex;
