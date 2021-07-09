@@ -38,6 +38,8 @@ var ct,cselt
 var nss = document.querySelector(".ns")
 var ntt = document.querySelector(".nt")
 
+var gender = document.querySelector("#gender")
+
 for(let i=0;i<btn.length;i++){
     if(i == 0 || i == 1 || i == 2 || i == 3){
         btn[i].addEventListener("click",function(){
@@ -177,7 +179,7 @@ window.onload = () =>{
                 rt.push({id:`${doc.id}`,name:`${doc.data().Name}`,rating:`${doc.data().Rating}`})
             }
 
-            stat.push({id:`${doc.id}`,name:`${doc.data().Name}`,state: `${doc.data().State}`,city: `${doc.data().City}`,services: `${doc.data().Services}`})
+            stat.push({id:`${doc.id}`,name:`${doc.data().Name}`,state: `${doc.data().State}`,city: `${doc.data().City}`,services: `${doc.data().Services}`,gender: `${doc.data().Gender}`})
         })
         console.log("Total no of Trainers "+count)
         edit2 = document.querySelectorAll(".list-2 li button")
@@ -192,6 +194,42 @@ window.onload = () =>{
         ed2()
     })
 }
+
+// trainer filter gender
+
+gender.addEventListener("change",function(){
+    price[3].classList.remove("active")
+    console.log(this.value)
+
+    while(lis2.length > 0){
+        lis2[0].remove()
+    }
+
+    for(let i=0;i<stat.length;i++){
+        if(stat[i].gender == this.value){
+            ++count
+            console.log(count)
+            console.log(stat[i])
+            let li = document.createElement("li")
+            li.textContent = stat[i].name
+            li.id = stat[i].id
+            li.setAttribute("gender",`${stat[i].gender}`)
+            let div =  document.createElement("div")
+            let price = document.createElement("span")
+            price.innerHTML = `${stat[i].gender}`
+            let button = document.createElement("button")
+            button.id = `${stat[i].id}`
+            button.innerHTML = "Edit"
+            let span = document.createElement("span")
+            span.classList = "material-icons"
+            span.innerHTML = "edit"
+            button.append(span)
+            div.append(price,button)
+            li.append(div)
+            trainers_list.append(li)
+        }
+    }
+})
 
 // studios filter
 
