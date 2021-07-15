@@ -34,11 +34,14 @@ var fst = document.querySelector("#fst")
 var st,sselt,stat = []
 var fct = document.querySelector("#fct")
 var ct,cselt
+var ssrt = document.querySelector("#ssrt")
+var gender = document.querySelector("#gender")
 
 var nss = document.querySelector(".ns")
 var ntt = document.querySelector(".nt")
 
-var gender = document.querySelector("#gender")
+var apply = document.getElementById("apply")
+var cancel = document.getElementById("cancel")
 
 for(let i=0;i<btn.length;i++){
     if(i == 0 || i == 1 || i == 2 || i == 3){
@@ -195,41 +198,133 @@ window.onload = () =>{
     })
 }
 
-// trainer filter gender
+// apply for studios
 
-gender.addEventListener("change",function(){
-    price[3].classList.remove("active")
-    console.log(this.value)
+apply.addEventListener("click",function(e){
+    price[1].classList.remove("active")
+    console.log(fs.value,fc.value)
 
-    while(lis2.length > 0){
-        lis2[0].remove()
+    while(lis.length > 0){
+        lis[0].remove()
     }
 
-    for(let i=0;i<stat.length;i++){
-        if(stat[i].gender == this.value){
-            ++count
-            console.log(count)
-            console.log(stat[i])
-            let li = document.createElement("li")
-            li.textContent = stat[i].name
-            li.id = stat[i].id
-            li.setAttribute("gender",`${stat[i].gender}`)
-            let div =  document.createElement("div")
-            let price = document.createElement("span")
-            price.innerHTML = `${stat[i].gender}`
-            let button = document.createElement("button")
-            button.id = `${stat[i].id}`
-            button.innerHTML = "Edit"
-            let span = document.createElement("span")
-            span.classList = "material-icons"
-            span.innerHTML = "edit"
-            button.append(span)
-            div.append(price,button)
-            li.append(div)
-            trainers_list.append(li)
+    if(fs.value=="" && fc.value=="" && ssr.value==""){
+        alert("no select")
+    }
+
+    else if(fs.value && fc.value=="" && ssr.value ==""){
+        alert("only state")
+        let count = 0
+        console.log(count)
+        for(let i=0;i<sta.length;i++){
+            if(sta[i].state == fs.value){
+                ++count
+                console.log(count)
+                ssf(i)
+            }
+        }
+        if(count == 0){
+            nss.innerHTML = "No Results Found"
         }
     }
+    else if(fs.value && fc.value && ssr.value ==""){
+        alert("only state & City")
+        let count = 0
+        console.log(count)
+        for(let i=0;i<sta.length;i++){
+            if(sta[i].state == fs.value && sta[i].city == fc.value){
+                ++count
+                console.log(count)
+                ssf(i)
+            }
+        }
+        if(count == 0){
+            nss.innerHTML = "No Results Found"
+        }
+    }
+    else if(fs.value && fc.value && ssr.value){
+        alert("state City & services")
+        let count = 0
+        console.log(count)
+        for(let i=0;i<sta.length;i++){
+            if(sta[i].state == fs.value && sta[i].city == fc.value && sta[i].services == ssr.value){
+                ++count
+                console.log(count)
+                ssf(i)
+            }
+        }
+        if(count == 0){
+            nss.innerHTML = "No Results Found"
+        }
+    }
+    else if(fs.value=="" && fc.value=="" && ssr.value){
+        alert("services")
+        let count = 0
+        console.log(count)
+        for(let i=0;i<sta.length;i++){
+            if(sta[i].services == ssr.value){
+                ++count
+                console.log(count)
+                ssf(i)
+            }
+        }
+        if(count == 0){
+            nss.innerHTML = "No Results Found"
+        }
+    }
+    else if(fs.value && fc.value=="" && ssr.value){
+        alert("state & services")
+        let count = 0
+        console.log(count)
+        for(let i=0;i<sta.length;i++){
+            if(sta[i].state == fs.value && sta[i].services == ssr.value){
+                ++count
+                console.log(count)
+                ssf(i)
+            }
+        }
+        if(count == 0){
+            nss.innerHTML = "No Results Found"
+        }
+    }
+    else{
+        nss.innerHTML = ""
+    }
 })
+
+// studio filter function
+
+function ssf(n){
+    console.log(sta[n])
+    let li = document.createElement("li")
+    li.textContent = sta[n].name
+    li.id = sta[n].id
+    li.setAttribute("price",`${sta[n].state}`)
+    let div =  document.createElement("div")
+    let price = document.createElement("span")
+    price.innerHTML = `${sta[n].state}`
+    let button = document.createElement("button")
+    button.id = `${sta[n].id}`
+    button.innerHTML = "Edit"
+    let span = document.createElement("span")
+    span.classList = "material-icons"
+    span.innerHTML = "edit"
+    button.append(span)
+    div.append(price,button)
+    li.append(div)
+    studios_list.append(li)
+
+    if(count == 0){
+        nss.innerHTML = "No Results"
+    }
+
+    else{
+        nss.innerHTML = ""
+    }
+
+    edit1 = document.querySelectorAll(".list-1 li button")
+    ed1()
+}
 
 // studios filter
 
@@ -259,51 +354,8 @@ function fstate(){
 }
 
 fs.addEventListener("change",function(){
-    price[1].classList.remove("active")
     console.log("State => "+this.value,fs.options[fs.selectedIndex].id)
     ssel = fs.options[fs.selectedIndex].id
-
-    while(lis.length > 0){
-        lis[0].remove()
-    }
-
-    let count = 0
-    console.log(count)
-    for(let i=0;i<sta.length;i++){
-        if(sta[i].state == this.value){
-            ++count
-            console.log(count)
-            console.log(sta[i])
-            let li = document.createElement("li")
-            li.textContent = sta[i].name
-            li.id = sta[i].id
-            li.setAttribute("price",`${sta[i].state}`)
-            let div =  document.createElement("div")
-            let price = document.createElement("span")
-            price.innerHTML = `${sta[i].state}`
-            let button = document.createElement("button")
-            button.id = `${sta[i].id}`
-            button.innerHTML = "Edit"
-            let span = document.createElement("span")
-            span.classList = "material-icons"
-            span.innerHTML = "edit"
-            button.append(span)
-            div.append(price,button)
-            li.append(div)
-            studios_list.append(li)
-        }
-    }
-
-    if(count == 0){
-        nss.innerHTML = "No Results"
-    }
-
-    else{
-        nss.innerHTML = ""
-    }
-
-    edit1 = document.querySelectorAll(".list-1 li button")
-    ed1()
     fcity()
 })
 
@@ -342,52 +394,234 @@ function fcity(){
 }
 
 fc.addEventListener("change",function(){
-    price[1].classList.remove("active")
     console.log("City => "+this.value,fc.options[fs.selectedIndex].id)
     ssel = fc.options[fc.selectedIndex].id
+})
 
-    while(lis.length > 0){
-        lis[0].remove()
+// trainer filter
+
+var applyt = document.querySelector("#applyt")
+var cancelt = document.querySelector("#cancelt")
+
+// trainer filter gender
+
+gender.addEventListener("change",function(){
+    console.log(this.value)
+})
+
+applyt.addEventListener("click",function(e){
+    price[3].classList.remove("active")
+    console.log(fst.value,fct.value)
+
+    while(lis2.length > 0){
+        lis2[0].remove()
     }
 
-    let count = 0
+    if(fst.value=="" && fct.value=="" && ssrt.value=="" && gender.value==""){
+        alert("no select")
+    }
 
-    for(let i=0;i<sta.length;i++){
-        if(sta[i].city == this.value){
-            console.log(sta[i])
-            ++count
-            let li = document.createElement("li")
-            li.textContent = sta[i].name
-            li.id = sta[i].id
-            li.setAttribute("price",`${sta[i].city}`)
-            let div =  document.createElement("div")
-            let price = document.createElement("span")
-            price.innerHTML = `${sta[i].city}`
-            let button = document.createElement("button")
-            button.id = `${sta[i].id}`
-            button.innerHTML = "Edit"
-            let span = document.createElement("span")
-            span.classList = "material-icons"
-            span.innerHTML = "edit"
-            button.append(span)
-            div.append(price,button)
-            li.append(div)
-            studios_list.append(li)
+    else if(fst.value && fct.value=="" && ssrt.value =="" && gender.value==""){
+        alert("only state")
+        let count = 0
+        console.log(count)
+        for(let i=0;i<stat.length;i++){
+            if(stat[i].state == fst.value){
+                ++count
+                console.log(count)
+                ssft(i)
+            }
+        }
+        if(count == 0){
+            ntt.innerHTML = "No Results Found"
         }
     }
+    else if(fst.value && fct.value && ssrt.value =="" && gender.value==""){
+        alert("only state & City")
+        let count = 0
+        console.log(count)
+        for(let i=0;i<stat.length;i++){
+            if(stat[i].state == fst.value && stat[i].city == fct.value){
+                ++count
+                console.log(count)
+                ssft(i)
+            }
+        }
+        if(count == 0){
+            ntt.innerHTML = "No Results Found"
+        }
+    }
+    else if(fst.value && fct.value && ssrt.value && gender.value){
+        alert("state City services & gender")
+        let count = 0
+        console.log(count)
+        for(let i=0;i<stat.length;i++){
+            if(stat[i].state == fst.value && stat[i].city == fct.value && stat[i].services == ssrt.value &&  stat[i].gender == gender.value){
+                ++count
+                console.log(count)
+                ssft(i)
+            }
+        }
+        if(count == 0){
+            ntt.innerHTML = "No Results Found"
+        }
+    }
+    else if(fst.value=="" && fct.value=="" && ssrt.value && gender.value==""){
+        alert("services")
+        let count = 0
+        console.log(count)
+        for(let i=0;i<stat.length;i++){
+            if(stat[i].services == ssrt.value){
+                ++count
+                console.log(count)
+                ssft(i)
+            }
+        }
+        if(count == 0){
+            ntt.innerHTML = "No Results Found"
+        }
+    }
+    else if(fst.value=="" && fct.value=="" && ssrt.value && gender.value){
+        alert("services & gender")
+        let count = 0
+        console.log(count)
+        for(let i=0;i<stat.length;i++){
+            if(stat[i].services == ssrt.value && stat[i].gender == gender.value){
+                ++count
+                console.log(count)
+                ssft(i)
+            }
+        }
+        if(count == 0){
+            ntt.innerHTML = "No Results Found"
+        }
+    }
+    else if(fst.value=="" && fct.value=="" && ssrt.value=="" && gender.value){
+        alert("gender")
+        let count = 0
+        console.log(count)
+        for(let i=0;i<stat.length;i++){
+            if(stat[i].gender == gender.value){
+                ++count
+                console.log(count)
+                ssft(i)
+            }
+        }
+        if(count == 0){
+            ntt.innerHTML = "No Results Found"
+        }
+    }
+    else if(fst.value && fct.value=="" && ssrt.value=="" && gender.value){
+        alert("state & gender")
+        let count = 0
+        console.log(count)
+        for(let i=0;i<stat.length;i++){
+            if(stat[i].state == fst.value && stat[i].gender == gender.value){
+                ++count
+                console.log(count)
+                ssft(i)
+            }
+        }
+        if(count == 0){
+            ntt.innerHTML = "No Results Found"
+        }
+    }
+    else if(fst.value && fct.value && ssrt.value=="" && gender.value){
+        alert("state city & gender")
+        let count = 0
+        console.log(count)
+        for(let i=0;i<stat.length;i++){
+            if(stat[i].state == fst.value && stat[i].gender == gender.value){
+                ++count
+                console.log(count)
+                ssft(i)
+            }
+        }
+        if(count == 0){
+            ntt.innerHTML = "No Results Found"
+        }
+    }
+    else if(fst.value && fct.value && ssrt.value && gender.value==""){
+        alert("state city & services")
+        let count = 0
+        console.log(count)
+        for(let i=0;i<stat.length;i++){
+            if(stat[i].state == fst.value && stat[i].city == fct.value && stat[i].services == ssrt.value){
+                ++count
+                console.log(count)
+                ssft(i)
+            }
+        }
+        if(count == 0){
+            ntt.innerHTML = "No Results Found"
+        }
+    }
+    else if(fst.value && fct.value=="" && ssrt.value && gender.value==""){
+        alert("state services")
+        let count = 0
+        console.log(count)
+        for(let i=0;i<stat.length;i++){
+            if(stat[i].state == fst.value && stat[i].city == fct.value && stat[i].services == ssrt.value){
+                ++count
+                console.log(count)
+                ssft(i)
+            }
+        }
+        if(count == 0){
+            ntt.innerHTML = "No Results Found"
+        }
+    }
+    else if(fst.value && fct.value=="" && ssrt.value && gender.value){
+        alert("state services & gender")
+        let count = 0
+        console.log(count)
+        for(let i=0;i<stat.length;i++){
+            if(stat[i].state == fst.value && stat[i].services == ssrt.value && stat[i].gender== gender.value){
+                ++count
+                console.log(count)
+                ssft(i)
+            }
+        }
+        if(count == 0){
+            ntt.innerHTML = "No Results Found"
+        }
+    }
+    else{
+        ntt.innerHTML = ""
+    }
+})
+
+function ssft(n){
+    console.log(stat[n])
+    let li = document.createElement("li")
+    li.textContent = stat[n].name
+    li.id = stat[n].id
+    li.setAttribute("price",`${stat[n].state}`)
+    let div =  document.createElement("div")
+    let price = document.createElement("span")
+    price.innerHTML = `${stat[n].state}`
+    let button = document.createElement("button")
+    button.id = `${stat[n].id}`
+    button.innerHTML = "Edit"
+    let span = document.createElement("span")
+    span.classList = "material-icons"
+    span.innerHTML = "edit"
+    button.append(span)
+    div.append(price,button)
+    li.append(div)
+    trainers_list.append(li)
+
     if(count == 0){
-        nss.innerHTML = "No Results"
+        ntt.innerHTML = "No Results"
     }
 
     else{
-        nss.innerHTML = ""
+        ntt.innerHTML = ""
     }
 
-    edit1 = document.querySelectorAll(".list-1 li button")
-    ed1()
-})
-
-// studios filter
+    edit2 = document.querySelectorAll(".list-2 li button")
+    ed2()
+}
 
 function fstatet(){
     var headers = new Headers();
@@ -415,49 +649,8 @@ function fstatet(){
 }
 
 fst.addEventListener("change",function(){
-    price[3].classList.remove("active")
     console.log("State => "+this.value,fst.options[fs.selectedIndex].id)
     sselt = fst.options[fst.selectedIndex].id
-
-    while(lis2.length > 0){
-        lis2[0].remove()
-    }
-
-    let count = 0
-
-    for(let i=0;i<stat.length;i++){
-        if(stat[i].state == this.value){
-            console.log(stat[i])
-            ++count
-            let li = document.createElement("li")
-            li.textContent = stat[i].name
-            li.id = stat[i].id
-            li.setAttribute("price",`${stat[i].state}`)
-            let div =  document.createElement("div")
-            let price = document.createElement("span")
-            price.innerHTML = `${stat[i].state}`
-            let button = document.createElement("button")
-            button.id = `${stat[i].id}`
-            button.innerHTML = "Edit"
-            let span = document.createElement("span")
-            span.classList = "material-icons"
-            span.innerHTML = "edit"
-            button.append(span)
-            div.append(price,button)
-            li.append(div)
-            trainers_list.append(li)
-        }
-    }
-
-    if(count == 0){
-        ntt.innerHTML = "No Results"
-    }
-
-    else{
-        ntt.innerHTML = ""
-    }
-    edit2 = document.querySelectorAll(".list-2 li button")
-    ed2()
     fcityt()
 })
 
@@ -496,143 +689,20 @@ function fcityt(){
 }
 
 fct.addEventListener("change",function(){
-    price[3].classList.remove("active")
     console.log("City => "+this.value,fct.options[fct.selectedIndex].id)
     ssel = fct.options[fct.selectedIndex].id
-
-    while(lis2.length > 0){
-        lis2[0].remove()
-    }
-
-    let count = 0
-
-    for(let i=0;i<stat.length;i++){
-        if(stat[i].city == this.value){
-            console.log(stat[i])
-            ++count
-            let li = document.createElement("li")
-            li.textContent = stat[i].name
-            li.id = stat[i].id
-            li.setAttribute("price",`${stat[i].city}`)
-            let div =  document.createElement("div")
-            let price = document.createElement("span")
-            price.innerHTML = `${stat[i].city}`
-            let button = document.createElement("button")
-            button.id = `${stat[i].id}`
-            button.innerHTML = "Edit"
-            let span = document.createElement("span")
-            span.classList = "material-icons"
-            span.innerHTML = "edit"
-            button.append(span)
-            div.append(price,button)
-            li.append(div)
-            trainers_list.append(li)
-        }
-    }
-    if(count == 0){
-        ntt.innerHTML = "No Results"
-    }
-
-    else{
-        ntt.innerHTML = ""
-    }
-
-    edit2 = document.querySelectorAll(".list-2 li button")
-    ed2()
 })
 
 // Services filter studios
 
 ssr.addEventListener("change",function(){    
-    price[1].classList.remove("active")
     console.log("Services => "+this.value,ssr.options[ssr.selectedIndex].id)
-
-    while(lis.length > 0){
-        lis[0].remove()
-    }
-
-    let count = 0
-
-    for(let i=0;i<sta.length;i++){
-        if(this.value == sta[i].services){
-            console.log(sta[i])
-            ++count
-            let li = document.createElement("li")
-            li.textContent = sta[i].name
-            li.id = sta[i].id
-            li.setAttribute("services",`${sta[i].services}`)
-            let div =  document.createElement("div")
-            let price = document.createElement("span")
-            price.innerHTML = `${sta[i].services}`
-            let button = document.createElement("button")
-            button.id = `${sta[i].id}`
-            button.innerHTML = "Edit"
-            let span = document.createElement("span")
-            span.classList = "material-icons"
-            span.innerHTML = "edit"
-            button.append(span)
-            div.append(price,button)
-            li.append(div)
-            studios_list.append(li)
-        }
-    }
-
-    if(count == 0){
-        nss.innerHTML = "No Results"
-    }
-
-    else{
-        nss.innerHTML = ""
-    }
-    edit1 = document.querySelectorAll(".list-1 li button")
-    ed1()
 })
 
 // Services filter trainers
 
 ssrt.addEventListener("change",function(){    
-    price[3].classList.remove("active")
     console.log("Services => "+this.value,ssrt.options[ssrt.selectedIndex].id)
-
-    while(lis2.length > 0){
-        lis2[0].remove()
-    }
-
-    let count = 0
-
-    for(let i=0;i<stat.length;i++){
-        if(this.value == stat[i].services){
-            console.log(stat[i])
-            ++count
-            let li = document.createElement("li")
-            li.textContent = stat[i].name
-            li.id = stat[i].id
-            li.setAttribute("services",`${stat[i].services}`)
-            let div =  document.createElement("div")
-            let price = document.createElement("span")
-            price.innerHTML = `${stat[i].services}`
-            let button = document.createElement("button")
-            button.id = `${stat[i].id}`
-            button.innerHTML = "Edit"
-            let span = document.createElement("span")
-            span.classList = "material-icons"
-            span.innerHTML = "edit"
-            button.append(span)
-            div.append(price,button)
-            li.append(div)
-            trainers_list.append(li)
-        }
-    }
-
-    if(count == 0){
-        ntt.innerHTML = "No Results"    
-    }
-    else{
-        ntt.innerHTML = ""
-    }
-
-    edit2 = document.querySelectorAll(".list-2 li button")
-    ed2()
 })
 
 // Edit buttons

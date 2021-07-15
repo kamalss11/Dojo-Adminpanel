@@ -443,6 +443,20 @@ main .content .list .price div select{
     background: none;
 }
 
+main .content .list .price div button{
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 5px;
+    color: white;
+}
+
+main .content .list .price div button#apply.active{
+    pointer-events: none;
+}
+
 main .content .studios h3,main .content .trainers h3{
     color: var(--htxt);
     display: flex;
