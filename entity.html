@@ -76,39 +76,48 @@
                         <input id="ss" type="text" placeholder="Search by Studio's name" onkeyup="searchstudios()" onkeydown="ss()"> <span id="close" onclick="rm()" class="material-icons">close</span>
                     </div>
                     <p id="no">No results to your search</p>
-                    <div class="price">
-                        <p><b>Sort by</b></p>
+
+                    <div style="display: flex; justify-content: space-between;" id="sp">
                         <div>
-                            <button class="lh" onclick="lths()">Price - Low to High</button><br>
-                            <button class="lh" onclick="htls()">Price - High to Low</button><br>
-                            <button class="lh" onclick="rlhs()">Rating - Low to High</button><br>
-                            <button class="lh" onclick="rhls()">Rating - High to Low</button>
+                            <div class="price">
+                                <p><b>Sort by</b></p>
+                                <div>
+                                    <button class="lh" onclick="lths()">Price - Low to High</button><br>
+                                    <button class="lh" onclick="htls()">Price - High to Low</button><br>
+                                    <button class="lh" onclick="rlhs()">Rating - Low to High</button><br>
+                                    <button class="lh" onclick="rhls()">Rating - High to Low</button>
+                                </div>
+                            </div>
+        
+                            <div class="price" style="display: inline-block;">
+                                <p><b>Filter by</b></p>
+                                <div>
+                                    <select id="fs">
+                                        <option value="">--All States--</option>
+                                    </select>
+                                    <br>
+                                    <select id="fc">
+                                        <option value="">--City--</option>
+                                    </select>
+        
+                                    <select id="ssr">
+                                        <option value="">--Services--</option>
+                                        <option value="Yoga">Yoga</option>
+                                        <option value="Fitness">Fitness</option>
+                                        <option value="Zumba">Zumba</option>
+                                        <option value="Dance">Dance</option>
+                                        <option value="Aerobics">Aerobics</option>
+                                    </select>
+        
+                                    <button style="background-color: #e81919;" id="apply">Apply</button>
+                                    <button style="background-color: #cecececc;" id="cancel">Cancel</button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="price" style="display: inline-block;">
-                        <p><b>Filter by</b></p>
-                        <div>
-                            <select id="fs">
-                                <option value="">--All States--</option>
-                            </select>
-                            <br>
-                            <select id="fc">
-                                <option value="">--City--</option>
-                            </select>
+                        <span id="scnt">
 
-                            <select id="ssr">
-                                <option value="">--Services--</option>
-                                <option value="Yoga">Yoga</option>
-                                <option value="Fitness">Fitness</option>
-                                <option value="Zumba">Zumba</option>
-                                <option value="Dance">Dance</option>
-                                <option value="Aerobics">Aerobics</option>
-                            </select>
-
-                            <button style="background-color: #e81919;" id="apply">Apply</button>
-                            <button style="background-color: #cecececc;" id="cancel">Cancel</button>
-                        </div>
+                        </span>
                     </div>
 
                     <ul class="lists list-1">
@@ -124,45 +133,54 @@
                         <input id="st" type="text" placeholder="Search by Trainer's name" onkeyup="searchtrainers()" onkeydown="st()"> <span id="close2" onclick="rm2()" class="material-icons">close</span>
                     </div>
                     <p id="no-2">No results to your search</p>
-                    <div class="price">
-                        <p><b>Sort by</b></p>
+
+                    <div style="display: flex; justify-content: space-between;">
                         <div>
-                            <button class="lh" onclick="ltht()">Price - Low to High</button><br>
-                            <button class="lh" onclick="htlt()">Price - High to Low</button><br>
-                            <button class="lh" onclick="rlht()">Rating - Low to High</button><br>
-                            <button class="lh" onclick="rhlt()">Rating - High to Low</button>
+                            <div class="price">
+                                <p><b>Sort by</b></p>
+                                <div>
+                                    <button class="lh" onclick="ltht()">Price - Low to High</button><br>
+                                    <button class="lh" onclick="htlt()">Price - High to Low</button><br>
+                                    <button class="lh" onclick="rlht()">Rating - Low to High</button><br>
+                                    <button class="lh" onclick="rhlt()">Rating - High to Low</button>
+                                </div>
+                            </div>
+        
+                            <div class="price" style="display: inline-block;">
+                                <p><b>Filter by</b></p>
+                                <div>
+                                    <select id="fst">
+                                        <option value="">--State--</option>
+                                    </select>
+                                    <br>
+                                    <select id="fct">
+                                        <option value="">--City--</option>
+                                    </select>
+                                    
+                                    <select id="ssrt">
+                                        <option value="">--Services--</option>
+                                        <option value="Yoga">Yoga</option>
+                                        <option value="Fitness">Fitness</option>
+                                        <option value="Zumba">Zumba</option>
+                                        <option value="Dance">Dance</option>
+                                        <option value="Aerobics">Aerobics</option>
+                                    </select>
+        
+                                    <select id="gender">
+                                        <option value="">--Gender--</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+        
+                                    <button style="background-color: #e81919;" id="applyt">Apply</button>
+                                    <button style="background-color: #cecececc;" id="cancelt">Cancel</button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="price" style="display: inline-block;">
-                        <p><b>Filter by</b></p>
-                        <div>
-                            <select id="fst">
-                                <option value="">--State--</option>
-                            </select>
-                            <br>
-                            <select id="fct">
-                                <option value="">--City--</option>
-                            </select>
-                            
-                            <select id="ssrt">
-                                <option value="">--Services--</option>
-                                <option value="Yoga">Yoga</option>
-                                <option value="Fitness">Fitness</option>
-                                <option value="Zumba">Zumba</option>
-                                <option value="Dance">Dance</option>
-                                <option value="Aerobics">Aerobics</option>
-                            </select>
+                        <span id="tcnt">
 
-                            <select id="gender">
-                                <option value="">--Gender--</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                            </select>
-
-                            <button style="background-color: #e81919;" id="applyt">Apply</button>
-                            <button style="background-color: #cecececc;" id="cancelt">Cancel</button>
-                        </div>
+                        </span>
                     </div>
 
                     <ul class="lists list-2">

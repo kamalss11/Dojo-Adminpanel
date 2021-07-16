@@ -199,21 +199,24 @@ window.onload = () =>{
 }
 
 // apply for studios
+var scnt = document.querySelector("#scnt");
 
 apply.addEventListener("click",function(e){
     price[1].classList.remove("active")
     console.log(fs.value,fc.value)
 
-    while(lis.length > 0){
-        lis[0].remove()
-    }
-
     if(fs.value=="" && fc.value=="" && ssr.value==""){
         alert("no select")
+        scnt.innerHTML = ``
     }
 
     else if(fs.value && fc.value=="" && ssr.value ==""){
         alert("only state")
+
+        while(lis.length > 0){
+            lis[0].remove()
+        }
+
         let count = 0
         console.log(count)
         for(let i=0;i<sta.length;i++){
@@ -225,10 +228,19 @@ apply.addEventListener("click",function(e){
         }
         if(count == 0){
             nss.innerHTML = "No Results Found"
+            spp(count)
+        }
+        else{
+            spp(count)
         }
     }
     else if(fs.value && fc.value && ssr.value ==""){
         alert("only state & City")
+        
+        while(lis.length > 0){
+            lis[0].remove()
+        }
+
         let count = 0
         console.log(count)
         for(let i=0;i<sta.length;i++){
@@ -240,10 +252,18 @@ apply.addEventListener("click",function(e){
         }
         if(count == 0){
             nss.innerHTML = "No Results Found"
+            spp(count)
+        }
+        else{
+            spp(count)
         }
     }
     else if(fs.value && fc.value && ssr.value){
         alert("state City & services")
+
+        while(lis.length > 0){
+            lis[0].remove()
+        }
         let count = 0
         console.log(count)
         for(let i=0;i<sta.length;i++){
@@ -255,10 +275,18 @@ apply.addEventListener("click",function(e){
         }
         if(count == 0){
             nss.innerHTML = "No Results Found"
+            spp(count)
+        }
+        else{
+            spp(count)
         }
     }
     else if(fs.value=="" && fc.value=="" && ssr.value){
         alert("services")
+
+        while(lis.length > 0){
+            lis[0].remove()
+        }
         let count = 0
         console.log(count)
         for(let i=0;i<sta.length;i++){
@@ -270,10 +298,17 @@ apply.addEventListener("click",function(e){
         }
         if(count == 0){
             nss.innerHTML = "No Results Found"
+            spp(count)
+        }
+        else{
+            spp(count)
         }
     }
     else if(fs.value && fc.value=="" && ssr.value){
         alert("state & services")
+        while(lis.length > 0){
+            lis[0].remove()
+        }
         let count = 0
         console.log(count)
         for(let i=0;i<sta.length;i++){
@@ -285,11 +320,25 @@ apply.addEventListener("click",function(e){
         }
         if(count == 0){
             nss.innerHTML = "No Results Found"
+            spp(count)
+        }
+        else{
+            spp(count)
         }
     }
     else{
         nss.innerHTML = ""
     }
+})
+
+function spp(count){
+    scnt.innerHTML = `No.of Counts : ${count}`
+}
+
+// cancel
+
+cancel.addEventListener("click",function(){
+    price[1].classList.remove("active")
 })
 
 // studio filter function
@@ -409,20 +458,23 @@ gender.addEventListener("change",function(){
     console.log(this.value)
 })
 
+var tcnt = document.querySelector("#tcnt");
+
 applyt.addEventListener("click",function(e){
     price[3].classList.remove("active")
     console.log(fst.value,fct.value)
 
-    while(lis2.length > 0){
-        lis2[0].remove()
-    }
-
     if(fst.value=="" && fct.value=="" && ssrt.value=="" && gender.value==""){
         alert("no select")
+        tcnt.innerHTML = ""
     }
 
     else if(fst.value && fct.value=="" && ssrt.value =="" && gender.value==""){
         alert("only state")
+    
+        while(lis2.length > 0){
+            lis2[0].remove()
+        }
         let count = 0
         console.log(count)
         for(let i=0;i<stat.length;i++){
@@ -434,10 +486,17 @@ applyt.addEventListener("click",function(e){
         }
         if(count == 0){
             ntt.innerHTML = "No Results Found"
+            tpp(count)
+        }
+        else{
+            tpp(count)
         }
     }
     else if(fst.value && fct.value && ssrt.value =="" && gender.value==""){
         alert("only state & City")
+        while(lis2.length > 0){
+            lis2[0].remove()
+        }
         let count = 0
         console.log(count)
         for(let i=0;i<stat.length;i++){
@@ -449,10 +508,17 @@ applyt.addEventListener("click",function(e){
         }
         if(count == 0){
             ntt.innerHTML = "No Results Found"
+            tpp(count)
+        }
+        else{
+            tpp(count)
         }
     }
     else if(fst.value && fct.value && ssrt.value && gender.value){
         alert("state City services & gender")
+        while(lis2.length > 0){
+            lis2[0].remove()
+        }
         let count = 0
         console.log(count)
         for(let i=0;i<stat.length;i++){
@@ -464,10 +530,17 @@ applyt.addEventListener("click",function(e){
         }
         if(count == 0){
             ntt.innerHTML = "No Results Found"
+            tpp(count)
+        }
+        else{
+            tpp(count)
         }
     }
     else if(fst.value=="" && fct.value=="" && ssrt.value && gender.value==""){
         alert("services")
+        while(lis2.length > 0){
+            lis2[0].remove()
+        }
         let count = 0
         console.log(count)
         for(let i=0;i<stat.length;i++){
@@ -479,10 +552,17 @@ applyt.addEventListener("click",function(e){
         }
         if(count == 0){
             ntt.innerHTML = "No Results Found"
+            tpp(count)
+        }
+        else{
+            tpp(count)
         }
     }
     else if(fst.value=="" && fct.value=="" && ssrt.value && gender.value){
         alert("services & gender")
+        while(lis2.length > 0){
+            lis2[0].remove()
+        }
         let count = 0
         console.log(count)
         for(let i=0;i<stat.length;i++){
@@ -494,10 +574,17 @@ applyt.addEventListener("click",function(e){
         }
         if(count == 0){
             ntt.innerHTML = "No Results Found"
+            tpp(count)
+        }
+        else{
+            tpp(count)
         }
     }
     else if(fst.value=="" && fct.value=="" && ssrt.value=="" && gender.value){
         alert("gender")
+        while(lis2.length > 0){
+            lis2[0].remove()
+        }
         let count = 0
         console.log(count)
         for(let i=0;i<stat.length;i++){
@@ -509,10 +596,17 @@ applyt.addEventListener("click",function(e){
         }
         if(count == 0){
             ntt.innerHTML = "No Results Found"
+            tpp(count)
+        }
+        else{
+            tpp(count)
         }
     }
     else if(fst.value && fct.value=="" && ssrt.value=="" && gender.value){
         alert("state & gender")
+        while(lis2.length > 0){
+            lis2[0].remove()
+        }
         let count = 0
         console.log(count)
         for(let i=0;i<stat.length;i++){
@@ -524,10 +618,17 @@ applyt.addEventListener("click",function(e){
         }
         if(count == 0){
             ntt.innerHTML = "No Results Found"
+            tpp(count)
+        }
+        else{
+            tpp(count)
         }
     }
     else if(fst.value && fct.value && ssrt.value=="" && gender.value){
         alert("state city & gender")
+        while(lis2.length > 0){
+            lis2[0].remove()
+        }
         let count = 0
         console.log(count)
         for(let i=0;i<stat.length;i++){
@@ -539,10 +640,17 @@ applyt.addEventListener("click",function(e){
         }
         if(count == 0){
             ntt.innerHTML = "No Results Found"
+            tpp(count)
+        }
+        else{
+            tpp(count)
         }
     }
     else if(fst.value && fct.value && ssrt.value && gender.value==""){
         alert("state city & services")
+        while(lis2.length > 0){
+            lis2[0].remove()
+        }
         let count = 0
         console.log(count)
         for(let i=0;i<stat.length;i++){
@@ -554,10 +662,17 @@ applyt.addEventListener("click",function(e){
         }
         if(count == 0){
             ntt.innerHTML = "No Results Found"
+            tpp(count)
+        }
+        else{
+            tpp(count)
         }
     }
     else if(fst.value && fct.value=="" && ssrt.value && gender.value==""){
         alert("state services")
+        while(lis2.length > 0){
+            lis2[0].remove()
+        }
         let count = 0
         console.log(count)
         for(let i=0;i<stat.length;i++){
@@ -569,10 +684,17 @@ applyt.addEventListener("click",function(e){
         }
         if(count == 0){
             ntt.innerHTML = "No Results Found"
+            tpp(count)
+        }
+        else{
+            tpp(count)
         }
     }
     else if(fst.value && fct.value=="" && ssrt.value && gender.value){
         alert("state services & gender")
+        while(lis2.length > 0){
+            lis2[0].remove()
+        }
         let count = 0
         console.log(count)
         for(let i=0;i<stat.length;i++){
@@ -584,12 +706,30 @@ applyt.addEventListener("click",function(e){
         }
         if(count == 0){
             ntt.innerHTML = "No Results Found"
+            tpp(count)
+        }
+        else{
+            tpp(count)
         }
     }
     else{
         ntt.innerHTML = ""
     }
 })
+
+// trainer counts
+
+function tpp(count){
+    tcnt.innerHTML = `No.of Counts : ${count}`
+}
+
+// cancelt
+
+cancelt.addEventListener("click",function(){
+    price[3].classList.remove("active")
+})
+
+// trainer filter elements
 
 function ssft(n){
     console.log(stat[n])
