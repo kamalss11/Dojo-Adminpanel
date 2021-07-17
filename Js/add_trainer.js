@@ -1,10 +1,13 @@
 var co = [],s = [],c = [],csel,ssel
 var nam = document.getElementById("name")
+var gender = document.getElementById("gender")
+var lan = document.getElementById("lan");
 var country = document.getElementById("con")
 var state = document.getElementById("state")
 var city = document.getElementById("city")
 var services = document.getElementById("services")
 var price = document.getElementById("price")
+var rating = document.getElementById("rating")
 var phone = document.getElementById("phone")
 var experience = document.getElementById("exp")
 var form = document.getElementById("form")
@@ -98,7 +101,7 @@ function ph(){
             pher.style.color = "red"
 
         }
-        else if(phone.value.length > 10){
+        else if(phone.value.length > 13){
             sbtn.classList.add("active")
             phone.style.borderColor = "red"
             pher.innerHTML = "Enter only 10 digits"
@@ -371,6 +374,27 @@ sbtn.addEventListener("click",function(e){
         td16.innerHTML = experienceInput
         tr8.append(td15,td16)
 
+        let tr9 = document.createElement("tr")
+        let td17 = document.createElement("td")
+        let td18 = document.createElement("td")
+        td17.innerHTML = "Gender"
+        td18.innerHTML = gender.value
+        tr9.append(td17,td18)
+
+        let tr10 = document.createElement("tr")
+        let td19 = document.createElement("td")
+        let td20 = document.createElement("td")
+        td19.innerHTML = "Language"
+        td20.innerHTML = lan.value
+        tr10.append(td19,td20)
+
+        let tr11 = document.createElement("tr")
+        let td21 = document.createElement("td")
+        let td22 = document.createElement("td")
+        td21.innerHTML = "Rating"
+        td22.innerHTML = rating.value
+        tr11.append(td21,td22)
+
         var div = document.createElement("div")
         div.classList.add("options")
         var op1 = document.createElement("button")
@@ -380,7 +404,7 @@ sbtn.addEventListener("click",function(e){
 
         div.append(op1,op2)
 
-        ptble.append(tr1,tr2,tr3,tr4,tr5,tr6,tr7,tr8)
+        ptble.append(tr1,tr9,tr10,tr2,tr3,tr4,tr5,tr6,tr11,tr7,tr8)
         pop.append(div)
             
         pops.classList.add("active")
@@ -397,11 +421,14 @@ sbtn.addEventListener("click",function(e){
             if(ig.value == ""){
                 studios.add({
                     Name: nameInput,
+                    Gender: gender.value,
+                    Language: lan.value,
                     Country: countryInput,
                     State: stateInput,
                     City : cityInput,
                     Services: servicesInput,
                     Price: priceInput,
+                    Rating: rating.value,
                     Phone : phoneInput,
                     Experience : experienceInput,
                     Timestamp: firebase.firestore.Timestamp.now()
@@ -434,11 +461,14 @@ sbtn.addEventListener("click",function(e){
                         console.log(urls)
                         studios.add({
                             Name: nameInput,
+                            Gender: gender.value,
+                            Language: lan.value,
                             Country: countryInput,
                             State: stateInput,
                             City : cityInput,
                             Services: servicesInput,
                             Price: priceInput,
+                            Rating: rating.value,
                             Phone : phoneInput,
                             Experience : experienceInput,
                             DisplayPicture: urls,

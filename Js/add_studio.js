@@ -4,6 +4,8 @@ var country = document.getElementById("con")
 var state = document.getElementById("state")
 var city = document.getElementById("city")
 var services = document.getElementById("services")
+var category = document.getElementById("category")
+var stats = document.getElementById("stats")
 var price = document.getElementById("price")
 var phone = document.getElementById("phone")
 var experience = document.getElementById("exp")
@@ -98,7 +100,7 @@ function ph(){
             pher.style.color = "red"
 
         }
-        else if(phone.value.length > 10){
+        else if(phone.value.length > 13){
             sbtn.classList.add("active")
             phone.style.borderColor = "red"
             pher.innerHTML = "Enter only 10 digits"
@@ -311,6 +313,8 @@ sbtn.addEventListener("click",async function(e){
         let stateInput = state.value
         let cityInput = city.value
         let servicesInput = services.value
+        let categoryInput = category.value
+        let statusInput = stats.value
         let priceInput = price.value
         let phoneInput = phone.value
         let experienceInput = experience.value
@@ -371,6 +375,20 @@ sbtn.addEventListener("click",async function(e){
         td16.innerHTML = experienceInput
         tr8.append(td15,td16)
 
+        let tr9 = document.createElement("tr")
+        let td17 = document.createElement("td")
+        let td18 = document.createElement("td")
+        td17.innerHTML = "Category"
+        td18.innerHTML = categoryInput
+        tr9.append(td17,td18)
+
+        let tr10 = document.createElement("tr")
+        let td19 = document.createElement("td")
+        let td20 = document.createElement("td")
+        td19.innerHTML = "Status"
+        td20.innerHTML = statusInput
+        tr10.append(td19,td20)
+
         var div = document.createElement("div")
         div.classList.add("options")
         var op1 = document.createElement("button")
@@ -380,7 +398,7 @@ sbtn.addEventListener("click",async function(e){
 
         div.append(op1,op2)
 
-        ptble.append(tr1,tr2,tr3,tr4,tr5,tr6,tr7,tr8)
+        ptble.append(tr1,tr2,tr3,tr4,tr5,tr9,tr10,tr6,tr7,tr8)
         pop.append(div)
             
         pops.classList.add("active")
@@ -401,6 +419,8 @@ sbtn.addEventListener("click",async function(e){
                     State: stateInput,
                     City : cityInput,
                     Services: servicesInput,
+                    Category: category.value,
+                    Status: stats.value,
                     Price: priceInput,
                     Phone : phoneInput,
                     Experience : experienceInput,
@@ -438,6 +458,8 @@ sbtn.addEventListener("click",async function(e){
                             State: stateInput,
                             City : cityInput,
                             Services: servicesInput,
+                            Category: category.value,
+                            Status: stats.value,
                             Price: priceInput,
                             Phone : phoneInput,
                             Experience : experienceInput,

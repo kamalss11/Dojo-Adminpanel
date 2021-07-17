@@ -580,7 +580,8 @@ main .content .double form .fields label input:focus{
 main .content .double form .fields label input:valid + span,
 main .content .double form .fields label input:focus + span,
 main .content .double form .fields label select:focus + span,
-main .content .double form .fields label select:valid + span{
+main .content .double form .fields label select:valid + span,
+main .content .double form .fields label span#ca{
     top: 0;
     left: 15px;
     font-size: 13px;
