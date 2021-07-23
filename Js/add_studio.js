@@ -6,6 +6,7 @@ var city = document.getElementById("city")
 var services = document.getElementById("services")
 var category = document.getElementById("category")
 var stats = document.getElementById("stats")
+var rat = document.getElementById("rat");
 var price = document.getElementById("price")
 var phone = document.getElementById("phone")
 var experience = document.getElementById("exp")
@@ -315,6 +316,7 @@ sbtn.addEventListener("click",async function(e){
         let servicesInput = services.value
         let categoryInput = category.value
         let statusInput = stats.value
+        let ratingInput = rat.value
         let priceInput = price.value
         let phoneInput = phone.value
         let experienceInput = experience.value
@@ -389,6 +391,13 @@ sbtn.addEventListener("click",async function(e){
         td20.innerHTML = statusInput
         tr10.append(td19,td20)
 
+        let tr11 = document.createElement("tr")
+        let td21 = document.createElement("td")
+        let td22 = document.createElement("td")
+        td21.innerHTML = "Rating"
+        td22.innerHTML = ratingInput
+        tr11.append(td21,td22)
+
         var div = document.createElement("div")
         div.classList.add("options")
         var op1 = document.createElement("button")
@@ -398,7 +407,7 @@ sbtn.addEventListener("click",async function(e){
 
         div.append(op1,op2)
 
-        ptble.append(tr1,tr2,tr3,tr4,tr5,tr9,tr10,tr6,tr7,tr8)
+        ptble.append(tr1,tr2,tr3,tr4,tr5,tr9,tr10,tr11,tr6,tr7,tr8)
         pop.append(div)
             
         pops.classList.add("active")
