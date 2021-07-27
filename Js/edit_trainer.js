@@ -71,6 +71,7 @@ sbtn.addEventListener("click",function(e){
         console.log("Data Saved.This is you id = > ",DocId)
         alert("Your data has been updated")
         form.reset()
+        window.localStorage.setItem("td",1)
         window.localStorage.setItem("TDocId",0)
         window.location.assign("https://adminpanel-dojo.netlify.app/entity")
     }).catch(function(error){
