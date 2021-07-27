@@ -198,8 +198,8 @@ window.onload = () =>{
     })
 
     if(window.localStorage.getItem("td") == 1){
-        list_tab[0].classList.remove("active")
-        list_tab[1].classList.add("active")
+        list[0].classList.remove("active")
+        list[1].classList.add("active")
     }
 
     window.localStorage.setItem("td","0")
