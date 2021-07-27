@@ -196,6 +196,13 @@ window.onload = () =>{
 
         ed2()
     })
+
+    if(window.localStorage.getItem("td") == 1){
+        ul.classList.remove("active")
+        ul2.classList.add("active")
+    }
+
+    window.localStorage.setItem("td","0")
 }
 
 // apply for studios

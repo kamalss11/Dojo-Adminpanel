@@ -439,6 +439,7 @@ sbtn.addEventListener("click",function(e){
                     console.log("Data Saved.This is you id = > ",docRef.id)
                     console.log(nameInput,countryInput,stateInput,cityInput,servicesInput,priceInput,phoneInput,experienceInput)
                     form.reset()
+                    window.localStorage.setItem("td","1")
                     window.location.assign("https://adminpanel-dojo.netlify.app/entity")
                 }).catch(function(error){
                     console.log(error)
@@ -480,6 +481,7 @@ sbtn.addEventListener("click",function(e){
                             console.log("Data Saved.This is you id = > ",docRef.id)
                             console.log(nameInput,countryInput,stateInput,cityInput,servicesInput,priceInput,phoneInput,experienceInput,imgname)
                             form.reset()
+                            window.localStorage.setItem("td","1")
                             window.location.assign("https://adminpanel-dojo.netlify.app/entity")
                         }).catch(function(error){
                             console.log(error)
