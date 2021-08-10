@@ -436,10 +436,26 @@ sbtn.addEventListener("click",function(e){
                     studios.doc(`${docRef.id}`).update({
                         DocumentId: docRef.id
                     })
+                    // Sending Message to Phone
+                    fetch("https://api.kaleyra.io/v1/HXIN1701337977IN/messages",
+                    {
+                        method: "POST",
+                        body: JSON.stringify({
+                            to : `+91${phoneInput}`,
+                            sender : "DOJOIT",
+                            body : "Your seeds for success have been sown. Welcome onboard, your profile has been successfully registered on the DOJO App. Link: http://bit.ly/DOJOapp DOJO",
+                            type : "TXN",
+                            template_id : "1207162520881574898"
+                        }),
+                        headers:{"api-key":"A4d09145d5be99574a279e274f11a8c7a","Content-Type": "application/json"}
+                    }).then(response => {console.log(response)})
+                    .then(function (data) {
+                    console.log(data);})
+                    .catch(error => {console.log(error)})
                     console.log("Data Saved.This is you id = > ",docRef.id)
                     console.log(nameInput,countryInput,stateInput,cityInput,servicesInput,priceInput,phoneInput,experienceInput)
                     form.reset()
-                    window.localStorage.setItem("td",1)
+                    window.localStorage.setItem("td","1")
                     window.location.assign("https://adminpanel-dojo.netlify.app/entity")
                 }).catch(function(error){
                     console.log(error)
@@ -478,10 +494,26 @@ sbtn.addEventListener("click",function(e){
                             studios.doc(`${docRef.id}`).update({
                                 DocumentId: docRef.id
                             })
+                            // Sending Message to Phone
+                            fetch("https://api.kaleyra.io/v1/HXIN1701337977IN/messages",
+                            {
+                                method: "POST",
+                                body: JSON.stringify({
+                                    to : `+91${phoneInput}`,
+                                    sender : "DOJOIT",
+                                    body : "Your seeds for success have been sown. Welcome onboard, your profile has been successfully registered on the DOJO App. Link: http://bit.ly/DOJOapp DOJO",
+                                    type : "TXN",
+                                    template_id : "1207162520881574898"
+                                }),
+                                headers:{"api-key":"A4d09145d5be99574a279e274f11a8c7a","Content-Type": "application/json"}
+                            }).then(response => {console.log(response)})
+                            .then(function (data) {
+                            console.log(data);})
+                            .catch(error => {console.log(error)})
                             console.log("Data Saved.This is you id = > ",docRef.id)
                             console.log(nameInput,countryInput,stateInput,cityInput,servicesInput,priceInput,phoneInput,experienceInput,imgname)
                             form.reset()
-                            window.localStorage.setItem("td",1)
+                            window.localStorage.setItem("td","1")
                             window.location.assign("https://adminpanel-dojo.netlify.app/entity")
                         }).catch(function(error){
                             console.log(error)
