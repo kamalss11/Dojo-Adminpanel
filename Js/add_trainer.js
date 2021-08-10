@@ -441,7 +441,7 @@ sbtn.addEventListener("click",function(e){
                     {
                         method: "POST",
                         body: JSON.stringify({
-                            to : `+91${phoneInput}`,
+                            to : `${phoneInput}`,
                             sender : "DOJOIT",
                             body : "Your seeds for success have been sown. Welcome onboard, your profile has been successfully registered on the DOJO App. Link: http://bit.ly/DOJOapp DOJO",
                             type : "TXN",
@@ -499,7 +499,7 @@ sbtn.addEventListener("click",function(e){
                             {
                                 method: "POST",
                                 body: JSON.stringify({
-                                    to : `+91${phoneInput}`,
+                                    to : `${phoneInput}`,
                                     sender : "DOJOIT",
                                     body : "Your seeds for success have been sown. Welcome onboard, your profile has been successfully registered on the DOJO App. Link: http://bit.ly/DOJOapp DOJO",
                                     type : "TXN",
