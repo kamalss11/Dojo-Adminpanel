@@ -66,10 +66,9 @@ sbtn.addEventListener("click",function(e){
         Address: address.value,
     }).then(()=>{
         console.log("Data Saved.This is you id = > ",DocId)
-        alert("Your data has been updated")
         form.reset()
         window.localStorage.setItem("SDocId",0)
-        alert(`${nam.value},Your data has been successfully updated.`)
+        alert(`Your data has been successfully updated.`)
         window.location.assign("https://adminpanel-dojo.netlify.app/entity")
     }).catch(function(error){
         console.log(error)
