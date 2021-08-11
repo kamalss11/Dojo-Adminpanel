@@ -48,7 +48,10 @@ window.onload = () =>{
 
 sbtn.addEventListener("click",function(e){
     e.preventDefault()
-    
+    var load = document.getElementById("loads")
+            
+    load.style.display = "block"
+
     studios.doc(`${DocId}`).update({
         Name: nam.value,
         Phone: phone.value,
@@ -66,6 +69,7 @@ sbtn.addEventListener("click",function(e){
         alert("Your data has been updated")
         form.reset()
         window.localStorage.setItem("SDocId",0)
+        alert(`${nam.value},Your data has been successfully updated.`)
         window.location.assign("https://adminpanel-dojo.netlify.app/entity")
     }).catch(function(error){
         console.log(error)

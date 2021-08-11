@@ -52,6 +52,9 @@ window.onload = () =>{
 
 sbtn.addEventListener("click",function(e){
     e.preventDefault()
+    var load = document.getElementById("loads")
+            
+    load.style.display = "block"
     
     trainers.doc(`${DocId}`).update({
         Name: nam.value,
@@ -73,6 +76,7 @@ sbtn.addEventListener("click",function(e){
         form.reset()
         window.localStorage.setItem("td",1)
         window.localStorage.setItem("TDocId",0)
+        alert(`${nam.value},Your data has been successfully added.`)
         window.location.assign("https://adminpanel-dojo.netlify.app/entity")
     }).catch(function(error){
         console.log(error)

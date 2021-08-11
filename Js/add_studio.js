@@ -421,6 +421,9 @@ sbtn.addEventListener("click",async function(e){
         })
 
         op2.addEventListener("click",function(){
+            var load = document.getElementById("loads")
+            load.style.display = "block"
+
             if(ig.value == ""){
                 studios.add({
                     Name: nameInput,
@@ -458,6 +461,7 @@ sbtn.addEventListener("click",async function(e){
                     console.log("Data Saved.This is you id = > ",docRef.id)
                     console.log(nameInput,countryInput,stateInput,cityInput,servicesInput,priceInput,phoneInput,experienceInput)
                     form.reset()
+                    alert(`${nameInput},Your data has been successfully added.`)
                     window.location.assign("https://adminpanel-dojo.netlify.app/entity")
                 }).catch(function(error){
                     console.log(error)
@@ -515,6 +519,7 @@ sbtn.addEventListener("click",async function(e){
                             console.log("Data Saved.This is you id = > ",docRef.id)
                             console.log(nameInput,countryInput,stateInput,cityInput,servicesInput,priceInput,phoneInput,experienceInput,imgname)
                             form.reset()
+                            alert(`${nameInput},Your data has been successfully added.`)
                             window.location.assign("https://adminpanel-dojo.netlify.app/entity")
                         }).catch(function(error){
                             console.log(error)
