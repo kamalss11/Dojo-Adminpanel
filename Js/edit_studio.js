@@ -17,7 +17,7 @@ var address = document.querySelector("#address")
 var img = document.getElementById("img")
 var sbtn = document.querySelector(".sbtn")
 var form = document.getElementById("form")
-var imgs = document.getElementById("imgs")
+var imgs = document.getElementById("img2")
 var urls
 window.onload = () =>{
     DocId = window.localStorage.getItem("SDocId")
