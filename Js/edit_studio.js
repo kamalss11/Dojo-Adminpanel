@@ -17,6 +17,7 @@ var address = document.querySelector("#address")
 var img = document.getElementById("img")
 var sbtn = document.querySelector(".sbtn")
 var form = document.getElementById("form")
+var imgs = document.getElementById("imgs")
 var urls
 window.onload = () =>{
     DocId = window.localStorage.getItem("SDocId")
@@ -51,11 +52,10 @@ window.onload = () =>{
 sbtn.addEventListener("click",function(e){
     e.preventDefault()
     var load = document.getElementById("loads")
-    var imgs = document.getElementById("imgs")
     load.style.display = "block"
 
     var image,imgname
-
+    storageref = firebase.storage().ref()
     if(imgs.value = ''){
         studios.doc(`${DocId}`).update({
             Name: nam.value,
