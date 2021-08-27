@@ -55,7 +55,7 @@ sbtn.addEventListener("click",function(e){
     load.style.display = "block"
 
     var image,imgname,storageref = firebase.storage().ref()
-    if(img2.value == ""){
+    if(imgs.value == ""){
         studios.doc(`${DocId}`).update({
             Name: nam.value,
             Phone: phone.value,
