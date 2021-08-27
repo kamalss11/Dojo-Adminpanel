@@ -41,7 +41,6 @@ window.onload = () =>{
             state.value = doc.data().State
             address.value = doc.data().Address
             img.src = `${doc.data().DisplayPicture}`
-            console.log(doc.data().DisplayPicture)
             urls = `${doc.data().DisplayPicture}`
         }).catch((error) => {
             console.log("Error getting document:", error);
@@ -52,28 +51,73 @@ window.onload = () =>{
 sbtn.addEventListener("click",function(e){
     e.preventDefault()
     var load = document.getElementById("loads")
-            
+    var imgs = document.querySelector("#imgs")
     load.style.display = "block"
 
-    studios.doc(`${DocId}`).update({
-        Name: nam.value,
-        Phone: phone.value,
-        Email: email.value,
-        Price: price.value,
-        Rating: rating.value,
-        Services: services.value,
-        Status: sts.value,
-        Category: category.value,
-        City: city.value,
-        State: state.value,
-        Address: address.value,
-    }).then(()=>{
-        console.log("Data Saved.This is you id = > ",DocId)
-        form.reset()
-        window.localStorage.setItem("SDocId",0)
-        alert(`Your data has been successfully updated.`)
-        window.location.assign("https://adminpanel-dojo.netlify.app/entity")
-    }).catch(function(error){
-        console.log(error)
-    })
+    var image,imgname
+
+    if(imgs.value = ''){
+        studios.doc(`${DocId}`).update({
+            Name: nam.value,
+            Phone: phone.value,
+            Email: email.value,
+            Price: price.value,
+            Rating: rating.value,
+            Services: services.value,
+            Status: sts.value,
+            Category: category.value,
+            City: city.value,
+            State: state.value,
+            Address: address.value,
+        }).then(()=>{
+            console.log("Data Saved.This is you id = > ",DocId)
+            form.reset()
+            window.localStorage.setItem("SDocId",0)
+            alert(`Your data has been successfully updated.`)
+            window.location.assign("https://adminpanel-dojo.netlify.app/entity")
+        }).catch(function(error){
+            console.log(error)
+        })
+    }
+
+    else{
+        image = document.getElementById("imgs").files[0]
+        imgname = image.name
+        const metadata = {
+            contentType:image.type
+        }
+        var uploadImg = storageref.child("images").child(imgname)
+        uploadImg.put(image,metadata)
+        .then(snapshot =>{
+            return uploadImg.getDownloadURL()
+            .then(url => {
+                urls = url
+                console.log(urls)
+                db.doc(`${docId}`).update({
+                    Name: nam.value,
+                    Phone: phone.value,
+                    Email: email.value,
+                    Price: price.value,
+                    Rating: rating.value,
+                    Services: services.value,
+                    Status: sts.value,
+                    Category: category.value,
+                    City: city.value,
+                    State: state.value,
+                    Address: address.value,
+                    DisplayPicture: urls
+                }).then(()=>{
+                    console.log("Data Saved.This is you id = > ",DocId)
+                    form.reset()
+                    window.localStorage.setItem("SDocId",0)
+                    alert(`Your data has been successfully updated.`)
+                    window.location.assign("https://adminpanel-dojo.netlify.app/entity")
+                }).catch(function(error){
+                    console.log(error)
+                })
+            })
+        }).catch(function(error){
+            console.log(error)
+        })
+    }
 })
