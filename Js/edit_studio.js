@@ -17,6 +17,7 @@ var address = document.querySelector("#address")
 var img = document.getElementById("img")
 var sbtn = document.querySelector(".sbtn")
 var form = document.getElementById("form")
+var urls
 window.onload = () =>{
     DocId = window.localStorage.getItem("SDocId")
     console.log("Document Id => " + DocId)
@@ -40,6 +41,7 @@ window.onload = () =>{
             state.value = doc.data().State
             address.value = doc.data().Address
             img.src = `${doc.data().DisplayPicture}`
+            urls = `${doc.data().DisplayPicture}`
         }).catch((error) => {
             console.log("Error getting document:", error);
         });
