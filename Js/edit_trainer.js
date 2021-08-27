@@ -19,6 +19,8 @@ var state = document.querySelector("#state")
 var img = document.getElementById("img")
 var sbtn = document.querySelector(".sbtn")
 var form = document.getElementById("form")
+var imgs = document.getElementById("img2")
+var urls
 window.onload = () =>{
     DocId = window.localStorage.getItem("TDocId")
     console.log("Document Id => " + DocId)
@@ -44,6 +46,7 @@ window.onload = () =>{
             city.value = doc.data().City
             state.value = doc.data().State
             img.src = `${doc.data().DisplayPicture}`
+            urls = `${doc.data().DisplayPicture}`
         }).catch((error) => {
             console.log("Error getting document:", error);
         });
@@ -55,29 +58,73 @@ sbtn.addEventListener("click",function(e){
     var load = document.getElementById("loads")
             
     load.style.display = "block"
-    
-    trainers.doc(`${DocId}`).update({
-        Name: nam.value,
-        Gender: gender.value,
-        Language: lan.value,
-        Email: email.value,
-        Phone: phone.value,
-        Category: category.value,
-        Speciality: speciality.value,
-        Experience: exp.value,
-        Price: price.value,
-        Rating: rating.value,
-        Tags: tags.value,
-        City: city.value,
-        State: state.value,
-    }).then(()=>{
-        console.log("Data Saved.This is you id = > ",DocId)
-        form.reset()
-        window.localStorage.setItem("td",1)
-        window.localStorage.setItem("TDocId",0)
-        alert(`Your data has been successfully updated.`)
-        window.location.assign("https://adminpanel-dojo.netlify.app/entity")
-    }).catch(function(error){
-        console.log(error)
-    })
+    var image,imgname,storageref = firebase.storage().ref()
+    if(imgs.value == ""){
+        trainers.doc(`${DocId}`).update({
+            Name: nam.value,
+            Gender: gender.value,
+            Language: lan.value,
+            Email: email.value,
+            Phone: phone.value,
+            Category: category.value,
+            Speciality: speciality.value,
+            Experience: exp.value,
+            Price: price.value,
+            Rating: rating.value,
+            Tags: tags.value,
+            City: city.value,
+            State: state.value,
+            DisplayPicture: urls
+        }).then(()=>{
+            console.log("Data Saved.This is you id = > ",DocId)
+            form.reset()
+            window.localStorage.setItem("td",1)
+            window.localStorage.setItem("TDocId",0)
+            alert(`Your data has been successfully updated.`)
+            window.location.assign("https://adminpanel-dojo.netlify.app/entity")
+        }).catch(function(error){
+            console.log(error)
+        })
+    }
+    else{
+        image = document.getElementById("imgs").files[0]
+        imgname = image.name
+        const metadata = {
+            contentType:image.type
+        }
+        var uploadImg = storageref.child("images").child(imgname)
+        uploadImg.put(image,metadata)
+        .then(snapshot =>{
+            return uploadImg.getDownloadURL()
+            .then(url => {
+                urls = url
+                console.log(urls)
+                trainers.doc(`${docId}`).update({
+                    Name: nam.value,
+                    Gender: gender.value,
+                    Language: lan.value,
+                    Email: email.value,
+                    Phone: phone.value,
+                    Category: category.value,
+                    Speciality: speciality.value,
+                    Experience: exp.value,
+                    Price: price.value,
+                    Rating: rating.value,
+                    Tags: tags.value,
+                    City: city.value,
+                    State: state.value,
+                    DisplayPicture: urls
+                }).then(()=>{
+                    console.log("Data Saved.This is you id = > ",DocId)
+                    form.reset()
+                    window.localStorage.setItem("td",1)
+                    window.localStorage.setItem("TDocId",0)
+                    alert(`Your data has been successfully updated.`)
+                    window.location.assign("https://adminpanel-dojo.netlify.app/entity")
+                }).catch(function(error){
+                    console.log(error)
+                })
+            })
+        })
+    }
 })
