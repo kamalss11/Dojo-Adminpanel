@@ -54,8 +54,7 @@ sbtn.addEventListener("click",function(e){
     var load = document.getElementById("loads")
     load.style.display = "block"
 
-    var image,imgname
-    storageref = firebase.storage().ref()
+    var image,imgname,storageref = firebase.storage().ref()
     if(imgs.value == " "){
         studios.doc(`${DocId}`).update({
             Name: nam.value,
@@ -69,6 +68,7 @@ sbtn.addEventListener("click",function(e){
             City: city.value,
             State: state.value,
             Address: address.value,
+            DisplayPicture: urls
         }).then(()=>{
             console.log("Data Saved.This is you id = > ",DocId)
             form.reset()
