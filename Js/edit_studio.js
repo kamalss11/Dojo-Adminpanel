@@ -51,7 +51,7 @@ window.onload = () =>{
 sbtn.addEventListener("click",function(e){
     e.preventDefault()
     var load = document.getElementById("loads")
-    var imgs = document.querySelector("#imgs")
+    var imgs = document.getElementById("imgs")
     load.style.display = "block"
 
     var image,imgname
