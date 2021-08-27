@@ -41,6 +41,7 @@ window.onload = () =>{
             state.value = doc.data().State
             address.value = doc.data().Address
             img.src = `${doc.data().DisplayPicture}`
+            console.log(doc.data().DisplayPicture)
             urls = `${doc.data().DisplayPicture}`
         }).catch((error) => {
             console.log("Error getting document:", error);
