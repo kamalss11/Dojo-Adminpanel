@@ -87,7 +87,7 @@ sbtn.addEventListener("click",function(e){
         })
     }
     else{
-        image = document.getElementById("imgs").files[0]
+        image = document.getElementById("img2").files[0]
         imgname = image.name
         const metadata = {
             contentType:image.type
