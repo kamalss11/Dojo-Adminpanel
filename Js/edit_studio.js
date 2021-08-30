@@ -93,7 +93,7 @@ sbtn.addEventListener("click",function(e){
             .then(url => {
                 urls = url
                 console.log(urls)
-                studios.doc(`${docId}`).update({
+                studios.doc(`${DocId}`).update({
                     Name: nam.value,
                     Phone: phone.value,
                     Email: email.value,

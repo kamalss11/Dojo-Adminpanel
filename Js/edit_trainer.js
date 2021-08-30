@@ -99,7 +99,7 @@ sbtn.addEventListener("click",function(e){
             .then(url => {
                 urls = url
                 console.log(urls)
-                trainers.doc(`${docId}`).update({
+                trainers.doc(`${DocId}`).update({
                     Name: nam.value,
                     Gender: gender.value,
                     Language: lan.value,
