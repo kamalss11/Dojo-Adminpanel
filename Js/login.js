@@ -65,16 +65,6 @@ const recaptcha = document.querySelector("#recaptcha-container")
 
 window.onload = function(){
     render()
-    loader()
-}
-
-function loader(){
-    setTimeout(showPage, 3000);
-}
-
-function showPage(){
-    document.getElementById("loads").style.display = "none"
-    document.getElementById("bl").style.display = "block"
 }
 
 function render(){
