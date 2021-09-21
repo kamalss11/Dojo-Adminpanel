@@ -112,15 +112,22 @@
                         <p>Add Trainer</p>
                     </div>
                 </li>
+
+                <li style="position: fixed; bottom: 10px;"><p onclick="logout()"><span class="material-icons">logout</span>LogOut</p></li>
             </ul>
         </div>
 
         <main>
             <nav>
-                <div class="hd"><h3>Dashboard</h3></div>
-                
-                <div class="bars">
-                    <span></span>
+                <div class="hd">
+                    <h3>Entities</h3>
+                </div>
+
+                <div style="display: flex; align-items: center;">
+                    <h5 style="margin-top: 8px; margin-right: 10px;" class="wel">Welcome,</h5>
+                    <div class="bars">
+                        <span></span>
+                    </div>
                 </div>
             </nav>
 
@@ -248,6 +255,7 @@
     
     <script src="JS/add_trainer.js"></script>
     <script src="Js/locations.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
 </body>
 </html>
