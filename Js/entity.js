@@ -43,6 +43,8 @@ var ntt = document.querySelector(".nt")
 var apply = document.getElementById("apply")
 var cancel = document.getElementById("cancel")
 
+var wel = document.querySelector(".wel")
+
 for(let i=0;i<btn.length;i++){
     if(i == 0 || i == 1 || i == 2 || i == 3){
         btn[i].addEventListener("click",function(){
@@ -100,6 +102,15 @@ for(let i=0;i<list_tab.length;i++){
 // loading
 
 window.onload = () =>{
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (!user) {
+            location.assign("https://adminpanel-dojo.netlify.app/")
+        } 
+    
+        else{
+            wel.innerHTML += user.phoneNumber
+        }
+    })
     fstate()
     fstatet()
     window.localStorage.setItem("SDocId",0)
