@@ -146,8 +146,18 @@ function sr(){
         ser.style.display = "none"
     }
 }
-
+var wel = document.querySelector(".wel")
 window.onload = () =>{
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (!user) {
+            location.assign("https://adminpanel-dojo.netlify.app/")
+        } 
+    
+        else{
+            wel.innerHTML += user.phoneNumber
+        }
+    })
+    
     var headers = new Headers();
     headers.append("X-CSCAPI-KEY", "bFRJVzhHclkxSHBQTEpDTGZaSER2TmlGUFBZY2k2YUcyRFdTWlhmaQ==");
 
