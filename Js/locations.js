@@ -34,6 +34,13 @@ function nt(){
     window.location.assign("https://adminpanel-dojo.netlify.app/add_trainer")
 }
 
+function logout(){
+    firebase.auth().signOut()
+    let u = firebase.auth().currentUser
+    console.log(u,"logged out")
+    window.location.assign("https://adminpanel-dojo.netlify.app")
+}
+
 var bars = document.querySelector(".bars")
 var sidebar = document.querySelector(".sidebar")
 
