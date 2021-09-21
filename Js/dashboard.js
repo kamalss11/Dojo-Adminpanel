@@ -13,6 +13,7 @@ var ffd = document.querySelector(".ffd")
 var datas = document.querySelector(".datas")
 var fdli
 console.log(studios,trainers)
+var wel = document.querySelector(".wel")
 
 window.onload = () =>{
      firebase.auth().onAuthStateChanged(function(user) {
@@ -21,7 +22,7 @@ window.onload = () =>{
         } 
     
         else{
-            console.log(user.phoneNumber)
+            wel.innerHTML += user.phoneNumber
         }
     });
 
