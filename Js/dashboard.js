@@ -15,6 +15,16 @@ var fdli
 console.log(studios,trainers)
 
 window.onload = () =>{
+     firebase.auth().onAuthStateChanged(function(user) {
+        if (!user) {
+            location.assign("https://adminpanel-dojo.netlify.app/")
+        } 
+    
+        else{
+            console.log(user.phoneNumber)
+        }
+    });
+
     studios.get().then((querySnapShot)=>{
         let count = 0
         querySnapShot.forEach((doc)=>{
