@@ -104,6 +104,12 @@ main nav{
     z-index: 10;
 }
 
+nav .hd{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 nav .hd h3{
     color: var(--htxt);
 }
