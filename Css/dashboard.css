@@ -170,6 +170,7 @@ main .content{
 main .content .ov .banners{
     display: flex;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 main .content .ov .banners img{
