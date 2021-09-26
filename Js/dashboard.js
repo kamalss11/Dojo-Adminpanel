@@ -15,6 +15,8 @@ var fdli
 console.log(studios,trainers)
 var wel = document.querySelector(".wel")
 
+var bnr = firebase.database().ref("SlideBanner");
+
 window.onload = () =>{
     firebase.auth().onAuthStateChanged(function(user) {
         if (!user) {
@@ -23,6 +25,10 @@ window.onload = () =>{
     
         else{
             wel.innerHTML += user.phoneNumber
+
+            bnr.get().then((snapshot) => {
+                console.log(snapshot.val())
+            })
             
             dbRef.get().then((snapshot) => {
                 console.log(snapshot.val())
