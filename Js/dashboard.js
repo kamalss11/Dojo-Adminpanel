@@ -16,7 +16,7 @@ console.log(studios,trainers)
 var wel = document.querySelector(".wel")
 
 var bnr = firebase.database().ref("SliderBanner");
-var banners = document.querySelector(".banners")
+var banners = document.querySelector(".swiper-wrapper")
 
 window.onload = () =>{
     firebase.auth().onAuthStateChanged(function(user) {
@@ -31,10 +31,13 @@ window.onload = () =>{
                 console.log(snapshot.val())
                 if (snapshot.exists()) {
                     snapshot.forEach((doc)=>{
+                        let div = document.createElement("div")
+                        div.className = "swiper-slide"
                         let img = document.createElement("img")
                         img.src = `${doc.val().image}`
+                        div.append(img)
                         console.log(doc.val().image)
-                        banners.append(img)
+                        banners.append(div)
                     })
                 }
                 else{
