@@ -27,7 +27,7 @@ window.onload = () =>{
             wel.innerHTML += user.phoneNumber
 
             bnr.get().then((snapshot) => {
-                console.log(snapshot)
+                console.log(snapshot.val())
                 snapshot.forEach((doc)=>{
                     console.log(doc.key,doc.val(),doc.val().User_ID)
                 })
