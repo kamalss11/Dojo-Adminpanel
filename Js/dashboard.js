@@ -2,7 +2,7 @@ var firestore = firebase.firestore()
 var studios = firestore.collection("Studios")
 var trainers = firestore.collection("Online")
 var docs = 0
-var dbRef = firebase.database().ref("Feedbacks");
+// var dbRef = firebase.database().ref("Feedbacks");
 var tots = document.querySelector(".tns")
 var tott = document.querySelector(".tnt")
 var add = document.querySelector(".adbtn")
@@ -15,7 +15,7 @@ var fdli
 console.log(studios,trainers)
 var wel = document.querySelector(".wel")
 
-var bnr = firebase.database().ref("SlideBanner").child(Banner1);
+var bnr = firebase.database().ref("SlideBanner");
 
 window.onload = () =>{
     firebase.auth().onAuthStateChanged(function(user) {
@@ -26,12 +26,12 @@ window.onload = () =>{
         else{
             wel.innerHTML += user.phoneNumber
 
-            bnr.get().then((snapshot) => {
-                console.log(snapshot)
-                snapshot.forEach((doc)=>{
-                    console.log(doc.key,doc.val(),doc.val().User_ID)
-                })
-            })
+            // bnr.get().then((snapshot) => {
+            //     console.log(snapshot)
+            //     snapshot.forEach((doc)=>{
+            //         console.log(doc.key,doc.val(),doc.val().User_ID)
+            //     })
+            // })
             
             dbRef.get().then((snapshot) => {
                 console.log(snapshot.val())
