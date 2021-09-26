@@ -28,7 +28,7 @@ window.onload = () =>{
 
             bnr.on('value', function(snapshot) {
                 snapshot.forEach(function(childSnapshot) {
-                  console.log(childSnapshot)
+                  console.log(childSnapshot.val())
                 });
             });
             
