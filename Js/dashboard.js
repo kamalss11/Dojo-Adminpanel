@@ -28,6 +28,14 @@ window.onload = () =>{
 
             bnr.get().then((snapshot) => {
                 console.log(snapshot.val())
+                if (snapshot.exists()) {
+                    snapshot.forEach((doc)=>{
+                        console.log(doc.image)
+                    })
+                }
+                else{
+                    console.log("No data found")
+                }
             })
             
             dbRef.get().then((snapshot) => {
