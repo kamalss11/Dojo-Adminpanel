@@ -167,6 +167,15 @@ main .content{
     padding: 25px 15px;
 }
 
+main .content .ov .banners{
+    display: flex;
+    align-items: center;
+}
+
+main .content .ov .banners img{
+    width: 100%;
+}
+
 main .content .ov p{
     color: var(--htxt);
 }
