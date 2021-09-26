@@ -30,7 +30,7 @@ window.onload = () =>{
                 console.log(snapshot.val())
                 if (snapshot.exists()) {
                     snapshot.forEach((doc)=>{
-                        console.log(doc.image)
+                        console.log(doc.val().image)
                     })
                 }
                 else{
