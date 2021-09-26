@@ -15,7 +15,7 @@ var fdli
 console.log(studios,trainers)
 var wel = document.querySelector(".wel")
 
-var bnr = firebase.database().ref("SlideBanner").ref("Banner1");
+var bnr = firebase.database().ref("SlideBanner");
 
 window.onload = () =>{
     firebase.auth().onAuthStateChanged(function(user) {
@@ -26,11 +26,11 @@ window.onload = () =>{
         else{
             wel.innerHTML += user.phoneNumber
 
-            bnr.on('value', function(snapshot) {
-                snapshot.forEach(function(childSnapshot) {
-                  console.log(childSnapshot.val())
-                });
-            });
+            bnr.on('value',function(snapshot){
+                snapshot.forEach(function(childSnapshot){
+                    console.log(childSnapshot.val())
+                })
+            })
             
             dbRef.get().then((snapshot) => {
                 console.log(snapshot.val())
