@@ -15,7 +15,7 @@ var fdli
 console.log(studios,trainers)
 var wel = document.querySelector(".wel")
 
-var bnr = firebase.database().ref("/SlideBanner/Banner1");
+var bnr = firebase.database().ref("/SlideBanner/Banner1/image");
 
 window.onload = () =>{
     firebase.auth().onAuthStateChanged(function(user) {
