@@ -33,9 +33,12 @@ window.onload = () =>{
                     snapshot.forEach((doc)=>{
                         let div = document.createElement("div")
                         div.className = "swiper-slide"
+                        let a = document.createElement("a")
+                        a.href = `${doc.val().url}`
                         let img = document.createElement("img")
                         img.src = `${doc.val().image}`
-                        div.append(img)
+                        a.append(img)
+                        div.append(a)
                         console.log(doc.val().image)
                         banners.append(div)
                     })
