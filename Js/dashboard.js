@@ -26,12 +26,11 @@ window.onload = () =>{
         else{
             wel.innerHTML += user.phoneNumber
 
-            bnr.get().then((snapshot) => {
-                console.log(snapshot.val())
-                snapshot.forEach((doc)=>{
-                    console.log(doc.key,doc.val(),doc.val().User_ID)
-                })
-            })
+            bnr.on('value', function(snapshot) {
+                snapshot.forEach(function(childSnapshot) {
+                  console.log(childSnapshot)
+                });
+            });
             
             dbRef.get().then((snapshot) => {
                 console.log(snapshot.val())
