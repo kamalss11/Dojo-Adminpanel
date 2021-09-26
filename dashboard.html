@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" type="text/css" href="Css/dashboard.css">
     <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
@@ -58,9 +60,11 @@
             <div class="content">
                 <div class="ov">
                     <div class="banners">
-
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                            </div>
                     </div>
-                    
+
                     <p>Overview</p>
 
                     <div class="nos">
@@ -126,6 +130,15 @@
     
     <script src="Js/dashboard.js"></script>
     <script src="Js/locations.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 2,
+        spaceBetween: 30
+      });
+    </script>
     <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
 </body>
