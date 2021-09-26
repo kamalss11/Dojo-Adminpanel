@@ -32,7 +32,7 @@ window.onload = () =>{
                 if (snapshot.exists()) {
                     snapshot.forEach((doc)=>{
                         let img = document.createElement("img")
-                        img.src = doc.val().image
+                        img.src = `${doc.val().image}`
                         console.log(doc.val().image)
                         banners.append(img)
                     })
