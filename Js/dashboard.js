@@ -35,6 +35,7 @@ window.onload = () =>{
                         div.className = "swiper-slide"
                         let a = document.createElement("a")
                         a.href = `${doc.val().url}`
+                        a.target = "_blank"
                         let img = document.createElement("img")
                         img.src = `${doc.val().image}`
                         a.append(img)
