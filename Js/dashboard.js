@@ -16,6 +16,7 @@ console.log(studios,trainers)
 var wel = document.querySelector(".wel")
 
 var bnr = firebase.database().ref("SliderBanner");
+var banners = document.querySelector(".banners")
 
 window.onload = () =>{
     firebase.auth().onAuthStateChanged(function(user) {
@@ -30,7 +31,10 @@ window.onload = () =>{
                 console.log(snapshot.val())
                 if (snapshot.exists()) {
                     snapshot.forEach((doc)=>{
+                        let img = document.createElement("img")
+                        img.src = doc.val().image
                         console.log(doc.val().image)
+                        banners.append(img)
                     })
                 }
                 else{
