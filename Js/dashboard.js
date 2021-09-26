@@ -27,7 +27,7 @@ window.onload = () =>{
             wel.innerHTML += user.phoneNumber
 
             bnr.get().then((snapshot) => {
-                console.log(snapshot.val())
+                console.log(snapshot)
             })
             
             dbRef.get().then((snapshot) => {
