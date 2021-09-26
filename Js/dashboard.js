@@ -28,6 +28,9 @@ window.onload = () =>{
 
             bnr.get().then((snapshot) => {
                 console.log(snapshot)
+                snapshot.forEach((doc)=>{
+                    console.log(doc.key,doc.val(),doc.val().User_ID)
+                })
             })
             
             dbRef.get().then((snapshot) => {
