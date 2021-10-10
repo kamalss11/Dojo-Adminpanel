@@ -487,7 +487,7 @@ main .content .studios h3,main .content .trainers h3{
     justify-content: space-between;
 }
 
-main .content .studios h3 button,main .content .trainers h3 button{
+main .content .list h3 button{
     padding: 5px 8px;
     border: none;
     cursor: pointer;
