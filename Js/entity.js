@@ -4,7 +4,7 @@ var trainers = firestore.collection("Online")
 var studios_list = document.querySelector(".list-1")
 var trainers_list = document.querySelector(".list-2")
 var banners_list = document.querySelector(".list-3")
-var edit1,edit2,no,
+var edit1,edit2,edit3,no,
 input = document.getElementById('ss'),
 filter, ul, lis, i, txtValue,count
 
@@ -212,13 +212,16 @@ window.onload = () =>{
                 let li = document.createElement("li")
                 li.textContent = `Banner${count}`
                 let button = document.createElement("button")
-                button.id = `${doc.val().url}`
+                button.id = `Banner${count}`
                 button.textContent = "Edit"
                 let img = document.createElement('img')
                 img.src = `${doc.val().image}`
                 li.append(img,button)
                 banners_list.append(li)
             })
+            edit3 = document.querySelectorAll(".list-3 li button")
+
+            ed3()
         }
         else{
             console.log("No data found")
@@ -900,6 +903,17 @@ function ed2(){
             window.localStorage.setItem("TDocId",edit2[i].id)
             console.log("Local Storage => " + localStorage.getItem("TDocId"))
             window.location.assign("https://adminpanel-dojo.netlify.app/edit_trainer")
+        })
+    }
+}
+
+function ed3(){
+    for(let i = 0;i<edit3.length;i++){
+        edit3[i].addEventListener("click",function(){
+            console.log(edit3[i].id)
+            window.localStorage.setItem("bn",edit3[i].id)
+            console.log("Local Storage => " + localStorage.getItem("bn"))
+            window.location.assign("https://adminpanel-dojo.netlify.app/edit_banner")
         })
     }
 }
