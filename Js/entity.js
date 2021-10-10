@@ -155,11 +155,9 @@ window.onload = () =>{
         console.log("Total no of Studios "+count)
 
         edit1 = document.querySelectorAll(".list-1 li button")
-        console.log(edit1,edit1.length)
 
         ul = document.querySelector(".list-1");
         lis = ul.getElementsByTagName('li');
-        console.log(lis.length)
     })
 
     trainers.get().then((querySnapShot)=>{
@@ -195,13 +193,10 @@ window.onload = () =>{
 
             stat.push({id:`${doc.id}`,name:`${doc.data().Name}`,state: `${doc.data().State}`,city: `${doc.data().City}`,services: `${doc.data().Services}`,gender: `${doc.data().Gender}`})
         })
-        console.log("Total no of Trainers "+count)
         edit2 = document.querySelectorAll(".list-2 li button")
-        console.log(edit2,edit2.length)
 
         ul2 = document.querySelector(".list-2");
         lis2 = ul2.getElementsByTagName('li');
-        console.log(lis2.length)
 
         ed1()
 
