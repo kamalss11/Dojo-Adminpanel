@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="Css/dashboard.css">
+    <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDVdGF7waQdY_SiZSI7OcAyXNDYrB9tIuE",
+            authDomain: "dojo-c2657.firebaseapp.com",
+            databaseURL: "https://dojo-c2657.firebaseio.com",
+            projectId: "dojo-c2657",
+            storageBucket: "dojo-c2657.appspot.com",
+            messagingSenderId: "789766035590",
+            appId: "1:789766035590:web:9b0bbf87ea30b2a5971907"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <title>Edit Entity</title>
+</head>
+<body>
+    <div id="loads" style="display: none;">
+        <div id="loader"><img src="Images/DOJO.png"></div>
+    </div>
+    
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="Images/DOJO.png" alt="DOJO">
+            </div>
+
+            <ul>
+                <li><p onclick=hm()><span class="material-icons">dashboard</span>Home</p></li>
+                <li><p onclick=en()><span class="material-icons">remember_me</span>Entities</p></li>
+                <li class="active"><p onclick=ed()><span class="material-icons">edit</span>Edit Entity</p></li>
+
+                <li style="position: fixed; bottom: 10px;"><p onclick="logout()"><span class="material-icons">logout</span>LogOut</p></li>
+            </ul>
+        </div>
+
+        <main>
+            <nav>
+                <div class="hd"><h3>Edit Banner</h3></div>
+
+                <div class="bars">
+                    <span></span>
+                </div>
+            </nav>
+
+            <div class="content">
+                <div class="double">
+                    <form method="POST" id="form">
+                        <h3>Edit Banner</h3>
+                        <div class="fields">
+                            <label>
+                                <input type="text" id="name">
+                                <span>Banner Name</span>
+                            </label>
+                        </div>
+    
+                        <div class="fields">
+                            <label>
+                                <input type="text" id="phone">
+                                <span>Phone No</span>
+                            </label>
+                        </div>
+    
+                        <div class="fields">
+                            <label>
+                                <input type="text" id="email">
+                                <span>Onclick URL</span>
+                            </label>
+                        </div>
+    
+                        <div class="fields">
+                            <label>
+                                <input type="text" id="price">
+                                <span>Url</span>
+                            </label>
+                        </div>
+
+                        <p class="img-info">Choose image to upload new image <br> 
+                            orelse it stores with the previous image</p>
+
+                        <div class="fields">
+                            <label>
+                                <input type="file" id="img2" accept="image/">
+                                <span>Image</span>
+                            </label>
+                        </div>
+    
+                        <div class="btn">
+                            <button class="sbtn" type="submit">Submit</button>
+                        </div>
+                    </form>
+    
+                    <div class="div">
+                        <img id="img" src="">
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="Js/locations.js"></script>
+    <script src="Js/edit_banner.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+</body>
+</html>
