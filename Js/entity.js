@@ -3,6 +3,7 @@ var studios = firestore.collection("Studios")
 var trainers = firestore.collection("Online")
 var studios_list = document.querySelector(".list-1")
 var trainers_list = document.querySelector(".list-2")
+var banners_list = document.querySelector(".list-3")
 var edit1,edit2,no,
 input = document.getElementById('ss'),
 filter, ul, lis, i, txtValue,count
@@ -100,6 +101,7 @@ for(let i=0;i<list_tab.length;i++){
 }
 
 // loading
+var bnr = firebase.database().ref("SliderBanner");
 
 window.onload = () =>{
     firebase.auth().onAuthStateChanged(function(user) {
@@ -206,6 +208,18 @@ window.onload = () =>{
         ed1()
 
         ed2()
+    })
+
+    bnr.get().then((snapshot) => {
+        console.log(snapshot.val())
+        if (snapshot.exists()) {
+            snapshot.forEach((doc)=>{
+                console.log(doc)
+            })
+        }
+        else{
+            console.log("No data found")
+        }
     })
 
     if(window.localStorage.getItem("td") == 1){
