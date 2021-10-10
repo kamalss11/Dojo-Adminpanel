@@ -480,7 +480,7 @@ main .content .list .price div button#apply.active{
     pointer-events: none;
 }
 
-main .content .studios h3,main .content .trainers h3{
+main .content .list h3,main .content .list h3{
     color: var(--htxt);
     display: flex;
     align-items: center;
