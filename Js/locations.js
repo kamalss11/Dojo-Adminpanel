@@ -28,6 +28,12 @@ function tnew(){
     window.location.assign("https://adminpanel-dojo.netlify.app/add_trainer")
 }
 
+function sbnew(){
+    window.localStorage.setItem("SDocId",0)
+    window.localStorage.setItem("TDocId",0)
+    window.location.assign("https://adminpanel-dojo.netlify.app/add_sliders")
+}
+
 function nt(){
     window.localStorage.setItem("SDocId",0)
     window.localStorage.setItem("TDocId",0)
