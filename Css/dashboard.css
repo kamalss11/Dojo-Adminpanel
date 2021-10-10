@@ -496,11 +496,11 @@ main .content .list h3 button{
     border-radius: 5px;
 }
 
-main .content .studios ul,main .content .trainers ul{
+main .content ul{
     padding: 15px;
 }
 
-main .content .studios ul li, main .content .trainers ul li {
+main .content ul li{
     padding: 10px;
     display: flex;
     align-items: center;
@@ -509,17 +509,17 @@ main .content .studios ul li, main .content .trainers ul li {
     border: 1px solid #80808029;
 }
 
-main .content .studios ul li div, main .content .trainers ul li div{
+main .content ul li div{
     display: flex;
     align-items: center;
 }
 
-main .content .studios ul li div span, main .content .trainers ul li div span{
+main .content ul li div span{
     margin: 0 25px;
     color: gray;
 }
 
-main .content .studios ul li button,main .content .trainers ul li button{
+main .content ul li button{
     font-size: 14px;
     cursor: pointer;
     padding: 5px;
@@ -531,7 +531,7 @@ main .content .studios ul li button,main .content .trainers ul li button{
     align-items: center;
 }
 
-main .content .studios ul li button span,main .content .trainers ul li button span{
+main .content ul li button span{
     margin: 0 5px;
     font-size: 20px;
     color: var(--white);
