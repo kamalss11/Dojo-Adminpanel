@@ -213,8 +213,17 @@ window.onload = () =>{
     bnr.get().then((snapshot) => {
         console.log(snapshot.val())
         if (snapshot.exists()) {
+            let count = 0
             snapshot.forEach((doc)=>{
-                console.log(doc)
+                count = count + 1
+                let li = document.createElement("li")
+                li.textContent = `Banner${count}`
+                let button = document.createElement("button")
+                button.id = `${doc.val().url}`
+                let img = document.createElement('img')
+                img.src = `${doc.url}`
+                li.append(img,button)
+                banners_list.append(li)
             })
         }
         else{
