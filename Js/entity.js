@@ -213,6 +213,7 @@ window.onload = () =>{
                 li.textContent = `Banner${count}`
                 let button = document.createElement("button")
                 button.id = `${doc.val().url}`
+                button.textContent = "Edit"
                 let img = document.createElement('img')
                 img.src = `${doc.val().image}`
                 li.append(img,button)
