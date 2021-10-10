@@ -519,6 +519,10 @@ main .content ul li div span{
     color: gray;
 }
 
+main .content ul li img{
+    width: 140px;
+}
+
 main .content ul li button{
     font-size: 14px;
     cursor: pointer;
