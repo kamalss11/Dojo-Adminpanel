@@ -121,7 +121,6 @@ window.onload = () =>{
         let count = 0
         querySnapShot.forEach((doc)=>{
             count += 1
-            console.log(doc.data().Name,count,doc.id)
             let li = document.createElement("li")
             li.textContent = `${doc.data().Name}`
             li.id = doc.id
@@ -167,7 +166,6 @@ window.onload = () =>{
         let count = 0
         querySnapShot.forEach((doc)=>{
             count += 1
-            console.log(doc.data().Name,count,doc.id)
             let li = document.createElement("li")
             li.textContent = `${doc.data().Name}`
             li.id = doc.id
