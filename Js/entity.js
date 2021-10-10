@@ -214,7 +214,7 @@ window.onload = () =>{
                 let button = document.createElement("button")
                 button.id = `${doc.val().url}`
                 let img = document.createElement('img')
-                img.src = `${doc.url}`
+                img.src = `${doc.image}`
                 li.append(img,button)
                 banners_list.append(li)
             })
