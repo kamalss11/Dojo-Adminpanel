@@ -65,9 +65,9 @@ sbtn.addEventListener('click',async function(e){
     await im()
 
     bnr.child(`Banner${no+1}`).set({
-        image: img.value,
+        image: urls,
         number: ph.value,
         onclick: on.value,
-        url: urls
+        url: url.value
     })
 })
