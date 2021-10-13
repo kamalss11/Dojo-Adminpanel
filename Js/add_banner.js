@@ -7,7 +7,7 @@ var url = document.getElementById('url')
 var sbtn = document.getElementById('sbtn')
 var imgr = document.getElementById('imgr')
 
-var urls
+var urls 
 
 var bnr = firebase.database().ref("SliderBanner");
 let no = 0
@@ -38,14 +38,14 @@ function im(){
     }
 
     else{
-         var storageref = firebase.storage().ref()
-        var img = document.getElementById("img").files[0]
-        var imgname = img.name
+        var storageref = firebase.storage().ref()
+        var pic = document.getElementById("img").files[0]
+        var imgname = pic.name
         const metadata = {
-            contentType:img.type
+            contentType:pic.type
         }
         var uploadImg = storageref.child("images").child(imgname)
-        uploadImg.put(img,metadata)
+        uploadImg.put(pic,metadata)
         .then(snapshot =>{
             return uploadImg.getDownloadURL()
             .then(url => {
@@ -63,4 +63,11 @@ function im(){
 sbtn.addEventListener('click',async function(e){
     e.preventDefault()
     await im()
+
+    bnr.child(`Banner${no+1}`).set({
+        image: img.value,
+        number: ph.value,
+        onclick: on.value,
+        url: url.value
+    })
 })
