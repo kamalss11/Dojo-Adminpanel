@@ -7,6 +7,8 @@ var url = document.getElementById('url')
 var sbtn = document.getElementById('sbtn')
 var imgr = document.getElementById('imgr')
 
+var urls
+
 var bnr = firebase.database().ref("SliderBanner");
 let no = 0
 bnr.get().then((snapshot) => {
@@ -36,6 +38,21 @@ function im(){
     }
 
     else{
+         var storageref = firebase.storage().ref()
+        var img = document.getElementById("img").files[0]
+        var imgname = img.name
+        const metadata = {
+            contentType:img.type
+        }
+        var uploadImg = storageref.child("images").child(imgname)
+        uploadImg.put(img,metadata)
+        .then(snapshot =>{
+            return uploadImg.getDownloadURL()
+            .then(url => {
+                urls = url
+                console.log(urls)
+            })
+        })
         sbtn.classList.remove("active")
         img.style.borderColor = "#80808059"
         imgr.innerHTML = ""
