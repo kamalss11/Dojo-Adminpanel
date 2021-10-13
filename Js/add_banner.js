@@ -45,25 +45,27 @@ sbtn.addEventListener('click',async function(e){
     e.preventDefault()
     await im()
 
-    var storageref = firebase.storage().ref()
-    var pic = document.getElementById("img").files[0]
-    var imgname = pic.name
-    const metadata = {
-        contentType:pic.type
-    }
-    var uploadImg = storageref.child("images").child(imgname)
-    uploadImg.put(pic,metadata)
-    .then(snapshot =>{
-        return uploadImg.getDownloadURL()
-        .then(url => {
-            urls = url
-            console.log(urls)
-            bnr.child(`Banner${no+1}`).set({
-                image: urls,
-                number: ph.value,
-                onclick: on.value,
-                url: url.value
-            })
-        })
-    })
+    console.log(ph.value,on.value,url.value)
+
+    // var storageref = firebase.storage().ref()
+    // var pic = document.getElementById("img").files[0]
+    // var imgname = pic.name
+    // const metadata = {
+    //     contentType:pic.type
+    // }
+    // var uploadImg = storageref.child("images").child(imgname)
+    // uploadImg.put(pic,metadata)
+    // .then(snapshot =>{
+    //     return uploadImg.getDownloadURL()
+    //     .then(url => {
+    //         urls = url
+    //         console.log(urls)
+    //         bnr.child(`Banner${no+1}`).set({
+    //             image: urls,
+    //             number: ph.value,
+    //             onclick: on.value,
+    //             url: url.value
+    //         })
+    //     })
+    // })
 })
