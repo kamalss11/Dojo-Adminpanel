@@ -58,13 +58,12 @@ sbtn.addEventListener('click',async function(e){
         .then(url => {
             urls = url
             console.log(urls)
+            bnr.child(`Banner${no+1}`).set({
+                image: urls,
+                number: ph.value,
+                onclick: on.value,
+                url: url.value
+            })
         })
-    })
-    
-    bnr.child(`Banner${no+1}`).set({
-        image: urls,
-        number: ph.value,
-        onclick: on.value,
-        url: url.value
     })
 })
