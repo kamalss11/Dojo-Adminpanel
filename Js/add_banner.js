@@ -23,10 +23,6 @@ bnr.get().then((snapshot) => {
     }
 })
 
-img.addEventListener('change',function(){
-    im()
-})
-
 function im(){
     imgr.style.fontSize = "13px"
     if(img.value == ""){
