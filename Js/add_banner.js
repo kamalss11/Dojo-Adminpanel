@@ -39,6 +39,7 @@ function im(){
     }
 }
 
-sbtn.addEventListener('click',async function(){
+sbtn.addEventListener('click',async function(e){
+    e.preventDefault()
     await im()
 })
