@@ -31,7 +31,7 @@ function tnew(){
 function sbnew(){
     window.localStorage.setItem("SDocId",0)
     window.localStorage.setItem("TDocId",0)
-    window.location.assign("https://adminpanel-dojo.netlify.app/add_sliders")
+    window.location.assign("https://adminpanel-dojo.netlify.app/add_banner")
 }
 
 function nt(){
