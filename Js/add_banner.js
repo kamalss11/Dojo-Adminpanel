@@ -22,24 +22,11 @@ bnr.get().then((snapshot) => {
 })
 
 img.addEventListener('change',function(){
-    if(img.value == ""){
-        sbtn.classList.add("active")
-        img.style.borderColor = "red"
-        imgr.innerHTML = "This field is required"
-        imgr.style.display = "block"
-        imgr.style.color = "red"
-    }
-
-    else{
-        sbtn.classList.remove("active")
-        img.style.borderColor = "#80808059"
-        imgr.innerHTML = ""
-        imgr.style.display = "none"
-    }
+    im()
 })
 
 function im(){
-    img.style.fontSize = "13px"
+    imgr.style.fontSize = "13px"
     if(img.value == ""){
         sbtn.classList.add("active")
         img.style.borderColor = "red"
