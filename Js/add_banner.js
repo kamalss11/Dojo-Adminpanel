@@ -4,7 +4,7 @@ var img = document.getElementById('img')
 var ph = document.getElementById('ph')
 var on = document.getElementById('on')
 var url = document.getElementById('url')
-var submit = document.getElementById('submit')
+var sbtn = document.getElementById('submit')
 var imgr = document.getElementById('imgr')
 
 var bnr = firebase.database().ref("SliderBanner");
@@ -22,7 +22,7 @@ bnr.get().then((snapshot) => {
 })
 
 function im(){
-    ser.style.fontSize = "13px"
+    img.style.fontSize = "13px"
     if(img.value == ""){
         sbtn.classList.add("active")
         img.style.borderColor = "red"
