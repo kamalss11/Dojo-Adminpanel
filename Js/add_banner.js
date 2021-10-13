@@ -4,7 +4,7 @@ var img = document.getElementById('img')
 var ph = document.getElementById('ph')
 var on = document.getElementById('on')
 var url = document.getElementById('url')
-var sbtn = document.getElementById('submit')
+var sbtn = document.getElementById('sbtn')
 var imgr = document.getElementById('imgr')
 
 var bnr = firebase.database().ref("SliderBanner");
