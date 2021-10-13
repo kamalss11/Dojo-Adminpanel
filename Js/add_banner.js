@@ -68,6 +68,6 @@ sbtn.addEventListener('click',async function(e){
         image: img.value,
         number: ph.value,
         onclick: on.value,
-        url: url.value
+        url: urls
     })
 })
