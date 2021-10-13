@@ -21,8 +21,12 @@ bnr.get().then((snapshot) => {
     }
 })
 
+img.addEventListener('change',function(){
+    im()
+})
+
 function im(){
-    img.style.fontSize = "13px"
+    imgr.style.fontSize = "13px"
     if(img.value == ""){
         sbtn.classList.add("active")
         img.style.borderColor = "red"
@@ -39,6 +43,7 @@ function im(){
     }
 }
 
-sbtn.addEventListener('click',async function(){
+sbtn.addEventListener('click',async function(e){
+    e.preventDefault()
     await im()
 })
