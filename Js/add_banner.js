@@ -23,7 +23,7 @@ bnr.get().then((snapshot) => {
     }
 })
 
-img.addEventListener('onchange',function(){
+img.addEventListener('change',function(){
     im()
 })
 
