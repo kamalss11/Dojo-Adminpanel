@@ -3,7 +3,7 @@ var firestore = firebase.firestore()
 var img = document.getElementById('img')
 var ph = document.getElementById('ph')
 var on = document.getElementById('on')
-var url = document.getElementById('url')
+var ur = document.getElementById('url')
 var sbtn = document.getElementById('sbtn')
 var imgr = document.getElementById('imgr')
 
@@ -68,7 +68,7 @@ sbtn.addEventListener('click',async function(e){
                 image: urls,
                 number: ph.value,
                 onclick: on.value,
-                url: url.value
+                url: ur.value
             })
         }).catch(function(error){
             console.log(error)
