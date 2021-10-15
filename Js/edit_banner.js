@@ -2,6 +2,7 @@ var firestore = firebase.firestore()
 var bdi
 window.onload = ()=>{
     bdi = window.localStorage.getItem('bn')
+    console.log(bdi)
     if(bdi){
 
     }
