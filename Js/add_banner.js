@@ -46,6 +46,8 @@ function im(){
 }
 
 sbtn.addEventListener('click',async function(e){
+    var load = document.getElementById("loads")
+    load.style.display = "block"
     e.preventDefault()
     await im()
 
@@ -70,6 +72,8 @@ sbtn.addEventListener('click',async function(e){
                 onclick: on.value,
                 url: ur.value
             })
+            alert(`Banner${no+1},has been successfully added.`)
+            window.location.assign("https://adminpanel-dojo.netlify.app/entity")
         }).catch(function(error){
             console.log(error)
         })
