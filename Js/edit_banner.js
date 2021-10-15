@@ -1,4 +1,14 @@
 var firestore = firebase.firestore()
+var bdi
+window.onload = ()=>{
+    bdi = window.localStorage.getItem('bn')
+    if(bdi){
+
+    }
+    else{
+        window.location.assign("https://adminpanel-dojo.netlify.app/entity")
+    }
+}
 
 var img = document.getElementById('img')
 var ph = document.getElementById('ph')
