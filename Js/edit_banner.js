@@ -56,7 +56,7 @@ function im(){
     }
 }
 
-sbt.addEventListener('submit',async function(e){
+sbt.addEventListener('click',async function(e){
     var load = document.getElementById("loads")
     load.style.display = "block"
     e.preventDefault()
