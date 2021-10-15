@@ -15,7 +15,7 @@ var img = document.getElementById('img')
 var ph = document.getElementById('ph')
 var on = document.getElementById('on')
 var ur = document.getElementById('url')
-var sbtn = document.getElementById('sbtn')
+var sbt = document.getElementById('sbtn')
 var imgr = document.getElementById('imgr')
 
 var urls 
@@ -56,7 +56,7 @@ function im(){
     }
 }
 
-sbtn.addEventListener('click',async function(e){
+sbt.addEventListener('click',async function(e){
     var load = document.getElementById("loads")
     load.style.display = "block"
     e.preventDefault()
@@ -83,6 +83,7 @@ sbtn.addEventListener('click',async function(e){
                 onclick: on.value,
                 url: ur.value
             })
+            window.localStorage.setItem('bn','')
             alert(`Banner${no+1},has been successfully added.`)
             window.location.assign("https://adminpanel-dojo.netlify.app/entity")
         }).catch(function(error){
