@@ -1,7 +1,7 @@
 var firestore = firebase.firestore()
 var bdi
 
-var img = document.getElementById('img')
+var img = document.getElementById('imgd')
 var img_value
 var ph = document.getElementById('ph')
 var on = document.getElementById('on')
