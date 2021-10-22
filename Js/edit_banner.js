@@ -91,7 +91,5 @@ sbt.addEventListener('click',async function(e){
             onclick: on.value,
             url: ur.value
         });
-
-        firebase.database().ref().update(updates);
     }
 })
