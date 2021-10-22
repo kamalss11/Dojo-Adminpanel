@@ -51,7 +51,7 @@ img.addEventListener('change',function(){
 function im(){
     imgr.style.fontSize = "13px"
     if(img.value == ""){
-        sbtn.classList.add("active")
+        sbt.classList.add("active")
         img.style.borderColor = "red"
         imgr.innerHTML = "This field is required"
         imgr.style.display = "block"
@@ -59,7 +59,7 @@ function im(){
     }
 
     else{
-        sbtn.classList.remove("active")
+        sbt.classList.remove("active")
         img.style.borderColor = "#80808059"
         imgr.innerHTML = ""
         imgr.style.display = "none"
@@ -76,28 +76,41 @@ sbt.addEventListener('click',async function(e){
 
     var storageref = firebase.storage().ref()
     var pic = document.getElementById("img").files[0]
-    var imgname = pic.name
-    const metadata = {
-        contentType:pic.type
-    }
-    var uploadImg = storageref.child("images").child(imgname)
-    uploadImg.put(pic,metadata)
-    .then(snapshot =>{
-        return uploadImg.getDownloadURL()
-        .then(url => {
-            urls = url
-            console.log(urls)
-            bnr.child(`Banner${no + 1}`).set({
-                image: urls,
-                number: ph.value,
-                onclick: on.value,
-                url: ur.value
+
+    if(pic){        
+        var imgname = pic.name
+        const metadata = {
+            contentType:pic.type
+        }
+        var uploadImg = storageref.child("images").child(imgname)
+        uploadImg.put(pic,metadata)
+        .then(snapshot =>{
+            return uploadImg.getDownloadURL()
+            .then(url => {
+                urls = url
+                console.log(urls)
+                bnr.child(`Banner${no + 1}`).set({
+                    image: urls,
+                    number: ph.value,
+                    onclick: on.value,
+                    url: ur.value
+                })
+                window.localStorage.setItem('bn','')
+                alert(`${bnr},has been successfully updated.`)
+                window.location.assign("https://adminpanel-dojo.netlify.app/entity")
+            }).catch(function(error){
+                console.log(error)
             })
-            window.localStorage.setItem('bn','')
-            alert(`Banner${no+1},has been successfully added.`)
-            window.location.assign("https://adminpanel-dojo.netlify.app/entity")
-        }).catch(function(error){
-            console.log(error)
         })
-    })
+        }
+    else{
+        firebase.database().ref('SliderBanner/' + `${bdi}`).set({
+            image: img_value,
+            number: ph.value,
+            onclick: on.value,
+            url: ur.value
+        });
+
+        firebase.database().ref().update(updates);
+    }
 })
