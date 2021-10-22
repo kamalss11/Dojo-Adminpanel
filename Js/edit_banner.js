@@ -1,22 +1,31 @@
 var firestore = firebase.firestore()
 var bdi
+
+var img = document.getElementById('img')
+var img_value
+var ph = document.getElementById('ph')
+var on = document.getElementById('on')
+var ur = document.getElementById('url')
+var sbt = document.getElementById('sbtn')
+var imgr = document.getElementById('imgr')
+
 window.onload = ()=>{
     bdi = window.localStorage.getItem('bn')
     console.log(bdi)
     if(bdi){
+        var bnr = firebase.database().ref("SliderBanner/"+'Banner1');
+        bnr.get().then((snapshot) => {
+        img_value = snapshot.val().image
+        ph.value = snapshot.val().number
+        on.value = snapshot.val().onclick
+        ur.value = snapshot.val().url
+    })
 
     }
     else{
         window.location.assign("https://adminpanel-dojo.netlify.app/entity")
     }
 }
-
-var img = document.getElementById('img')
-var ph = document.getElementById('ph')
-var on = document.getElementById('on')
-var ur = document.getElementById('url')
-var sbt = document.getElementById('sbtn')
-var imgr = document.getElementById('imgr')
 
 var urls 
 
