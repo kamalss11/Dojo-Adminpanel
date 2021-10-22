@@ -48,29 +48,10 @@ img.addEventListener('change',function(){
     im()
 })
 
-function im(){
-    imgr.style.fontSize = "13px"
-    if(img.value == ""){
-        sbt.classList.add("active")
-        img.style.borderColor = "red"
-        imgr.innerHTML = "This field is required"
-        imgr.style.display = "block"
-        imgr.style.color = "red"
-    }
-
-    else{
-        sbt.classList.remove("active")
-        img.style.borderColor = "#80808059"
-        imgr.innerHTML = ""
-        imgr.style.display = "none"
-    }
-}
-
 sbt.addEventListener('click',async function(e){
     var load = document.getElementById("loads")
     load.style.display = "block"
     e.preventDefault()
-    await im()
 
     console.log(ph.value,on.value,url.value)
 
