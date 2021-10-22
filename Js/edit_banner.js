@@ -15,6 +15,7 @@ window.onload = ()=>{
     if(bdi){
         var bnr = firebase.database().ref("SliderBanner/"+'Banner1');
         bnr.get().then((snapshot) => {
+        img.value = snapshot.val().image
         img_value = snapshot.val().image
         ph.value = snapshot.val().number
         on.value = snapshot.val().onclick
