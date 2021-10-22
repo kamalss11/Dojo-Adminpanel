@@ -91,5 +91,11 @@ sbt.addEventListener('click',async function(e){
             onclick: on.value,
             url: ur.value
         });
+
+        window.localStorage.setItem('bn','')
+        alert(`${bnr},has been successfully updated.`)
+        window.location.assign("https://adminpanel-dojo.netlify.app/entity")
     }
+
+
 })
