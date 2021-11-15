@@ -1,3 +1,5 @@
+const passport = require("passport")
+
 var firestore = firebase.firestore()
 var activities = firestore.collection("Activities")
 var passportli = document.querySelector(".list-1")
@@ -28,7 +30,7 @@ window.onload = ()=>{
             span.innerHTML = "edit"
             button.append(span)
             li.append(button)
-            activities.append(li)
+            passportli.append(li)
         })
     })        
 }
