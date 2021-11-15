@@ -33,7 +33,7 @@ window.onload = ()=>{
         })
     })        
 
-    editp = document.querySelectorAll('.list-1 li buttons')
+    editp = document.querySelectorAll('.list-1 li button')
     ed()
 }
 
