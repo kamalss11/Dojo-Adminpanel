@@ -21,20 +21,6 @@ window.onload = ()=>{
             wel.innerHTML += user.phoneNumber
         }
     })
-    
-    activities.doc(`${localStorage.getItem('eact')}`).get().then((doc) => {
-        console.log(doc.data())
-        acttype.value = doc.data().ActivityType
-        assename.value = doc.data().AssetName
-        assetno.value = doc.data().AssetNo
-        credit.value = doc.data().Credit
-        desc.value = doc.data().Description
-        mon.value = doc.data().Monthly
-        ppses.value = doc.data().PayPerSession
-        stat.value = doc.data().Status
-    }).catch((error) => {
-        console.log("Error getting document:", error);
-    });
 }
 
 submit.addEventListener('click',function(e){
