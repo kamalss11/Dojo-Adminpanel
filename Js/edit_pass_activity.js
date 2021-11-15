@@ -10,8 +10,13 @@ var desc = document.querySelector('#desc')
 var mon = document.querySelector('#mon')
 var ppses = document.querySelector('#ppses')
 var stat = document.querySelector('#status')
+var submit = document.querySelector('.sbtn')
 
 window.onload = ()=>{
+    if(!localStorage.getItem('eact')){
+        location.assign("https://adminpanel-dojo.netlify.app/passport")
+    }
+
     firebase.auth().onAuthStateChanged(function(user) {
         if (!user) {
             location.assign("https://adminpanel-dojo.netlify.app/")
@@ -38,3 +43,25 @@ window.onload = ()=>{
         console.log("Error getting document:", error);
     });
 }
+
+submit.addEventListener('click',function(e){
+    e.preventDefault()
+    activities.doc(`${localStorage.getItem('eact')}`).update({
+        ActivityType: acttype.value,
+        AssetName: assename.value,
+        AssetNo: assetno.value,
+        Credit: credit.value,
+        Description: desc.value,
+        Monthly: mon.value,
+        PayPerSession: ppses.value,
+        Status: stat.value
+    }).then(()=>{
+        console.log("Data Saved.This is you id = > ",localStorage.getItem('eact'))
+        form.reset()
+        window.localStorage.setItem("eact",0)
+        alert(`Your data has been successfully updated.`)
+        window.location.assign("https://adminpanel-dojo.netlify.app/passport")
+    }).catch(function(error){
+        console.log(error)
+    })
+})
