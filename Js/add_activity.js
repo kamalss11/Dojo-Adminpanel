@@ -10,6 +10,7 @@ var mon = document.querySelector('#mon')
 var ppses = document.querySelector('#ppses')
 var stat = document.querySelector('#status')
 var submit = document.querySelector('.sbtn')
+var form = document.querySelector('#form')
 
 window.onload = ()=>{
     firebase.auth().onAuthStateChanged(function(user) {
@@ -39,4 +40,5 @@ submit.addEventListener('click',function(e){
     }).catch(function(error){
         console.log(error)
     })
+    form.reset()
 })
