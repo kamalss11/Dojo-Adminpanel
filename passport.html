@@ -65,54 +65,11 @@
 
             <div class="content">
                 <div class="studios list active">
-                    <h3>Studios <button onclick="snew()">Add new</button></h3>
+                    <h3>Activities <button onclick="pnew()">Add new</button></h3>
                     <div class="search">
-                        <input id="ss" type="text" placeholder="Search by Studio's name" onkeyup="searchstudios()" onkeydown="ss()"> <span id="close" onclick="rm()" class="material-icons">close</span>
+                        <input id="ss" type="text" placeholder="Search by Activities name" onkeyup="searchstudios()" onkeydown="ss()"> <span id="close" onclick="rm()" class="material-icons">close</span>
                     </div>
                     <p id="no">No results to your search</p>
-
-                    <div style="display: flex; justify-content: space-between;" id="sp">
-                        <div>
-                            <div class="price">
-                                <p><b>Sort by</b></p>
-                                <div>
-                                    <button class="lh" onclick="lths()">Price - Low to High</button><br>
-                                    <button class="lh" onclick="htls()">Price - High to Low</button><br>
-                                    <button class="lh" onclick="rlhs()">Rating - Low to High</button><br>
-                                    <button class="lh" onclick="rhls()">Rating - High to Low</button>
-                                </div>
-                            </div>
-        
-                            <div class="price" style="display: inline-block;">
-                                <p><b>Filter by</b></p>
-                                <div>
-                                    <select id="fs">
-                                        <option value="">--All States--</option>
-                                    </select>
-                                    <br>
-                                    <select id="fc">
-                                        <option value="">--City--</option>
-                                    </select>
-        
-                                    <select id="ssr">
-                                        <option value="">--Services--</option>
-                                        <option value="Yoga">Yoga</option>
-                                        <option value="Fitness">Fitness</option>
-                                        <option value="Zumba">Zumba</option>
-                                        <option value="Dance">Dance</option>
-                                        <option value="Aerobics">Aerobics</option>
-                                    </select>
-        
-                                    <button style="background-color: #e81919;" id="apply">Apply</button>
-                                    <button style="background-color: #cecececc;" id="cancel">Cancel</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <span id="scnt">
-
-                        </span>
-                    </div>
 
                     <ul class="lists list-1">
 
@@ -120,92 +77,13 @@
 
                     <p class="ns"></p>
                 </div>
-
-                <div class="trainers list">
-                    <h3>Trainers <button onclick="tnew()">Add new</button></h3>
-                    <div class="search">
-                        <input id="st" type="text" placeholder="Search by Trainer's name" onkeyup="searchtrainers()" onkeydown="st()"> <span id="close2" onclick="rm2()" class="material-icons">close</span>
-                    </div>
-                    <p id="no-2">No results to your search</p>
-
-                    <div style="display: flex; justify-content: space-between;">
-                        <div>
-                            <div class="price">
-                                <p><b>Sort by</b></p>
-                                <div>
-                                    <button class="lh" onclick="ltht()">Price - Low to High</button><br>
-                                    <button class="lh" onclick="htlt()">Price - High to Low</button><br>
-                                    <button class="lh" onclick="rlht()">Rating - Low to High</button><br>
-                                    <button class="lh" onclick="rhlt()">Rating - High to Low</button>
-                                </div>
-                            </div>
-        
-                            <div class="price" style="display: inline-block;">
-                                <p><b>Filter by</b></p>
-                                <div>
-                                    <select id="fst">
-                                        <option value="">--State--</option>
-                                    </select>
-                                    <br>
-                                    <select id="fct">
-                                        <option value="">--City--</option>
-                                    </select>
-                                    
-                                    <select id="ssrt">
-                                        <option value="">--Services--</option>
-                                        <option value="Yoga">Yoga</option>
-                                        <option value="Fitness">Fitness</option>
-                                        <option value="Zumba">Zumba</option>
-                                        <option value="Dance">Dance</option>
-                                        <option value="Aerobics">Aerobics</option>
-                                    </select>
-        
-                                    <select id="gender">
-                                        <option value="">--Gender--</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                    </select>
-        
-                                    <button style="background-color: #e81919;" id="applyt">Apply</button>
-                                    <button style="background-color: #cecececc;" id="cancelt">Cancel</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <span id="tcnt">
-
-                        </span>
-                    </div>
-
-                    <ul class="lists list-2">
-
-                    </ul>
-
-                    <p class="nt"></p>
-                </div>
-
-                <div class="sliders list">
-                    <h3>Banners List <button onclick="sbnew()">Add new</button></h3>
-
-                    <ul class="lists list-3">
-
-                    </ul>
-                </div>
             </div>
         </main>
     </div>
     
-    <script src="Js/dashboard.js"></script>
     <script src="Js/locations.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="Js/passport.js"></script>
 
-    <!-- Initialize Swiper -->
-    <script>
-      var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 2,
-        spaceBetween: 30
-      });
-    </script>
     <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
 </body>
