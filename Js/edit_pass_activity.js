@@ -23,25 +23,8 @@ window.onload = ()=>{
     })
 
     di = localStorage.getItem('eact')
-    activities.get().then((querySnapShot)=>{
-        querySnapShot.forEach((doc)=>{
-            console.log(doc.data(),doc.id)
-            let li = document.createElement("li")
-            li.textContent = `${doc.data().ActivityType}`
-            li.id = doc.id
-            let button = document.createElement("button")
-            button.id = `${doc.id}`
-            button.innerHTML = "Edit"
-            let span = document.createElement("span")
-            span.classList = "material-icons"
-            span.innerHTML = "edit"
-            button.append(span)
-            li.append(button)
-            passportli.append(li)
-        })
-    })
     
-    activities.doc(`${window.localStorage.getItem('eact')}`).get().then((doc) => {
+    activities.doc(`${di}`).get().then((doc) => {
         console.log(doc.data())
         acttype.value = doc.data().ActivityType
         assename.value = doc.data().AssetName
