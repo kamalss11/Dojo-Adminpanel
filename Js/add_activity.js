@@ -41,4 +41,5 @@ submit.addEventListener('click',function(e){
         console.log(error)
     })
     form.reset()
+    wwindow.location.assign("https://adminpanel-dojo.netlify.app/passport")
 })
