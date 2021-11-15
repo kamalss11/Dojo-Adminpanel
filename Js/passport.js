@@ -2,6 +2,7 @@ var firestore = firebase.firestore()
 var activities = firestore.collection("Activities")
 var passportli = document.querySelector(".list-1")
 var wel = document.querySelector(".wel")
+var edit
 
 window.onload = ()=>{
     firebase.auth().onAuthStateChanged(function(user) {
@@ -32,7 +33,7 @@ window.onload = ()=>{
         })
     })        
 
-    var edit = document.querySelectorAll('.list-1 li button')
+    edit = document.querySelectorAll('.list-1 li button')
     for(let i=0;i<edit.length;i++){
         edit[i].addEventListener('click',function(){
             console.log(edit[i].id)
