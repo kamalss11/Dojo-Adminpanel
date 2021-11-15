@@ -40,6 +40,12 @@ function nt(){
     window.location.assign("https://adminpanel-dojo.netlify.app/add_trainer")
 }
 
+function pss(){
+    window.localStorage.setItem("SDocId",0)
+    window.localStorage.setItem("TDocId",0)
+    window.location.assign("https://adminpanel-dojo.netlify.app/passport")
+}
+
 function logout(){
     firebase.auth().signOut()
     let u = firebase.auth().currentUser
