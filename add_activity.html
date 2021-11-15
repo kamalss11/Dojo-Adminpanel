@@ -24,7 +24,7 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
     </script>
-    <title>Edit Passport Activity</title>
+    <title>Add Passport Activity</title>
 </head>
 <body>
     <div id="loads" style="display: none;">
@@ -41,13 +41,13 @@
                 <li><p onclick=hm()><span class="material-icons">dashboard</span>Home</p></li>
                 <li><p onclick=en()><span class="material-icons">remember_me</span>Entities</p></li>
                 <li><p onclick=pss()><span class="material-icons">vpn_key</span>Passport</p></li>
-                <li class="active"><p><span class="material-icons">edit</span>Edit Activity</p></li>
+                <li class="active"><p><span class="material-icons">edit</span>Add Activity</p></li>
             </ul>
         </div>
 
         <main>
             <nav>
-                <div class="hd"><h3>New Passport Activity</h3></div>
+                <div class="hd"><h3>Add Passport Activity</h3></div>
 
                 <div style="display: flex; align-items: center;">
                     <h5 style="margin-top: 8px; margin-right: 10px;" class="wel">Welcome,</h5>
@@ -60,8 +60,7 @@
             <div class="content">
                 <div class="double">
                     <form method="POST" id="form">
-                        <h3>Add New Passport Activity</h3>
-                        <b><p class="di">Document ID : </p></b>
+                        <h3>Add Passport Activity</h3>
                         <div class="fields">
                             <label>
                                 <input type="text" id="acttype">
