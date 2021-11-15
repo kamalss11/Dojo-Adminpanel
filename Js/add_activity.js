@@ -1,6 +1,5 @@
 var firestore = firebase.firestore()
 var activities = firestore.collection("Activities")
-var di = document.querySelector('.di')
 var wel = document.querySelector(".wel")
 var acttype = document.querySelector('#acttype')
 var assename = document.querySelector('#assename')
@@ -22,8 +21,6 @@ window.onload = ()=>{
             wel.innerHTML += user.phoneNumber
         }
     })
-
-    di.innerHTML += localStorage.getItem('eact')
     
     activities.doc(`${localStorage.getItem('eact')}`).get().then((doc) => {
         console.log(doc.data())
