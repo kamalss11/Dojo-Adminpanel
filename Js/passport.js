@@ -2,7 +2,7 @@ var firestore = firebase.firestore()
 var activities = firestore.collection("Activities")
 var passportli = document.querySelector(".list-1")
 var wel = document.querySelector(".wel")
-var edit
+var editp
 
 window.onload = ()=>{
     firebase.auth().onAuthStateChanged(function(user) {
@@ -33,15 +33,15 @@ window.onload = ()=>{
         })
     })        
 
-    edit = document.querySelectorAll('.list-1')
+    editp = document.querySelectorAll('.list-1')
     ed()
 }
 
 function ed(){
-    for(let i=0;i<edit.length;i++){
-        edit[i].addEventListener('click',function(){
-            console.log(edit[i].id)
-            window.localStorage.setItem('eact',edit[i].id)
+    for(let i=0;i<editp.length;i++){
+        editp[i].addEventListener('click',function(){
+            console.log(editp[i].id)
+            window.localStorage.setItem('eact',editp[i].id)
             window.location.assign("https://adminpanel-dojo.netlify.app/edit_pass_activity")
         })
     }
