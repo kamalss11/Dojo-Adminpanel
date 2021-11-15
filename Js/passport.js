@@ -31,4 +31,13 @@ window.onload = ()=>{
             passportli.append(li)
         })
     })        
+
+    var edit = document.querySelectorAll('.list-1 li button')
+    for(let i=0;i<edit.length;i++){
+        edit[i].addEventListener('click',function(){
+            console.log(edit[i].id)
+            window.localStorage.setItem('eact',edit[i].id)
+            window.location.assign("https://adminpanel-dojo.netlify.app/edit_pass_activity")
+        })
+    }
 }
