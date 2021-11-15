@@ -39,21 +39,17 @@ window.onload = ()=>{
 
 submit.addEventListener('click',function(e){
     e.preventDefault()
-    activities.doc(`${localStorage.getItem('eact')}`).update({
+    activities.add({
         ActivityType: acttype.value,
         AssetName: assename.value,
         AssetNo: assetno.value,
-        Credit: credit.value,
-        Description: desc.value,
+        Credit : credit.value,
+        Description : desc.value,
         Monthly: mon.value,
         PayPerSession: ppses.value,
         Status: stat.value
-    }).then(()=>{
-        console.log("Data Saved.This is you id = > ",localStorage.getItem('eact'))
-        form.reset()
-        window.localStorage.setItem("eact",0)
-        alert(`Your data has been successfully updated.`)
-        window.location.assign("https://adminpanel-dojo.netlify.app/passport")
+    }).then((docRef)=>{
+        console.log(docRef.id)
     }).catch(function(error){
         console.log(error)
     })
