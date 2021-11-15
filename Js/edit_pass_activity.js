@@ -24,7 +24,7 @@ window.onload = ()=>{
 
     di.innerHTML += localStorage.getItem('eact')
     
-    activities.doc(`${di}`).get().then((doc) => {
+    activities.doc(`${localStorage.getItem('eact')}`).get().then((doc) => {
         console.log(doc.data())
         acttype.value = doc.data().ActivityType
         assename.value = doc.data().AssetName
