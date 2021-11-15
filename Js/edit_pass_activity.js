@@ -11,6 +11,8 @@ var mon = document.querySelector('#mon')
 var ppses = document.querySelector('#ppses')
 var stat = document.querySelector('#status')
 var submit = document.querySelector('.sbtn')
+var ll = document.querySelector('#ll')
+var time = document.querySelector('#tme')
 
 window.onload = ()=>{
     if(!localStorage.getItem('eact')){
@@ -39,6 +41,8 @@ window.onload = ()=>{
         mon.value = doc.data().Monthly
         ppses.value = doc.data().PayPerSession
         stat.value = doc.data().Status
+        time.value = doc.data().Timing,
+        ll.value = doc.data().Location_Link
     }).catch((error) => {
         console.log("Error getting document:", error);
     });

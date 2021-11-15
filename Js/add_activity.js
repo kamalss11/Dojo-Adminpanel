@@ -10,6 +10,8 @@ var mon = document.querySelector('#mon')
 var ppses = document.querySelector('#ppses')
 var stat = document.querySelector('#status')
 var submit = document.querySelector('.sbtn')
+var ll = document.querySelector('#ll')
+var time = document.querySelector('#tme')
 var form = document.querySelector('#form')
 
 window.onload = ()=>{
@@ -34,7 +36,9 @@ submit.addEventListener('click',function(e){
         Description : desc.value,
         Monthly: mon.value,
         PayPerSession: ppses.value,
-        Status: stat.value
+        Status: stat.value,
+        Timing: time.value,
+        Location_Link : ll.value
     }).then((docRef)=>{
         console.log(docRef.id)
     }).catch(function(error){
