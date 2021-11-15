@@ -46,6 +46,13 @@ function pss(){
     window.location.assign("https://adminpanel-dojo.netlify.app/passport")
 }
 
+function panew(){
+    window.localStorage.setItem("SDocId",0)
+    window.localStorage.setItem("TDocId",0)
+    window.localStorage.setItem("eact",0)
+    window.location.assign("https://adminpanel-dojo.netlify.app/add_activity")
+}
+
 function logout(){
     firebase.auth().signOut()
     let u = firebase.auth().currentUser
