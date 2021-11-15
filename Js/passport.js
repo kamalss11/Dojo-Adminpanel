@@ -31,12 +31,12 @@ window.onload = ()=>{
             li.append(button)
             passportli.append(li)
         })
+        editp = document.querySelectorAll(".list-1 li button")
+        console.log(editp)
+        ed()
     })        
 }
 
-editp = document.querySelectorAll(".list-1 li button")
-console.log(editp)
-ed()
 
 function ed(){
     for(let i=0;i<editp.length;i++){
