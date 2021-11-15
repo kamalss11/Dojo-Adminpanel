@@ -22,7 +22,7 @@ window.onload = ()=>{
         }
     })
 
-    di.innerHTML = localStorage.getItem('eact')
+    di.innerHTML += localStorage.getItem('eact')
     
     activities.doc(`${di}`).get().then((doc) => {
         console.log(doc.data())
