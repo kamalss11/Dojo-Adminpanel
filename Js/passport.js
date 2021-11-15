@@ -34,6 +34,7 @@ window.onload = ()=>{
     })        
 
     editp = document.querySelectorAll('.list-1 li button')
+    console.log(editp)
     ed()
 }
 
