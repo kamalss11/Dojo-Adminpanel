@@ -8,8 +8,8 @@ var assetno = document.querySelector('#assetno')
 var credit = document.querySelector('#credit')
 var desc = document.querySelector('#desc')
 var mon = document.querySelector('#mon')
-var ppses = document.querySelector('ppses')
-var stat = document.querySelector('status')
+var ppses = document.querySelector('#ppses')
+var stat = document.querySelector('#status')
 
 window.onload = ()=>{
     firebase.auth().onAuthStateChanged(function(user) {
