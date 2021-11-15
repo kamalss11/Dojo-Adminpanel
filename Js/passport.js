@@ -1,5 +1,3 @@
-const passport = require("passport")
-
 var firestore = firebase.firestore()
 var activities = firestore.collection("Activities")
 var passportli = document.querySelector(".list-1")
