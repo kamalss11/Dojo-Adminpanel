@@ -33,11 +33,11 @@ window.onload = ()=>{
         })
     })        
 
+    edit = document.querySelectorAll('.list-1 li button')
     ed()
 }
 
 function ed(){
-    edit = document.querySelectorAll('.list-1 li button')
     for(let i=0;i<edit.length;i++){
         edit[i].addEventListener('click',function(){
             console.log(edit[i].id)
